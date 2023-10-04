@@ -1474,3 +1474,6 @@ java.lang.Error: Unresolved compilation problem:
 17:55:29.907 INFO  o.s.web.servlet.FrameworkServlet.initServletBean: Completed initialization in 2 ms
 17:57:06.782 INFO  com.zaxxer.hikari.HikariDataSource.getConnection: HikariPool-1 - Starting...
 17:57:07.120 INFO  com.zaxxer.hikari.HikariDataSource.getConnection: HikariPool-1 - Start completed.
+18:06:14.078 INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin.shutdown: Application shutdown requested.
+18:06:14.109 INFO  com.zaxxer.hikari.HikariDataSource.close: HikariPool-1 - Shutdown initiated...
+18:06:14.127 INFO  com.zaxxer.hikari.HikariDataSource.close: HikariPool-1 - Shutdown completed.
