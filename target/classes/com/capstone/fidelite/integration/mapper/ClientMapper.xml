@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- Define the result map for the query result -->
+<mapper namespace="com.capstone.fidelite.integration.mapper.ClientMapper">
+	<resultMap id="personMap" type="Person">
+		<id property="id" column="client_id" />
+		<result property="email" column="email" />
+		<result property="dateOfBirth" column="date_of_birth" />
+		<result property="country" column="country" />
+		<result property="postalCode" column="postal_code" />
+	</resultMap>
+	<resultMap
+		id="clientIdentificationMap" type="ClientIdentification">
+		<result property="type" column="type" />
+		<result property="value" column="value" />
+	</resultMap>
+
+
+	<resultMap
+		id="ClientResultMap" type="Client">
+		<association property="person" resultMap="personMap" />
+		<collection property="clientIdentificationSet"
+			resultMap="clientIdentificationMap" />
+	</resultMap>
+
+
+	<!-- Define the SQL query for getClientById -->
+	<select
+		id="getClientsByID" resultMap="ClientResultMap">
+		SELECT p.email, p.client_id, p.country, p.date_of_birth, p.postal_code,
+		c.type, c.value
+		FROM c_person p
+		LEFT JOIN c_client_identification c
+		ON p.client_id = c.client_id
+		WHERE p.client_id = #{id}
+	</select>
+
+	<select
+		id="getClientsByEmail" resultMap="ClientResultMap">
+		SELECT p.email, p.client_id, p.country, p.date_of_birth, p.postal_code,
+		c.type, c.value
+		FROM c_person p
+		LEFT JOIN c_client_identification c
+		ON p.client_id = c.client_id
+		WHERE p.email = #{email}
+	</select>
+	<select
+		id="getClientForLogin" resultMap="ClientResultMap">
+		SELECT p.email, p.client_id, p.country, p.date_of_birth, p.postal_code,
+		c.type, c.value
+		FROM c_person p
+		LEFT JOIN c_client_identification c
+		ON p.client_id = c.client_id
+		WHERE p.email = #{email} AND c.value =#{value}
+	</select>
+
+	<select
+		id="doesEmailAlreadyExist" resultType="int">
+		SELECT Count(*) FROM c_person
+		WHERE email = #{email}
+	</select>
+
+	<insert
+		id="insertPerson" parameterType="Person">
+		INSERT INTO c_person (client_id, email, date_of_birth, country,
+		postal_code)
+		VALUES (#{id}, #{email}, #{dateOfBirth}, #{country}, #{postalCode})
+	</insert>
+
+	<insert
+		id="insertClientIdentification" parameterType="ClientIdentification">
+		INSERT INTO c_client_identification (type, value,client_id)
+		VALUES (#{clientIdentification.type},
+		#{clientIdentification.value},#{clientId})
+	</insert>
+	
+	<select
+		id="doesClientIdentificationAlreadyExist" resultType="int">
+		SELECT Count(*) FROM c_client_identification
+		WHERE value = #{value}
+	</select>
+	
+	<select id="getIdFromEmail" resultType="java.lang.String">
+		SELECT
+		client_id
+		FROM
+		c_person
+		where email = #{email}
+	</select>
+
+
+	<select id="checkIfRowExists" resultType="java.lang.Integer">
+		select count(*)
+		FROM c_preferences
+		where client_id = #{clientId}
+	</select>
+
+
+	<update id="updatePreferences" parameterType="map">
+		UPDATE c_preferences
+		SET
+		investment_purpose = #{preference.investmentPurpose},
+		length_of_investment = #{preference.lengthOfInvestment},
+		risk_tolerance = #{preference.riskTolerance},
+		income_category = #{preference.incomeCategory},
+		robo_advisor = #{preference.roboAdvisorCheck}
+		where
+		client_id = #{clientId}
+	</update>
+
+	<insert id="insertPreferences" parameterType="map">
+		INSERT INTO c_preferences (
+		client_id,
+		investment_purpose,
+		length_of_investment,
+		risk_tolerance,
+		income_category,
+		robo_advisor
+		) VALUES (
+		#{clientId},
+		#{preference.investmentPurpose},
+		#{preference.lengthOfInvestment},
+		#{preference.riskTolerance},
+		#{preference.incomeCategory},
+		#{preference.roboAdvisorCheck}
+		)
+	</insert>
+</mapper>
+
