@@ -32,8 +32,8 @@ public class ClientController {
 	@PostMapping("/register")
 	 ResponseEntity<ClientDataTransferObject> registerClient(@RequestBody Client client) throws SQLException{
 		System.out.println(client + "************");
-		ResponseEntity<ClientDataTransferObject> response;
-		ClientFMTS clientFmts;
+		ResponseEntity<ClientDataTransferObject> response = null;
+		ClientFMTS clientFmts = null;
 		try {
 		clientFmts = clientService.register(client);
 		if(clientFmts == null) {
