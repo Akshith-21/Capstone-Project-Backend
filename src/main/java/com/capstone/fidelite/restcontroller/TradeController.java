@@ -16,12 +16,12 @@ import com.capstone.fidelite.services.ClientService;
 @RestController
 @RequestMapping("/trade")
 public class TradeController {
-	@Autowired
-	Logger logger;
-
-	@Autowired
-	ClientService clientService;
-
-	@PostMapping("/execute")
-	ResponseEntity<ClientDataTransferObject> registerClient(@RequestBody Client client) throws SQLException{
+//	@Autowired
+//	Logger logger;
+//
+//	@Autowired
+//	ClientService clientService;
+//
+//	@PostMapping("/execute")
+//	ResponseEntity<ClientDataTransferObject> registerClient(@RequestBody Client client) throws SQLException{
 }

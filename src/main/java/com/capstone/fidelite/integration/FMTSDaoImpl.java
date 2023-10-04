@@ -29,14 +29,17 @@ public class FMTSDaoImpl implements FMTSDao {
 		ClientFMTS response = null;
 		RestTemplate restTemplate = new RestTemplate();
 		
-		ClientFMTS clientFMTS = new ClientFMTS(client);
+		ClientFMTS clientFMTS = new ClientFMTS();
+		clientFMTS.setClientId("");
+		clientFMTS.setEmail(client.getPerson().getEmail());
+		clientFMTS.setToken("");
 
 		String url = "http://localhost:3000/fmts/client";
 
 		
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(MediaType.APPLICATION_JSON);
-
+System.out.println(clientFMTS);
 		HttpEntity<ClientFMTS> requestEntity = new HttpEntity<>(clientFMTS, headers);
 		ResponseEntity<String> responseEntity = restTemplate.exchange(url, HttpMethod.POST, requestEntity, String.class);
 		

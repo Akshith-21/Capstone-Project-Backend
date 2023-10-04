@@ -1477,3 +1477,419 @@ java.lang.Error: Unresolved compilation problem:
 18:06:14.078 INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin.shutdown: Application shutdown requested.
 18:06:14.109 INFO  com.zaxxer.hikari.HikariDataSource.close: HikariPool-1 - Shutdown initiated...
 18:06:14.127 INFO  com.zaxxer.hikari.HikariDataSource.close: HikariPool-1 - Shutdown completed.
+19:24:08.268 INFO  o.springframework.boot.StartupInfoLogger.logStarting: Starting FideliteServiceApplication using Java 17.0.7 on a720982win with PID 6820 (D:\Associate\CapStone_G4\Fidelite-Rest\Fidelite-Rest\target\classes started by a720982 in D:\Associate\CapStone_G4\Fidelite-Rest\Fidelite-Rest)
+19:24:08.275 INFO  o.springframework.boot.SpringApplication.logStartupProfileInfo: The following 1 profile is active: "prod"
+19:24:10.944 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer.initialize: Tomcat initialized with port(s): 8080 (http)
+19:24:10.961 INFO  org.apache.juli.logging.DirectJDKLog.log: Starting service [Tomcat]
+19:24:10.961 INFO  org.apache.juli.logging.DirectJDKLog.log: Starting Servlet engine: [Apache Tomcat/9.0.62]
+19:24:11.116 INFO  org.apache.juli.logging.DirectJDKLog.log: Initializing Spring embedded WebApplicationContext
+19:24:11.116 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext: Root WebApplicationContext: initialization completed in 2448 ms
+19:24:12.071 WARN  o.s.c.support.AbstractApplicationContext.refresh: Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'tradeController' defined in file [D:\Associate\CapStone_G4\Fidelite-Rest\Fidelite-Rest\target\classes\com\capstone\fidelite\restcontroller\TradeController.class]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.capstone.fidelite.restcontroller.TradeController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problem: 
+	Syntax error, insert "}" to complete ClassBody
+
+19:24:12.115 INFO  org.apache.juli.logging.DirectJDKLog.log: Stopping service [Tomcat]
+19:24:12.142 INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener.logMessage: 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+19:24:12.194 ERROR o.springframework.boot.SpringApplication.reportFailure: Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'tradeController' defined in file [D:\Associate\CapStone_G4\Fidelite-Rest\Fidelite-Rest\target\classes\com\capstone\fidelite\restcontroller\TradeController.class]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.capstone.fidelite.restcontroller.TradeController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problem: 
+	Syntax error, insert "}" to complete ClassBody
+
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1334)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1232)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:953)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:918)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:740)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:415)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1312)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1301)
+	at com.capstone.fidelite.FideliteServiceApplication.main(FideliteServiceApplication.java:20)
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.capstone.fidelite.restcontroller.TradeController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problem: 
+	Syntax error, insert "}" to complete ClassBody
+
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:224)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:87)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1326)
+	... 17 common frames omitted
+Caused by: java.lang.Error: Unresolved compilation problem: 
+	Syntax error, insert "}" to complete ClassBody
+
+	at com.capstone.fidelite.restcontroller.TradeController.<init>(TradeController.java:27)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:211)
+	... 19 common frames omitted
+19:25:31.876 INFO  o.springframework.boot.StartupInfoLogger.logStarting: Starting FideliteServiceApplication using Java 17.0.7 on a720982win with PID 5476 (D:\Associate\CapStone_G4\Fidelite-Rest\Fidelite-Rest\target\classes started by a720982 in D:\Associate\CapStone_G4\Fidelite-Rest\Fidelite-Rest)
+19:25:31.884 INFO  o.springframework.boot.SpringApplication.logStartupProfileInfo: The following 1 profile is active: "prod"
+19:25:34.061 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer.initialize: Tomcat initialized with port(s): 8080 (http)
+19:25:34.086 INFO  org.apache.juli.logging.DirectJDKLog.log: Starting service [Tomcat]
+19:25:34.087 INFO  org.apache.juli.logging.DirectJDKLog.log: Starting Servlet engine: [Apache Tomcat/9.0.62]
+19:25:34.270 INFO  org.apache.juli.logging.DirectJDKLog.log: Initializing Spring embedded WebApplicationContext
+19:25:34.271 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext: Root WebApplicationContext: initialization completed in 2246 ms
+19:25:35.908 INFO  o.s.b.a.e.web.EndpointLinksResolver.<init>: Exposing 1 endpoint(s) beneath base path '/actuator'
+19:25:35.985 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer.start: Tomcat started on port(s): 8080 (http) with context path ''
+19:25:36.016 INFO  o.springframework.boot.StartupInfoLogger.logStarted: Started FideliteServiceApplication in 4.905 seconds (JVM running for 5.629)
+19:25:41.264 INFO  org.apache.juli.logging.DirectJDKLog.log: Initializing Spring DispatcherServlet 'dispatcherServlet'
+19:25:41.264 INFO  o.s.web.servlet.FrameworkServlet.initServletBean: Initializing Servlet 'dispatcherServlet'
+19:25:41.267 INFO  o.s.web.servlet.FrameworkServlet.initServletBean: Completed initialization in 3 ms
+19:25:41.397 WARN  o.s.w.s.h.AbstractHandlerExceptionResolver.logException: Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `java.util.HashSet<com.capstone.fidelite.models.ClientIdentification>` from Object value (token `JsonToken.START_OBJECT`); nested exception is com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot deserialize value of type `java.util.HashSet<com.capstone.fidelite.models.ClientIdentification>` from Object value (token `JsonToken.START_OBJECT`)<EOL> at [Source: (org.springframework.util.StreamUtils$NonClosingInputStream); line: 19, column: 5] (through reference chain: com.capstone.fidelite.models.Client["clientIdentificationSet"])]
+19:28:41.254 INFO  o.springframework.boot.StartupInfoLogger.logStarting: Starting FideliteServiceApplication using Java 17.0.7 on a720982win with PID 6988 (D:\Associate\CapStone_G4\Fidelite-Rest\Fidelite-Rest\target\classes started by a720982 in D:\Associate\CapStone_G4\Fidelite-Rest\Fidelite-Rest)
+19:28:41.260 INFO  o.springframework.boot.SpringApplication.logStartupProfileInfo: The following 1 profile is active: "prod"
+19:28:43.509 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer.initialize: Tomcat initialized with port(s): 8080 (http)
+19:28:43.533 INFO  org.apache.juli.logging.DirectJDKLog.log: Starting service [Tomcat]
+19:28:43.534 INFO  org.apache.juli.logging.DirectJDKLog.log: Starting Servlet engine: [Apache Tomcat/9.0.62]
+19:28:43.702 INFO  org.apache.juli.logging.DirectJDKLog.log: Initializing Spring embedded WebApplicationContext
+19:28:43.703 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext: Root WebApplicationContext: initialization completed in 2307 ms
+19:28:45.302 INFO  o.s.b.a.e.web.EndpointLinksResolver.<init>: Exposing 1 endpoint(s) beneath base path '/actuator'
+19:28:45.383 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer.start: Tomcat started on port(s): 8080 (http) with context path ''
+19:28:45.407 INFO  o.springframework.boot.StartupInfoLogger.logStarted: Started FideliteServiceApplication in 4.908 seconds (JVM running for 5.662)
+19:28:52.677 INFO  org.apache.juli.logging.DirectJDKLog.log: Initializing Spring DispatcherServlet 'dispatcherServlet'
+19:28:52.677 INFO  o.s.web.servlet.FrameworkServlet.initServletBean: Initializing Servlet 'dispatcherServlet'
+19:28:52.680 INFO  o.s.web.servlet.FrameworkServlet.initServletBean: Completed initialization in 2 ms
+19:28:52.813 WARN  o.s.w.s.h.AbstractHandlerExceptionResolver.logException: Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `java.util.HashSet<com.capstone.fidelite.models.ClientIdentification>` from Object value (token `JsonToken.START_OBJECT`); nested exception is com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot deserialize value of type `java.util.HashSet<com.capstone.fidelite.models.ClientIdentification>` from Object value (token `JsonToken.START_OBJECT`)<EOL> at [Source: (org.springframework.util.StreamUtils$NonClosingInputStream); line: 19, column: 5] (through reference chain: com.capstone.fidelite.models.Client["clientIdentificationSet"])]
+19:31:46.774 WARN  o.s.w.s.h.AbstractHandlerExceptionResolver.logException: Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `java.util.HashSet<com.capstone.fidelite.models.ClientIdentification>` from Object value (token `JsonToken.START_OBJECT`); nested exception is com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot deserialize value of type `java.util.HashSet<com.capstone.fidelite.models.ClientIdentification>` from Object value (token `JsonToken.START_OBJECT`)<EOL> at [Source: (org.springframework.util.StreamUtils$NonClosingInputStream); line: 10, column: 5] (through reference chain: com.capstone.fidelite.models.Client["clientIdentificationSet"])]
+19:32:39.240 INFO  o.springframework.boot.StartupInfoLogger.logStarting: Starting FideliteServiceApplication using Java 17.0.7 on a720982win with PID 4460 (D:\Associate\CapStone_G4\Fidelite-Rest\Fidelite-Rest\target\classes started by a720982 in D:\Associate\CapStone_G4\Fidelite-Rest\Fidelite-Rest)
+19:32:39.248 INFO  o.springframework.boot.SpringApplication.logStartupProfileInfo: The following 1 profile is active: "prod"
+19:32:41.302 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer.initialize: Tomcat initialized with port(s): 8080 (http)
+19:32:41.326 INFO  org.apache.juli.logging.DirectJDKLog.log: Starting service [Tomcat]
+19:32:41.327 INFO  org.apache.juli.logging.DirectJDKLog.log: Starting Servlet engine: [Apache Tomcat/9.0.62]
+19:32:41.484 INFO  org.apache.juli.logging.DirectJDKLog.log: Initializing Spring embedded WebApplicationContext
+19:32:41.485 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext: Root WebApplicationContext: initialization completed in 2124 ms
+19:32:43.020 INFO  o.s.b.a.e.web.EndpointLinksResolver.<init>: Exposing 1 endpoint(s) beneath base path '/actuator'
+19:32:43.105 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer.start: Tomcat started on port(s): 8080 (http) with context path ''
+19:32:43.134 INFO  o.springframework.boot.StartupInfoLogger.logStarted: Started FideliteServiceApplication in 4.612 seconds (JVM running for 5.382)
+19:32:48.921 INFO  org.apache.juli.logging.DirectJDKLog.log: Initializing Spring DispatcherServlet 'dispatcherServlet'
+19:32:48.922 INFO  o.s.web.servlet.FrameworkServlet.initServletBean: Initializing Servlet 'dispatcherServlet'
+19:32:48.925 INFO  o.s.web.servlet.FrameworkServlet.initServletBean: Completed initialization in 2 ms
+19:32:49.062 WARN  o.s.w.s.h.AbstractHandlerExceptionResolver.logException: Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `java.util.HashSet<com.capstone.fidelite.models.ClientIdentification>` from Object value (token `JsonToken.START_OBJECT`); nested exception is com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot deserialize value of type `java.util.HashSet<com.capstone.fidelite.models.ClientIdentification>` from Object value (token `JsonToken.START_OBJECT`)<EOL> at [Source: (org.springframework.util.StreamUtils$NonClosingInputStream); line: 10, column: 5] (through reference chain: com.capstone.fidelite.models.Client["clientIdentificationSet"])]
+19:33:29.032 INFO  o.springframework.boot.StartupInfoLogger.logStarting: Starting FideliteServiceApplication using Java 17.0.7 on a720982win with PID 9132 (D:\Associate\CapStone_G4\Fidelite-Rest\Fidelite-Rest\target\classes started by a720982 in D:\Associate\CapStone_G4\Fidelite-Rest\Fidelite-Rest)
+19:33:29.040 INFO  o.springframework.boot.SpringApplication.logStartupProfileInfo: The following 1 profile is active: "prod"
+19:33:31.211 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer.initialize: Tomcat initialized with port(s): 8080 (http)
+19:33:31.227 INFO  org.apache.juli.logging.DirectJDKLog.log: Starting service [Tomcat]
+19:33:31.227 INFO  org.apache.juli.logging.DirectJDKLog.log: Starting Servlet engine: [Apache Tomcat/9.0.62]
+19:33:31.404 INFO  org.apache.juli.logging.DirectJDKLog.log: Initializing Spring embedded WebApplicationContext
+19:33:31.404 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext: Root WebApplicationContext: initialization completed in 2195 ms
+19:33:32.994 INFO  o.s.b.a.e.web.EndpointLinksResolver.<init>: Exposing 1 endpoint(s) beneath base path '/actuator'
+19:33:33.075 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer.start: Tomcat started on port(s): 8080 (http) with context path ''
+19:33:33.106 INFO  o.springframework.boot.StartupInfoLogger.logStarted: Started FideliteServiceApplication in 4.815 seconds (JVM running for 5.499)
+19:33:41.597 INFO  org.apache.juli.logging.DirectJDKLog.log: Initializing Spring DispatcherServlet 'dispatcherServlet'
+19:33:41.597 INFO  o.s.web.servlet.FrameworkServlet.initServletBean: Initializing Servlet 'dispatcherServlet'
+19:33:41.599 INFO  o.s.web.servlet.FrameworkServlet.initServletBean: Completed initialization in 1 ms
+19:33:41.729 WARN  o.s.w.s.h.AbstractHandlerExceptionResolver.logException: Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `java.util.HashSet<com.capstone.fidelite.models.ClientIdentification>` from Object value (token `JsonToken.START_OBJECT`); nested exception is com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot deserialize value of type `java.util.HashSet<com.capstone.fidelite.models.ClientIdentification>` from Object value (token `JsonToken.START_OBJECT`)<EOL> at [Source: (org.springframework.util.StreamUtils$NonClosingInputStream); line: 10, column: 5] (through reference chain: com.capstone.fidelite.models.Client["clientIdentificationSet"])]
+19:33:55.579 WARN  o.s.w.s.h.AbstractHandlerExceptionResolver.logException: Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `java.util.HashSet<com.capstone.fidelite.models.ClientIdentification>` from Object value (token `JsonToken.START_OBJECT`); nested exception is com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot deserialize value of type `java.util.HashSet<com.capstone.fidelite.models.ClientIdentification>` from Object value (token `JsonToken.START_OBJECT`)<EOL> at [Source: (org.springframework.util.StreamUtils$NonClosingInputStream); line: 10, column: 5] (through reference chain: com.capstone.fidelite.models.Client["clientIdentificationSet"])]
+19:34:10.641 WARN  o.s.w.s.h.AbstractHandlerExceptionResolver.logException: Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `java.util.HashSet<com.capstone.fidelite.models.ClientIdentification>` from Object value (token `JsonToken.START_OBJECT`); nested exception is com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot deserialize value of type `java.util.HashSet<com.capstone.fidelite.models.ClientIdentification>` from Object value (token `JsonToken.START_OBJECT`)<EOL> at [Source: (org.springframework.util.StreamUtils$NonClosingInputStream); line: 10, column: 5] (through reference chain: com.capstone.fidelite.models.Client["clientIdentificationSet"])]
+19:36:19.894 INFO  com.zaxxer.hikari.HikariDataSource.getConnection: HikariPool-1 - Starting...
+19:36:20.474 INFO  com.zaxxer.hikari.HikariDataSource.getConnection: HikariPool-1 - Start completed.
+21:24:00.687 INFO  o.springframework.boot.StartupInfoLogger.logStarting: Starting FideliteServiceApplication using Java 17.0.7 on a720982win with PID 7220 (D:\Associate\CapStone_G4\Fidelite-Rest\Fidelite-Rest\target\classes started by a720982 in D:\Associate\CapStone_G4\Fidelite-Rest\Fidelite-Rest)
+21:24:00.696 INFO  o.springframework.boot.SpringApplication.logStartupProfileInfo: The following 1 profile is active: "prod"
+21:24:03.011 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer.initialize: Tomcat initialized with port(s): 8080 (http)
+21:24:03.034 INFO  org.apache.juli.logging.DirectJDKLog.log: Starting service [Tomcat]
+21:24:03.035 INFO  org.apache.juli.logging.DirectJDKLog.log: Starting Servlet engine: [Apache Tomcat/9.0.62]
+21:24:03.231 INFO  org.apache.juli.logging.DirectJDKLog.log: Initializing Spring embedded WebApplicationContext
+21:24:03.235 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext: Root WebApplicationContext: initialization completed in 2350 ms
+21:24:05.026 INFO  o.s.b.a.e.web.EndpointLinksResolver.<init>: Exposing 1 endpoint(s) beneath base path '/actuator'
+21:24:05.092 WARN  o.s.c.support.AbstractApplicationContext.refresh: Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8080 is already in use
+21:24:05.104 INFO  org.apache.juli.logging.DirectJDKLog.log: Stopping service [Tomcat]
+21:24:05.135 INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener.logMessage: 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+21:24:05.170 ERROR o.s.b.d.LoggingFailureAnalysisReporter.report: 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+21:24:12.994 INFO  o.springframework.boot.StartupInfoLogger.logStarting: Starting FideliteServiceApplication using Java 17.0.7 on a720982win with PID 8996 (D:\Associate\CapStone_G4\Fidelite-Rest\Fidelite-Rest\target\classes started by a720982 in D:\Associate\CapStone_G4\Fidelite-Rest\Fidelite-Rest)
+21:24:13.001 INFO  o.springframework.boot.SpringApplication.logStartupProfileInfo: The following 1 profile is active: "prod"
+21:24:15.306 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer.initialize: Tomcat initialized with port(s): 8080 (http)
+21:24:15.333 INFO  org.apache.juli.logging.DirectJDKLog.log: Starting service [Tomcat]
+21:24:15.335 INFO  org.apache.juli.logging.DirectJDKLog.log: Starting Servlet engine: [Apache Tomcat/9.0.62]
+21:24:15.563 INFO  org.apache.juli.logging.DirectJDKLog.log: Initializing Spring embedded WebApplicationContext
+21:24:15.564 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext: Root WebApplicationContext: initialization completed in 2459 ms
+21:24:17.179 INFO  o.s.b.a.e.web.EndpointLinksResolver.<init>: Exposing 1 endpoint(s) beneath base path '/actuator'
+21:24:17.261 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer.start: Tomcat started on port(s): 8080 (http) with context path ''
+21:24:17.285 INFO  o.springframework.boot.StartupInfoLogger.logStarted: Started FideliteServiceApplication in 5.013 seconds (JVM running for 5.697)
+21:24:21.830 INFO  org.apache.juli.logging.DirectJDKLog.log: Initializing Spring DispatcherServlet 'dispatcherServlet'
+21:24:21.830 INFO  o.s.web.servlet.FrameworkServlet.initServletBean: Initializing Servlet 'dispatcherServlet'
+21:24:21.832 INFO  o.s.web.servlet.FrameworkServlet.initServletBean: Completed initialization in 1 ms
+21:24:21.904 WARN  o.s.w.s.h.AbstractHandlerExceptionResolver.logException: Resolved [org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: org.springframework.http.ResponseEntity<java.lang.String> com.capstone.fidelite.restcontroller.ClientController.clientLogin(java.lang.String,java.lang.String) throws java.sql.SQLException]
+21:27:06.223 WARN  o.s.w.s.h.AbstractHandlerExceptionResolver.logException: Resolved [org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: org.springframework.http.ResponseEntity<java.lang.String> com.capstone.fidelite.restcontroller.ClientController.clientLogin(java.lang.String,java.lang.String) throws java.sql.SQLException]
+21:52:18.789 WARN  o.s.w.s.h.AbstractHandlerExceptionResolver.logException: Resolved [org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: org.springframework.http.ResponseEntity<java.lang.String> com.capstone.fidelite.restcontroller.ClientController.clientLogin(java.lang.String,java.lang.String) throws java.sql.SQLException]
+21:58:00.453 WARN  o.s.w.s.h.AbstractHandlerExceptionResolver.logException: Resolved [org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: org.springframework.http.ResponseEntity<java.lang.String> com.capstone.fidelite.restcontroller.ClientController.clientLogin(java.lang.String,java.lang.String) throws java.sql.SQLException]
+21:59:18.448 WARN  o.s.w.s.h.AbstractHandlerExceptionResolver.logException: Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
+21:59:40.026 WARN  o.s.w.s.h.AbstractHandlerExceptionResolver.logException: Resolved [org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: org.springframework.http.ResponseEntity<java.lang.String> com.capstone.fidelite.restcontroller.ClientController.clientLogin(java.lang.String,java.lang.String) throws java.sql.SQLException]
+22:05:15.422 INFO  o.springframework.boot.StartupInfoLogger.logStarting: Starting FideliteServiceApplication using Java 17.0.7 on a720982win with PID 1000 (D:\Associate\CapStone_G4\Fidelite-Rest\Fidelite-Rest\target\classes started by a720982 in D:\Associate\CapStone_G4\Fidelite-Rest\Fidelite-Rest)
+22:05:15.428 INFO  o.springframework.boot.SpringApplication.logStartupProfileInfo: The following 1 profile is active: "prod"
+22:05:17.653 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer.initialize: Tomcat initialized with port(s): 8080 (http)
+22:05:17.668 INFO  org.apache.juli.logging.DirectJDKLog.log: Starting service [Tomcat]
+22:05:17.669 INFO  org.apache.juli.logging.DirectJDKLog.log: Starting Servlet engine: [Apache Tomcat/9.0.62]
+22:05:17.843 INFO  org.apache.juli.logging.DirectJDKLog.log: Initializing Spring embedded WebApplicationContext
+22:05:17.844 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext: Root WebApplicationContext: initialization completed in 2321 ms
+22:05:19.620 INFO  o.s.b.a.e.web.EndpointLinksResolver.<init>: Exposing 1 endpoint(s) beneath base path '/actuator'
+22:05:19.711 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer.start: Tomcat started on port(s): 8080 (http) with context path ''
+22:05:19.742 INFO  o.springframework.boot.StartupInfoLogger.logStarted: Started FideliteServiceApplication in 5.096 seconds (JVM running for 5.838)
+22:05:21.202 INFO  org.apache.juli.logging.DirectJDKLog.log: Initializing Spring DispatcherServlet 'dispatcherServlet'
+22:05:21.203 INFO  o.s.web.servlet.FrameworkServlet.initServletBean: Initializing Servlet 'dispatcherServlet'
+22:05:21.206 INFO  o.s.web.servlet.FrameworkServlet.initServletBean: Completed initialization in 1 ms
+22:05:21.370 INFO  com.zaxxer.hikari.HikariDataSource.getConnection: HikariPool-1 - Starting...
+22:05:21.882 INFO  com.zaxxer.hikari.HikariDataSource.getConnection: HikariPool-1 - Start completed.
+22:09:11.504 INFO  o.springframework.boot.StartupInfoLogger.logStarting: Starting FideliteServiceApplication using Java 17.0.7 on a720982win with PID 1736 (D:\Associate\CapStone_G4\Fidelite-Rest\Fidelite-Rest\target\classes started by a720982 in D:\Associate\CapStone_G4\Fidelite-Rest\Fidelite-Rest)
+22:09:11.512 INFO  o.springframework.boot.SpringApplication.logStartupProfileInfo: The following 1 profile is active: "prod"
+22:09:13.783 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer.initialize: Tomcat initialized with port(s): 8080 (http)
+22:09:13.797 INFO  org.apache.juli.logging.DirectJDKLog.log: Starting service [Tomcat]
+22:09:13.798 INFO  org.apache.juli.logging.DirectJDKLog.log: Starting Servlet engine: [Apache Tomcat/9.0.62]
+22:09:13.974 INFO  org.apache.juli.logging.DirectJDKLog.log: Initializing Spring embedded WebApplicationContext
+22:09:13.975 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext: Root WebApplicationContext: initialization completed in 2314 ms
+22:09:15.606 INFO  o.s.b.a.e.web.EndpointLinksResolver.<init>: Exposing 1 endpoint(s) beneath base path '/actuator'
+22:09:15.699 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer.start: Tomcat started on port(s): 8080 (http) with context path ''
+22:09:15.727 INFO  o.springframework.boot.StartupInfoLogger.logStarted: Started FideliteServiceApplication in 5.007 seconds (JVM running for 5.699)
+22:09:19.843 INFO  org.apache.juli.logging.DirectJDKLog.log: Initializing Spring DispatcherServlet 'dispatcherServlet'
+22:09:19.843 INFO  o.s.web.servlet.FrameworkServlet.initServletBean: Initializing Servlet 'dispatcherServlet'
+22:09:19.850 INFO  o.s.web.servlet.FrameworkServlet.initServletBean: Completed initialization in 6 ms
+22:09:20.053 INFO  com.zaxxer.hikari.HikariDataSource.getConnection: HikariPool-1 - Starting...
+22:09:20.554 INFO  com.zaxxer.hikari.HikariDataSource.getConnection: HikariPool-1 - Start completed.
+22:13:20.990 INFO  o.springframework.boot.StartupInfoLogger.logStarting: Starting FideliteServiceApplication using Java 17.0.7 on a720982win with PID 7420 (D:\Associate\CapStone_G4\Fidelite-Rest\Fidelite-Rest\target\classes started by a720982 in D:\Associate\CapStone_G4\Fidelite-Rest\Fidelite-Rest)
+22:13:20.998 INFO  o.springframework.boot.SpringApplication.logStartupProfileInfo: The following 1 profile is active: "prod"
+22:13:23.335 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer.initialize: Tomcat initialized with port(s): 8080 (http)
+22:13:23.358 INFO  org.apache.juli.logging.DirectJDKLog.log: Starting service [Tomcat]
+22:13:23.359 INFO  org.apache.juli.logging.DirectJDKLog.log: Starting Servlet engine: [Apache Tomcat/9.0.62]
+22:13:23.546 INFO  org.apache.juli.logging.DirectJDKLog.log: Initializing Spring embedded WebApplicationContext
+22:13:23.547 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext: Root WebApplicationContext: initialization completed in 2403 ms
+22:13:25.176 INFO  o.s.b.a.e.web.EndpointLinksResolver.<init>: Exposing 1 endpoint(s) beneath base path '/actuator'
+22:13:25.271 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer.start: Tomcat started on port(s): 8080 (http) with context path ''
+22:13:25.298 INFO  o.springframework.boot.StartupInfoLogger.logStarted: Started FideliteServiceApplication in 5.069 seconds (JVM running for 5.815)
+22:13:27.930 INFO  org.apache.juli.logging.DirectJDKLog.log: Initializing Spring DispatcherServlet 'dispatcherServlet'
+22:13:27.931 INFO  o.s.web.servlet.FrameworkServlet.initServletBean: Initializing Servlet 'dispatcherServlet'
+22:13:27.935 INFO  o.s.web.servlet.FrameworkServlet.initServletBean: Completed initialization in 3 ms
+22:13:28.121 INFO  com.zaxxer.hikari.HikariDataSource.getConnection: HikariPool-1 - Starting...
+22:13:28.646 INFO  com.zaxxer.hikari.HikariDataSource.getConnection: HikariPool-1 - Start completed.
+22:15:29.689 INFO  o.springframework.boot.StartupInfoLogger.logStarting: Starting FideliteServiceApplication using Java 17.0.7 on a720982win with PID 5168 (D:\Associate\CapStone_G4\Fidelite-Rest\Fidelite-Rest\target\classes started by a720982 in D:\Associate\CapStone_G4\Fidelite-Rest\Fidelite-Rest)
+22:15:29.696 INFO  o.springframework.boot.SpringApplication.logStartupProfileInfo: The following 1 profile is active: "prod"
+22:15:31.862 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer.initialize: Tomcat initialized with port(s): 8080 (http)
+22:15:31.886 INFO  org.apache.juli.logging.DirectJDKLog.log: Starting service [Tomcat]
+22:15:31.887 INFO  org.apache.juli.logging.DirectJDKLog.log: Starting Servlet engine: [Apache Tomcat/9.0.62]
+22:15:32.063 INFO  org.apache.juli.logging.DirectJDKLog.log: Initializing Spring embedded WebApplicationContext
+22:15:32.064 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext: Root WebApplicationContext: initialization completed in 2244 ms
+22:15:33.634 INFO  o.s.b.a.e.web.EndpointLinksResolver.<init>: Exposing 1 endpoint(s) beneath base path '/actuator'
+22:15:33.715 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer.start: Tomcat started on port(s): 8080 (http) with context path ''
+22:15:33.739 INFO  o.springframework.boot.StartupInfoLogger.logStarted: Started FideliteServiceApplication in 4.787 seconds (JVM running for 5.504)
+22:15:37.537 INFO  org.apache.juli.logging.DirectJDKLog.log: Initializing Spring DispatcherServlet 'dispatcherServlet'
+22:15:37.537 INFO  o.s.web.servlet.FrameworkServlet.initServletBean: Initializing Servlet 'dispatcherServlet'
+22:15:37.540 INFO  o.s.web.servlet.FrameworkServlet.initServletBean: Completed initialization in 3 ms
+22:15:37.711 INFO  com.zaxxer.hikari.HikariDataSource.getConnection: HikariPool-1 - Starting...
+22:15:38.259 INFO  com.zaxxer.hikari.HikariDataSource.getConnection: HikariPool-1 - Start completed.
+22:16:21.606 INFO  o.springframework.boot.StartupInfoLogger.logStarting: Starting FideliteServiceApplication using Java 17.0.7 on a720982win with PID 4588 (D:\Associate\CapStone_G4\Fidelite-Rest\Fidelite-Rest\target\classes started by a720982 in D:\Associate\CapStone_G4\Fidelite-Rest\Fidelite-Rest)
+22:16:21.612 INFO  o.springframework.boot.SpringApplication.logStartupProfileInfo: The following 1 profile is active: "prod"
+22:16:23.651 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer.initialize: Tomcat initialized with port(s): 8080 (http)
+22:16:23.671 INFO  org.apache.juli.logging.DirectJDKLog.log: Starting service [Tomcat]
+22:16:23.675 INFO  org.apache.juli.logging.DirectJDKLog.log: Starting Servlet engine: [Apache Tomcat/9.0.62]
+22:16:23.850 INFO  org.apache.juli.logging.DirectJDKLog.log: Initializing Spring embedded WebApplicationContext
+22:16:23.851 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext: Root WebApplicationContext: initialization completed in 2135 ms
+22:16:25.728 INFO  o.s.b.a.e.web.EndpointLinksResolver.<init>: Exposing 1 endpoint(s) beneath base path '/actuator'
+22:16:25.805 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer.start: Tomcat started on port(s): 8080 (http) with context path ''
+22:16:25.832 INFO  o.springframework.boot.StartupInfoLogger.logStarted: Started FideliteServiceApplication in 4.944 seconds (JVM running for 5.588)
+22:16:28.435 INFO  org.apache.juli.logging.DirectJDKLog.log: Initializing Spring DispatcherServlet 'dispatcherServlet'
+22:16:28.436 INFO  o.s.web.servlet.FrameworkServlet.initServletBean: Initializing Servlet 'dispatcherServlet'
+22:16:28.438 INFO  o.s.web.servlet.FrameworkServlet.initServletBean: Completed initialization in 2 ms
+22:16:28.617 INFO  com.zaxxer.hikari.HikariDataSource.getConnection: HikariPool-1 - Starting...
+22:16:29.180 INFO  com.zaxxer.hikari.HikariDataSource.getConnection: HikariPool-1 - Start completed.
+22:17:17.801 INFO  o.springframework.boot.StartupInfoLogger.logStarting: Starting FideliteServiceApplication using Java 17.0.7 on a720982win with PID 7764 (D:\Associate\CapStone_G4\Fidelite-Rest\Fidelite-Rest\target\classes started by a720982 in D:\Associate\CapStone_G4\Fidelite-Rest\Fidelite-Rest)
+22:17:17.808 INFO  o.springframework.boot.SpringApplication.logStartupProfileInfo: The following 1 profile is active: "prod"
+22:17:20.012 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer.initialize: Tomcat initialized with port(s): 8080 (http)
+22:17:20.035 INFO  org.apache.juli.logging.DirectJDKLog.log: Starting service [Tomcat]
+22:17:20.036 INFO  org.apache.juli.logging.DirectJDKLog.log: Starting Servlet engine: [Apache Tomcat/9.0.62]
+22:17:20.215 INFO  org.apache.juli.logging.DirectJDKLog.log: Initializing Spring embedded WebApplicationContext
+22:17:20.216 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext: Root WebApplicationContext: initialization completed in 2304 ms
+22:17:21.760 INFO  o.s.b.a.e.web.EndpointLinksResolver.<init>: Exposing 1 endpoint(s) beneath base path '/actuator'
+22:17:21.840 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer.start: Tomcat started on port(s): 8080 (http) with context path ''
+22:17:21.867 INFO  o.springframework.boot.StartupInfoLogger.logStarted: Started FideliteServiceApplication in 4.887 seconds (JVM running for 5.554)
+22:17:25.622 INFO  org.apache.juli.logging.DirectJDKLog.log: Initializing Spring DispatcherServlet 'dispatcherServlet'
+22:17:25.623 INFO  o.s.web.servlet.FrameworkServlet.initServletBean: Initializing Servlet 'dispatcherServlet'
+22:17:25.629 INFO  o.s.web.servlet.FrameworkServlet.initServletBean: Completed initialization in 6 ms
+22:17:25.826 INFO  com.zaxxer.hikari.HikariDataSource.getConnection: HikariPool-1 - Starting...
+22:17:26.311 INFO  com.zaxxer.hikari.HikariDataSource.getConnection: HikariPool-1 - Start completed.
+22:18:33.137 INFO  o.springframework.boot.StartupInfoLogger.logStarting: Starting FideliteServiceApplication using Java 17.0.7 on a720982win with PID 7132 (D:\Associate\CapStone_G4\Fidelite-Rest\Fidelite-Rest\target\classes started by a720982 in D:\Associate\CapStone_G4\Fidelite-Rest\Fidelite-Rest)
+22:18:33.144 INFO  o.springframework.boot.SpringApplication.logStartupProfileInfo: The following 1 profile is active: "prod"
+22:18:35.265 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer.initialize: Tomcat initialized with port(s): 8080 (http)
+22:18:35.285 INFO  org.apache.juli.logging.DirectJDKLog.log: Starting service [Tomcat]
+22:18:35.290 INFO  org.apache.juli.logging.DirectJDKLog.log: Starting Servlet engine: [Apache Tomcat/9.0.62]
+22:18:35.553 INFO  org.apache.juli.logging.DirectJDKLog.log: Initializing Spring embedded WebApplicationContext
+22:18:35.558 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext: Root WebApplicationContext: initialization completed in 2281 ms
+22:18:37.198 INFO  o.s.b.a.e.web.EndpointLinksResolver.<init>: Exposing 1 endpoint(s) beneath base path '/actuator'
+22:18:37.284 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer.start: Tomcat started on port(s): 8080 (http) with context path ''
+22:18:37.325 INFO  o.springframework.boot.StartupInfoLogger.logStarted: Started FideliteServiceApplication in 4.925 seconds (JVM running for 5.611)
+22:18:44.346 INFO  org.apache.juli.logging.DirectJDKLog.log: Initializing Spring DispatcherServlet 'dispatcherServlet'
+22:18:44.346 INFO  o.s.web.servlet.FrameworkServlet.initServletBean: Initializing Servlet 'dispatcherServlet'
+22:18:44.349 INFO  o.s.web.servlet.FrameworkServlet.initServletBean: Completed initialization in 2 ms
+22:18:44.544 INFO  com.zaxxer.hikari.HikariDataSource.getConnection: HikariPool-1 - Starting...
+22:18:45.076 INFO  com.zaxxer.hikari.HikariDataSource.getConnection: HikariPool-1 - Start completed.
+22:19:28.962 INFO  o.springframework.boot.StartupInfoLogger.logStarting: Starting FideliteServiceApplication using Java 17.0.7 on a720982win with PID 7204 (D:\Associate\CapStone_G4\Fidelite-Rest\Fidelite-Rest\target\classes started by a720982 in D:\Associate\CapStone_G4\Fidelite-Rest\Fidelite-Rest)
+22:19:28.969 INFO  o.springframework.boot.SpringApplication.logStartupProfileInfo: The following 1 profile is active: "prod"
+22:19:31.189 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer.initialize: Tomcat initialized with port(s): 8080 (http)
+22:19:31.210 INFO  org.apache.juli.logging.DirectJDKLog.log: Starting service [Tomcat]
+22:19:31.211 INFO  org.apache.juli.logging.DirectJDKLog.log: Starting Servlet engine: [Apache Tomcat/9.0.62]
+22:19:31.391 INFO  org.apache.juli.logging.DirectJDKLog.log: Initializing Spring embedded WebApplicationContext
+22:19:31.392 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext: Root WebApplicationContext: initialization completed in 2311 ms
+22:19:33.001 INFO  o.s.b.a.e.web.EndpointLinksResolver.<init>: Exposing 1 endpoint(s) beneath base path '/actuator'
+22:19:33.078 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer.start: Tomcat started on port(s): 8080 (http) with context path ''
+22:19:33.103 INFO  o.springframework.boot.StartupInfoLogger.logStarted: Started FideliteServiceApplication in 4.878 seconds (JVM running for 5.518)
+22:19:35.694 INFO  org.apache.juli.logging.DirectJDKLog.log: Initializing Spring DispatcherServlet 'dispatcherServlet'
+22:19:35.694 INFO  o.s.web.servlet.FrameworkServlet.initServletBean: Initializing Servlet 'dispatcherServlet'
+22:19:35.697 INFO  o.s.web.servlet.FrameworkServlet.initServletBean: Completed initialization in 1 ms
+22:19:35.872 INFO  com.zaxxer.hikari.HikariDataSource.getConnection: HikariPool-1 - Starting...
+22:19:36.342 INFO  com.zaxxer.hikari.HikariDataSource.getConnection: HikariPool-1 - Start completed.
+22:20:41.776 INFO  o.springframework.boot.StartupInfoLogger.logStarting: Starting FideliteServiceApplication using Java 17.0.7 on a720982win with PID 7704 (D:\Associate\CapStone_G4\Fidelite-Rest\Fidelite-Rest\target\classes started by a720982 in D:\Associate\CapStone_G4\Fidelite-Rest\Fidelite-Rest)
+22:20:41.781 INFO  o.springframework.boot.SpringApplication.logStartupProfileInfo: The following 1 profile is active: "prod"
+22:20:44.121 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer.initialize: Tomcat initialized with port(s): 8080 (http)
+22:20:44.145 INFO  org.apache.juli.logging.DirectJDKLog.log: Starting service [Tomcat]
+22:20:44.146 INFO  org.apache.juli.logging.DirectJDKLog.log: Starting Servlet engine: [Apache Tomcat/9.0.62]
+22:20:44.347 INFO  org.apache.juli.logging.DirectJDKLog.log: Initializing Spring embedded WebApplicationContext
+22:20:44.348 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext: Root WebApplicationContext: initialization completed in 2454 ms
+22:20:46.010 INFO  o.s.b.a.e.web.EndpointLinksResolver.<init>: Exposing 1 endpoint(s) beneath base path '/actuator'
+22:20:46.105 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer.start: Tomcat started on port(s): 8080 (http) with context path ''
+22:20:46.132 INFO  o.springframework.boot.StartupInfoLogger.logStarted: Started FideliteServiceApplication in 5.104 seconds (JVM running for 5.803)
+22:21:03.559 INFO  org.apache.juli.logging.DirectJDKLog.log: Initializing Spring DispatcherServlet 'dispatcherServlet'
+22:21:03.559 INFO  o.s.web.servlet.FrameworkServlet.initServletBean: Initializing Servlet 'dispatcherServlet'
+22:21:03.562 INFO  o.s.web.servlet.FrameworkServlet.initServletBean: Completed initialization in 2 ms
+22:21:03.742 INFO  com.zaxxer.hikari.HikariDataSource.getConnection: HikariPool-1 - Starting...
+22:21:04.332 INFO  com.zaxxer.hikari.HikariDataSource.getConnection: HikariPool-1 - Start completed.
+22:24:56.939 INFO  o.springframework.boot.StartupInfoLogger.logStarting: Starting FideliteServiceApplication using Java 17.0.7 on a720982win with PID 4696 (D:\Associate\CapStone_G4\Fidelite-Rest\Fidelite-Rest\target\classes started by a720982 in D:\Associate\CapStone_G4\Fidelite-Rest\Fidelite-Rest)
+22:24:56.946 INFO  o.springframework.boot.SpringApplication.logStartupProfileInfo: The following 1 profile is active: "prod"
+22:24:59.132 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer.initialize: Tomcat initialized with port(s): 8080 (http)
+22:24:59.152 INFO  org.apache.juli.logging.DirectJDKLog.log: Starting service [Tomcat]
+22:24:59.154 INFO  org.apache.juli.logging.DirectJDKLog.log: Starting Servlet engine: [Apache Tomcat/9.0.62]
+22:24:59.331 INFO  org.apache.juli.logging.DirectJDKLog.log: Initializing Spring embedded WebApplicationContext
+22:24:59.333 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext: Root WebApplicationContext: initialization completed in 2254 ms
+22:25:00.887 INFO  o.s.b.a.e.web.EndpointLinksResolver.<init>: Exposing 1 endpoint(s) beneath base path '/actuator'
+22:25:00.969 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer.start: Tomcat started on port(s): 8080 (http) with context path ''
+22:25:00.996 INFO  o.springframework.boot.StartupInfoLogger.logStarted: Started FideliteServiceApplication in 4.814 seconds (JVM running for 5.46)
+22:25:05.642 INFO  org.apache.juli.logging.DirectJDKLog.log: Initializing Spring DispatcherServlet 'dispatcherServlet'
+22:25:05.642 INFO  o.s.web.servlet.FrameworkServlet.initServletBean: Initializing Servlet 'dispatcherServlet'
+22:25:05.645 INFO  o.s.web.servlet.FrameworkServlet.initServletBean: Completed initialization in 2 ms
+22:25:05.839 INFO  com.zaxxer.hikari.HikariDataSource.getConnection: HikariPool-1 - Starting...
+22:25:06.323 INFO  com.zaxxer.hikari.HikariDataSource.getConnection: HikariPool-1 - Start completed.
+22:26:46.408 INFO  o.springframework.boot.StartupInfoLogger.logStarting: Starting FideliteServiceApplication using Java 17.0.7 on a720982win with PID 7456 (D:\Associate\CapStone_G4\Fidelite-Rest\Fidelite-Rest\target\classes started by a720982 in D:\Associate\CapStone_G4\Fidelite-Rest\Fidelite-Rest)
+22:26:46.414 INFO  o.springframework.boot.SpringApplication.logStartupProfileInfo: The following 1 profile is active: "prod"
+22:26:48.775 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer.initialize: Tomcat initialized with port(s): 8080 (http)
+22:26:48.796 INFO  org.apache.juli.logging.DirectJDKLog.log: Starting service [Tomcat]
+22:26:48.796 INFO  org.apache.juli.logging.DirectJDKLog.log: Starting Servlet engine: [Apache Tomcat/9.0.62]
+22:26:48.985 INFO  org.apache.juli.logging.DirectJDKLog.log: Initializing Spring embedded WebApplicationContext
+22:26:48.986 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext: Root WebApplicationContext: initialization completed in 2434 ms
+22:26:50.677 INFO  o.s.b.a.e.web.EndpointLinksResolver.<init>: Exposing 1 endpoint(s) beneath base path '/actuator'
+22:26:50.791 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer.start: Tomcat started on port(s): 8080 (http) with context path ''
+22:26:50.825 INFO  o.springframework.boot.StartupInfoLogger.logStarted: Started FideliteServiceApplication in 5.252 seconds (JVM running for 5.922)
+22:26:51.803 INFO  org.apache.juli.logging.DirectJDKLog.log: Initializing Spring DispatcherServlet 'dispatcherServlet'
+22:26:51.804 INFO  o.s.web.servlet.FrameworkServlet.initServletBean: Initializing Servlet 'dispatcherServlet'
+22:26:51.806 INFO  o.s.web.servlet.FrameworkServlet.initServletBean: Completed initialization in 2 ms
+22:26:52.002 INFO  com.zaxxer.hikari.HikariDataSource.getConnection: HikariPool-1 - Starting...
+22:26:52.465 INFO  com.zaxxer.hikari.HikariDataSource.getConnection: HikariPool-1 - Start completed.
+22:28:15.321 INFO  o.springframework.boot.StartupInfoLogger.logStarting: Starting FideliteServiceApplication using Java 17.0.7 on a720982win with PID 1184 (D:\Associate\CapStone_G4\Fidelite-Rest\Fidelite-Rest\target\classes started by a720982 in D:\Associate\CapStone_G4\Fidelite-Rest\Fidelite-Rest)
+22:28:15.327 INFO  o.springframework.boot.SpringApplication.logStartupProfileInfo: The following 1 profile is active: "prod"
+22:28:17.501 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer.initialize: Tomcat initialized with port(s): 8080 (http)
+22:28:17.523 INFO  org.apache.juli.logging.DirectJDKLog.log: Starting service [Tomcat]
+22:28:17.524 INFO  org.apache.juli.logging.DirectJDKLog.log: Starting Servlet engine: [Apache Tomcat/9.0.62]
+22:28:17.708 INFO  org.apache.juli.logging.DirectJDKLog.log: Initializing Spring embedded WebApplicationContext
+22:28:17.709 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext: Root WebApplicationContext: initialization completed in 2247 ms
+22:28:19.383 INFO  o.s.b.a.e.web.EndpointLinksResolver.<init>: Exposing 1 endpoint(s) beneath base path '/actuator'
+22:28:19.466 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer.start: Tomcat started on port(s): 8080 (http) with context path ''
+22:28:19.491 INFO  o.springframework.boot.StartupInfoLogger.logStarted: Started FideliteServiceApplication in 4.901 seconds (JVM running for 5.594)
+22:28:22.810 INFO  org.apache.juli.logging.DirectJDKLog.log: Initializing Spring DispatcherServlet 'dispatcherServlet'
+22:28:22.810 INFO  o.s.web.servlet.FrameworkServlet.initServletBean: Initializing Servlet 'dispatcherServlet'
+22:28:22.813 INFO  o.s.web.servlet.FrameworkServlet.initServletBean: Completed initialization in 2 ms
+22:28:22.992 INFO  com.zaxxer.hikari.HikariDataSource.getConnection: HikariPool-1 - Starting...
+22:28:23.613 INFO  com.zaxxer.hikari.HikariDataSource.getConnection: HikariPool-1 - Start completed.
+22:29:28.495 INFO  o.springframework.boot.StartupInfoLogger.logStarting: Starting FideliteServiceApplication using Java 17.0.7 on a720982win with PID 5052 (D:\Associate\CapStone_G4\Fidelite-Rest\Fidelite-Rest\target\classes started by a720982 in D:\Associate\CapStone_G4\Fidelite-Rest\Fidelite-Rest)
+22:29:28.504 INFO  o.springframework.boot.SpringApplication.logStartupProfileInfo: The following 1 profile is active: "prod"
+22:29:30.578 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer.initialize: Tomcat initialized with port(s): 8080 (http)
+22:29:30.593 INFO  org.apache.juli.logging.DirectJDKLog.log: Starting service [Tomcat]
+22:29:30.594 INFO  org.apache.juli.logging.DirectJDKLog.log: Starting Servlet engine: [Apache Tomcat/9.0.62]
+22:29:30.760 INFO  org.apache.juli.logging.DirectJDKLog.log: Initializing Spring embedded WebApplicationContext
+22:29:30.760 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext: Root WebApplicationContext: initialization completed in 2148 ms
+22:29:32.303 INFO  o.s.b.a.e.web.EndpointLinksResolver.<init>: Exposing 1 endpoint(s) beneath base path '/actuator'
+22:29:32.384 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer.start: Tomcat started on port(s): 8080 (http) with context path ''
+22:29:32.412 INFO  o.springframework.boot.StartupInfoLogger.logStarted: Started FideliteServiceApplication in 4.664 seconds (JVM running for 5.343)
+22:29:38.405 INFO  org.apache.juli.logging.DirectJDKLog.log: Initializing Spring DispatcherServlet 'dispatcherServlet'
+22:29:38.406 INFO  o.s.web.servlet.FrameworkServlet.initServletBean: Initializing Servlet 'dispatcherServlet'
+22:29:38.408 INFO  o.s.web.servlet.FrameworkServlet.initServletBean: Completed initialization in 2 ms
+22:29:38.576 INFO  com.zaxxer.hikari.HikariDataSource.getConnection: HikariPool-1 - Starting...
+22:29:39.030 INFO  com.zaxxer.hikari.HikariDataSource.getConnection: HikariPool-1 - Start completed.
+22:39:54.986 INFO  o.springframework.boot.StartupInfoLogger.logStarting: Starting FideliteServiceApplication using Java 17.0.7 on a720982win with PID 7208 (D:\Associate\CapStone_G4\Fidelite-Rest\Fidelite-Rest\target\classes started by a720982 in D:\Associate\CapStone_G4\Fidelite-Rest\Fidelite-Rest)
+22:39:54.994 INFO  o.springframework.boot.SpringApplication.logStartupProfileInfo: The following 1 profile is active: "prod"
+22:39:57.096 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer.initialize: Tomcat initialized with port(s): 8080 (http)
+22:39:57.113 INFO  org.apache.juli.logging.DirectJDKLog.log: Starting service [Tomcat]
+22:39:57.113 INFO  org.apache.juli.logging.DirectJDKLog.log: Starting Servlet engine: [Apache Tomcat/9.0.62]
+22:39:57.272 INFO  org.apache.juli.logging.DirectJDKLog.log: Initializing Spring embedded WebApplicationContext
+22:39:57.273 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext: Root WebApplicationContext: initialization completed in 2174 ms
+22:39:58.839 INFO  o.s.b.a.e.web.EndpointLinksResolver.<init>: Exposing 1 endpoint(s) beneath base path '/actuator'
+22:39:58.924 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer.start: Tomcat started on port(s): 8080 (http) with context path ''
+22:39:58.960 INFO  o.springframework.boot.StartupInfoLogger.logStarted: Started FideliteServiceApplication in 4.714 seconds (JVM running for 5.378)
+22:40:11.571 INFO  org.apache.juli.logging.DirectJDKLog.log: Initializing Spring DispatcherServlet 'dispatcherServlet'
+22:40:11.571 INFO  o.s.web.servlet.FrameworkServlet.initServletBean: Initializing Servlet 'dispatcherServlet'
+22:40:11.573 INFO  o.s.web.servlet.FrameworkServlet.initServletBean: Completed initialization in 1 ms
+22:40:11.729 INFO  com.zaxxer.hikari.HikariDataSource.getConnection: HikariPool-1 - Starting...
+22:40:12.188 INFO  com.zaxxer.hikari.HikariDataSource.getConnection: HikariPool-1 - Start completed.
+22:43:28.147 INFO  o.springframework.boot.StartupInfoLogger.logStarting: Starting FideliteServiceApplication using Java 17.0.7 on a720982win with PID 4092 (D:\Associate\CapStone_G4\Fidelite-Rest\Fidelite-Rest\target\classes started by a720982 in D:\Associate\CapStone_G4\Fidelite-Rest\Fidelite-Rest)
+22:43:28.154 INFO  o.springframework.boot.SpringApplication.logStartupProfileInfo: The following 1 profile is active: "prod"
+22:43:30.220 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer.initialize: Tomcat initialized with port(s): 8080 (http)
+22:43:30.235 INFO  org.apache.juli.logging.DirectJDKLog.log: Starting service [Tomcat]
+22:43:30.237 INFO  org.apache.juli.logging.DirectJDKLog.log: Starting Servlet engine: [Apache Tomcat/9.0.62]
+22:43:30.404 INFO  org.apache.juli.logging.DirectJDKLog.log: Initializing Spring embedded WebApplicationContext
+22:43:30.405 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext: Root WebApplicationContext: initialization completed in 2127 ms
+22:43:31.946 INFO  o.s.b.a.e.web.EndpointLinksResolver.<init>: Exposing 1 endpoint(s) beneath base path '/actuator'
+22:43:32.024 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer.start: Tomcat started on port(s): 8080 (http) with context path ''
+22:43:32.054 INFO  o.springframework.boot.StartupInfoLogger.logStarted: Started FideliteServiceApplication in 4.64 seconds (JVM running for 5.294)
+22:43:47.072 INFO  org.apache.juli.logging.DirectJDKLog.log: Initializing Spring DispatcherServlet 'dispatcherServlet'
+22:43:47.072 INFO  o.s.web.servlet.FrameworkServlet.initServletBean: Initializing Servlet 'dispatcherServlet'
+22:43:47.074 INFO  o.s.web.servlet.FrameworkServlet.initServletBean: Completed initialization in 1 ms
+22:43:47.250 INFO  com.zaxxer.hikari.HikariDataSource.getConnection: HikariPool-1 - Starting...
+22:43:47.739 INFO  com.zaxxer.hikari.HikariDataSource.getConnection: HikariPool-1 - Start completed.
+22:48:34.724 INFO  o.springframework.boot.StartupInfoLogger.logStarting: Starting FideliteServiceApplication using Java 17.0.7 on a720982win with PID 9932 (D:\Associate\CapStone_G4\Fidelite-Rest\Fidelite-Rest\target\classes started by a720982 in D:\Associate\CapStone_G4\Fidelite-Rest\Fidelite-Rest)
+22:48:34.731 INFO  o.springframework.boot.SpringApplication.logStartupProfileInfo: The following 1 profile is active: "prod"
+22:48:37.223 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer.initialize: Tomcat initialized with port(s): 8080 (http)
+22:48:37.245 INFO  org.apache.juli.logging.DirectJDKLog.log: Starting service [Tomcat]
+22:48:37.247 INFO  org.apache.juli.logging.DirectJDKLog.log: Starting Servlet engine: [Apache Tomcat/9.0.62]
+22:48:37.479 INFO  org.apache.juli.logging.DirectJDKLog.log: Initializing Spring embedded WebApplicationContext
+22:48:37.481 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext: Root WebApplicationContext: initialization completed in 2562 ms
+22:48:39.080 INFO  o.s.b.a.e.web.EndpointLinksResolver.<init>: Exposing 1 endpoint(s) beneath base path '/actuator'
+22:48:39.166 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer.start: Tomcat started on port(s): 8080 (http) with context path ''
+22:48:39.198 INFO  o.springframework.boot.StartupInfoLogger.logStarted: Started FideliteServiceApplication in 5.201 seconds (JVM running for 5.885)
+22:48:46.592 INFO  org.apache.juli.logging.DirectJDKLog.log: Initializing Spring DispatcherServlet 'dispatcherServlet'
+22:48:46.593 INFO  o.s.web.servlet.FrameworkServlet.initServletBean: Initializing Servlet 'dispatcherServlet'
+22:48:46.595 INFO  o.s.web.servlet.FrameworkServlet.initServletBean: Completed initialization in 2 ms
+22:48:46.783 INFO  com.zaxxer.hikari.HikariDataSource.getConnection: HikariPool-1 - Starting...
+22:48:47.263 INFO  com.zaxxer.hikari.HikariDataSource.getConnection: HikariPool-1 - Start completed.
+22:49:51.120 INFO  o.springframework.boot.StartupInfoLogger.logStarting: Starting FideliteServiceApplication using Java 17.0.7 on a720982win with PID 1824 (D:\Associate\CapStone_G4\Fidelite-Rest\Fidelite-Rest\target\classes started by a720982 in D:\Associate\CapStone_G4\Fidelite-Rest\Fidelite-Rest)
+22:49:51.136 INFO  o.springframework.boot.SpringApplication.logStartupProfileInfo: The following 1 profile is active: "prod"
+22:49:53.992 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer.initialize: Tomcat initialized with port(s): 8080 (http)
+22:49:54.013 INFO  org.apache.juli.logging.DirectJDKLog.log: Starting service [Tomcat]
+22:49:54.014 INFO  org.apache.juli.logging.DirectJDKLog.log: Starting Servlet engine: [Apache Tomcat/9.0.62]
+22:49:54.200 INFO  org.apache.juli.logging.DirectJDKLog.log: Initializing Spring embedded WebApplicationContext
+22:49:54.201 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext: Root WebApplicationContext: initialization completed in 2937 ms
+22:49:56.147 INFO  o.s.b.a.e.web.EndpointLinksResolver.<init>: Exposing 1 endpoint(s) beneath base path '/actuator'
+22:49:56.245 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer.start: Tomcat started on port(s): 8080 (http) with context path ''
+22:49:56.270 INFO  o.springframework.boot.StartupInfoLogger.logStarted: Started FideliteServiceApplication in 6.172 seconds (JVM running for 7.535)
+22:50:01.458 INFO  org.apache.juli.logging.DirectJDKLog.log: Initializing Spring DispatcherServlet 'dispatcherServlet'
+22:50:01.458 INFO  o.s.web.servlet.FrameworkServlet.initServletBean: Initializing Servlet 'dispatcherServlet'
+22:50:01.461 INFO  o.s.web.servlet.FrameworkServlet.initServletBean: Completed initialization in 2 ms
+22:50:35.365 INFO  com.zaxxer.hikari.HikariDataSource.getConnection: HikariPool-1 - Starting...
+22:50:47.097 INFO  com.zaxxer.hikari.HikariDataSource.getConnection: HikariPool-1 - Start completed.
