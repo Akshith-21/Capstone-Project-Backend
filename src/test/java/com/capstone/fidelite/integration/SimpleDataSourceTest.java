@@ -1,4 +1,4 @@
-package com.capstone.fidelite.dao.test;
+package com.capstone.fidelite.integration;
 
 import static org.junit.jupiter.api.Assertions.*;
 
