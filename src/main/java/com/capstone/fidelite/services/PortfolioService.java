@@ -6,20 +6,34 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 
+import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import com.capstone.fidelite.integration.FMTSDao;
+import com.capstone.fidelite.integration.FMTSDaoImpl;
 import com.capstone.fidelite.integration.TradeDao;
 import com.capstone.fidelite.models.Direction;
 import com.capstone.fidelite.models.Order;
+import com.capstone.fidelite.models.OrderFMTS;
 import com.capstone.fidelite.models.Portfolio;
 import com.capstone.fidelite.models.Trade;
+import com.capstone.fidelite.models.TradeFMTS;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonMappingException;
 
 @Service
 public class PortfolioService {
+	
+	@Autowired
+	Logger logger;
 
 	@Autowired
 	TradeDao tradeDaoImpl;
+	
+	@Autowired
+	private FMTSDao fmtsDao;
 
 	public PortfolioService() {
 	}
@@ -28,24 +42,49 @@ public class PortfolioService {
 		return tradeDaoImpl.getAllPortfolioMyBatis(clientId);
 	}
 
-	private Trade executeOrder(Order order) {
-		Trade trade = new Trade(200, 2, Direction.BUY, "AAPL", "Client1", "5", 100);
+	private Trade executeOrder(OrderFMTS order) {
+		Trade trade = null;
+		TradeFMTS tradeFMTS = null;
+		try {
+			tradeFMTS = fmtsDao.executeTrade(order);
+//			System.out.println(")(*!#$*&)(#!&$)(*#!&$)#!*)(*$#!$&)!#&$");
+		} catch (JsonMappingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (JsonProcessingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		trade = new Trade(tradeFMTS);
 		return trade;
 
 	}
 
-	public void executeTrade(Order order) {
-		Trade trade = executeOrder(order);
-		if (order.getDirection().getCode().equals("BUY")) {
-
-			addPortfolio(trade);
-			addTrade(trade);
-		} else if (order.getDirection().getCode().equals("SELL")) {
-			sellPortfolio(trade);
-			addTrade(trade);
-		} else {
-			throw new IllegalArgumentException("Direction Should be either BUY or SELL");
+	public Trade executeTrade(OrderFMTS order) {
+		Trade trade = null;
+		try {
+			System.out.println("Inside executeTrade in portfolio service: " + order);
+			trade = executeOrder(order);
+			
+			if (order.getDirection().equals("B")) {
+				addPortfolio(trade);
+				addTrade(trade);
+			} else if (order.getDirection().equals("S")) {
+				sellPortfolio(trade);
+				addTrade(trade);
+			} else {
+				throw new IllegalArgumentException("Direction Should be either BUY or SELL");
+			}
 		}
+		catch(IllegalArgumentException e) {
+			logger.error("Unable to execute trade");
+			e.printStackTrace();
+		}
+		catch(Exception e) {
+			throw e;
+		}
+		return trade;
 	}
 
 	public void addTrade(Trade trade) {

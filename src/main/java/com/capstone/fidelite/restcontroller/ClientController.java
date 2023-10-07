@@ -35,15 +35,13 @@ public class ClientController {
 		ResponseEntity<ClientDataTransferObject> response = null;
 		ClientFMTS clientFmts = null;
 		try {
-		clientFmts = clientService.register(client);
-		if(clientFmts == null) {
-			response = ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
-			
-		}
-		
-		response = ResponseEntity.status(HttpStatus.OK).body(new ClientDataTransferObject(clientFmts.getClientId(), clientFmts.getToken()));
-	
-		
+			clientFmts = clientService.register(client);
+			if(clientFmts == null) {
+				response = ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+			}
+			else {
+				response = ResponseEntity.status(HttpStatus.OK).body(new ClientDataTransferObject(clientFmts.getClientId(), clientFmts.getToken()));
+			}
 		}
 		catch (Exception e) {
 			e.printStackTrace();

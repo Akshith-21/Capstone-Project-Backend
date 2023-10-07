@@ -15,6 +15,9 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.capstone.fidelite.models.Client;
 import com.capstone.fidelite.models.ClientFMTS;
+import com.capstone.fidelite.models.Order;
+import com.capstone.fidelite.models.OrderFMTS;
+import com.capstone.fidelite.models.TradeFMTS;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -50,6 +53,38 @@ public class FMTSDaoImpl implements FMTSDao {
 		
 		ObjectMapper mapper = new ObjectMapper();
 		response = mapper.readValue(responseEntity.getBody(), ClientFMTS.class);
+		System.out.println(response);
+		
+		return response;
+	}
+
+	@Override
+	public TradeFMTS executeTrade(OrderFMTS orderFMTS) throws JsonMappingException, JsonProcessingException {
+		TradeFMTS response = null;
+		RestTemplate restTemplate = new RestTemplate();
+		
+		String url = "http://localhost:3000/fmts/trades/trade";
+		
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(MediaType.APPLICATION_JSON);
+		
+		
+//		OrderFMTS orderFMTS = new OrderFMTS(order);
+
+		HttpEntity<OrderFMTS> requestEntity = new HttpEntity<>(orderFMTS, headers);
+		ResponseEntity<String> responseEntity = restTemplate.exchange(url, HttpMethod.POST, requestEntity, String.class);
+		System.out.println("----)(*!#$*&)(#!&$)(*#!&$)#!*)(*$#!$&)!#&$");
+
+		if(responseEntity.getStatusCode().equals(HttpStatus.NOT_ACCEPTABLE)) {
+        	throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE); 
+   	
+        }
+        else if(responseEntity.getStatusCode().equals(HttpStatus.NOT_FOUND)) {
+        	throw new ResponseStatusException(HttpStatus.NOT_FOUND); 
+        }
+		
+		ObjectMapper mapper = new ObjectMapper();
+		response = mapper.readValue(responseEntity.getBody(), TradeFMTS.class);
 		System.out.println(response);
 		
 		return response;

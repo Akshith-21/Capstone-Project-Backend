@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.capstone.fidelite.integration.mapper.TradeMapper">
+	<resultMap id="tradeMapper" type="Trade">
+		<id property="tradeId" column="trade_id" />
+		<result property="clientId" column="client_id" />
+		<result property="direction" column="direction"
+			typeHandler="com.capstone.fidelite.models.DirectionTypeHandler" />
+		<result property="executionPrice" column="execution_price" />
+		<result property="instrumentId" column="instrument_id" />
+		<result property="quantity" column="quantity" />
+		<result property="cashValue" column="cash_value" />
+		<result property="timestamp" column="time_stamp" />
+	</resultMap>
+
+	<select id="getAllTradesById" resultMap="tradeMapper">
+		SELECT
+		trade_id,
+		client_id,
+		instrument_id,
+		direction,
+		quantity,
+		execution_price,
+		COALESCE(execution_price,0) * COALESCE(quantity,0) as cash_value,
+		time_stamp
+		FROM c_trade where client_id = #{clientId}
+
+	</select>
+
+	<insert id="insertTrade" parameterType="Trade">
+		INSERT INTO c_trade (
+		trade_id,
+		client_id,
+		instrument_id,
+		quantity,
+		execution_price,
+		direction,
+		time_stamp
+		)
+		VALUES (
+		#{tradeId},
+		#{clientId},
+		#{instrumentId},
+		#{quantity},
+		#{executionPrice},
+		#{direction, typeHandler =
+		com.capstone.fidelite.models.DirectionTypeHandler},
+		#{timestamp}
+		)
+	</insert>
+
+	<resultMap id="PortfolioMap" type="Portfolio">
+		<id property="externalId" column="external_id" />
+		<result property="externalType" column="external_type" />
+		<result property="priceTimestamp" column="timestamp" />
+		<result property="instrumentDescription" column="description" />
+		<result property="bidPrice" column="bid_price" />
+		<result property="askPrice" column="ask_price" />
+		<result property="currentHoldings" column="current_holdings" />
+	</resultMap>
+
+	<select
+		id="getAllPortfolio" resultMap="PortfolioMap" parameterType="String">
+		SELECT
+		pr.external_id,
+		pr.external_type,
+		pr.timestamp,
+		pr.description,
+		pr.bid_price,
+		pr.ask_price,
+		p.current_holdings
+		FROM c_Portfolio p LEFT JOIN c_Price pr
+		ON p.instrument_id = pr.instrument_id
+		WHERE p.client_id = #{clientId}
+	</select>
+
+	<select
+		id="getPortfolio" parameterType="Portfolio" resultType="Map">
+		SELECT
+		client_id,
+		instrument_id,
+		current_holdings
+		FROM c_Portfolio
+		WHERE client_id = #{clientId} AND instrument_id = #{instrumentId}
+	</select>
+
+	<insert
+		id="insertPortfolio" parameterType="map">
+		INSERT INTO c_portfolio (
+		client_id,
+		instrument_id,
+		current_holdings
+		) VALUES (
+		#{clientId},
+		#{instrumentId},
+		#{currentHoldings}
+		)
+	</insert>
+
+	<update
+		id="updatePortfolio" parameterType="map">
+		UPDATE c_Portfolio
+		SET
+		current_holdings = #{currentHoldings}
+		WHERE client_id = #{clientId} AND instrument_id = #{instrumentId}
+	</update>
+
+	<delete
+		id="deletePortfolio" parameterType="map">
+		DELETE
+		FROM c_Portfolio
+		WHERE client_id = #{clientId} AND instrument_id = #{instrumentId}
+	</delete>
+
+	<select id="getBalance" resultType="double">
+		select balance from c_balance where client_id = #{clientId}
+	</select>
+
+	<insert id="insertBalance">
+		insert into c_balance (client_id,balance) VALUES
+		(#{clientId},#{balance})
+	</insert>
+
+	<update id="updateBalance">
+		update c_balance set balance = #{balance} where client_id = #{clientId}
+	</update>
+
+</mapper>

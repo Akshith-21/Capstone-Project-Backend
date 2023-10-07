@@ -1,5 +1,8 @@
 package com.capstone.fidelite.models;
 
+import java.sql.Timestamp;
+import java.time.Instant;
+
 public class Trade {
     public double cashValue;
     public double quantity;
@@ -8,11 +11,12 @@ public class Trade {
     public String clientId;
     public String tradeId;
     public double executionPrice;
+    public Timestamp timestamp;
     
 	public Trade() {}
     
     public Trade(double cashValue, double quantity, Direction direction, String instrumentId, String clientId,
-			String tradeId, double executionPrice) {
+			String tradeId, double executionPrice, Timestamp timestamp) {
 		this.cashValue = cashValue;
 		this.quantity = quantity;
 		this.direction = direction;
@@ -20,10 +24,11 @@ public class Trade {
 		this.clientId = clientId;
 		this.tradeId = tradeId;
 		this.executionPrice = executionPrice;
+		this.timestamp = timestamp;
 	}
 
 	public Trade(double quantity, Direction direction, String instrumentId, String clientId, String tradeId,
-			double executionPrice) {
+			double executionPrice, Timestamp timestamp) {
 		
 		this.quantity = quantity;
 		this.direction = direction;
@@ -31,6 +36,18 @@ public class Trade {
 		this.clientId = clientId;
 		this.tradeId = tradeId;
 		this.executionPrice = executionPrice;
+		this.timestamp = timestamp;
+	}
+
+	public Trade(TradeFMTS tradeFMTS) {
+		this.cashValue = tradeFMTS.getCashValue();
+		this.quantity = tradeFMTS.getQuantity();
+		this.direction = Direction.of(tradeFMTS.getDirection());
+		this.instrumentId = tradeFMTS.getInstrumentId();
+		this.clientId = tradeFMTS.getClientId();
+		this.tradeId = tradeFMTS.getTradeId();
+		this.executionPrice = tradeFMTS.getExecutionPrice();
+		this.timestamp = Timestamp.from(Instant.now());
 	}
 
 	public double getCashValue() {
@@ -87,6 +104,14 @@ public class Trade {
 
 	public void setExecutionPrice(double executionPrice) {
 		this.executionPrice = executionPrice;
+	}
+
+	public Timestamp getTimestamp() {
+		return timestamp;
+	}
+
+	public void setTimestamp(Timestamp timestamp) {
+		this.timestamp = timestamp;
 	}
 
 	

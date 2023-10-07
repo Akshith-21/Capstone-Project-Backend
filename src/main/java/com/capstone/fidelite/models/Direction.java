@@ -1,7 +1,7 @@
 package com.capstone.fidelite.models;
 
 public enum Direction {
-   BUY("BUY"),SELL("SELL");
+   BUY("B"),SELL("S");
    private String code; 
   private Direction(String code) {
 	  this.code = code;

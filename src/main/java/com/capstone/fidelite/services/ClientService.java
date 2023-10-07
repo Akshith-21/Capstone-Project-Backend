@@ -28,6 +28,9 @@ public class ClientService {
 
 	@Autowired
 	private ClientDaoImpl clientDao;
+	
+	@Autowired
+	private TradeDaoImpl tradeDao;
 
 	@Autowired
 	private FMTSDao fmtsDao;
@@ -52,6 +55,7 @@ public class ClientService {
                 for(ClientIdentification identification:clientIdentification) {
                 clientDao.insertClientIdentification(identification,fmtsResponse.getClientId());
                 }
+                tradeDao.insertBalance(client.getPerson().getId(), 1000000.00);
 			} catch (Exception e) {
 				String msg = "Error while inserting Person, email Already exist";
 				e.printStackTrace();
@@ -98,32 +102,32 @@ public class ClientService {
 
 	}
 
-	private boolean verifyPreferences(String email) {
-		return preferencesData.containsKey(email);
-	}
+//	private boolean verifyPreferences(String email) {
+//		return preferencesData.containsKey(email);
+//	}
+//
+//	public boolean verifyClientIdentificationExists(Set<ClientIdentification> clientIdentification) {
+//		if (clientIdentification == null) {
+//
+//			throw new NullPointerException("Client Identification cannot be null");
+//		}
+//		for (Map.Entry<String, Client> mapElement : clientData.entrySet()) {
+//			Set<ClientIdentification> set = mapElement.getValue().getClientIdentificationSet();
+//			if (set.contains(clientIdentification)) {
+//				return true;
+//			}
+//		}
+//		return false;
+//	}
 
-	public boolean verifyClientIdentificationExists(Set<ClientIdentification> clientIdentification) {
-		if (clientIdentification == null) {
-
-			throw new NullPointerException("Client Identification cannot be null");
-		}
-		for (Map.Entry<String, Client> mapElement : clientData.entrySet()) {
-			Set<ClientIdentification> set = mapElement.getValue().getClientIdentificationSet();
-			if (set.contains(clientIdentification)) {
-				return true;
-			}
-		}
-		return false;
-	}
-
-	public Set<ClientIdentification> getId(String email) {
-		Client temp = clientData.get(email);
-		if (temp != null) {
-			return temp.getClientIdentificationSet();
-		} else {
-			return null;
-		}
-	}
+//	public Set<ClientIdentification> getId(String email) {
+//		Client temp = clientData.get(email);
+//		if (temp != null) {
+//			return temp.getClientIdentificationSet();
+//		} else {
+//			return null;
+//		}
+//	}
 
 	public boolean isLoggedIn = false;
 
@@ -156,29 +160,29 @@ public class ClientService {
 		}
 	}
 
-	public void addPreferences(String email, Preferences preference) {
-
-		if (preference.getRoboAdvisorCheck() == 0) {
-			throw new IllegalArgumentException("Robo Advisor check is not accepted");
-		}
-
-		if (verifyEmailAddress(email) == true) {
-			preferencesData.put(email, preference);
-		} else
-			throw new IllegalArgumentException("Email is not registered");
-
-	}
-
-	public void updatePreferences(String email, Preferences preference) {
-
-		if (verifyPreferences(email) == true) {
-			preferencesData.put(email, preference);
-		} else
-			throw new IllegalArgumentException("Initial Preferences are not added yet");
-	}
-
-	public String getRiskToleranceByMail(String email) {
-		return preferencesData.get(email).getRiskTolerance();
-	}
+//	public void addPreferences(String email, Preferences preference) {
+//
+//		if (preference.getRoboAdvisorCheck() == 0) {
+//			throw new IllegalArgumentException("Robo Advisor check is not accepted");
+//		}
+//
+//		if (verifyEmailAddress(email) == true) {
+//			preferencesData.put(email, preference);
+//		} else
+//			throw new IllegalArgumentException("Email is not registered");
+//
+//	}
+//
+//	public void updatePreferences(String email, Preferences preference) {
+//
+//		if (verifyPreferences(email) == true) {
+//			preferencesData.put(email, preference);
+//		} else
+//			throw new IllegalArgumentException("Initial Preferences are not added yet");
+//	}
+//
+//	public String getRiskToleranceByMail(String email) {
+//		return preferencesData.get(email).getRiskTolerance();
+//	}
 
 }

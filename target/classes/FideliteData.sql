@@ -2,6 +2,7 @@ DROP TABLE c_Trade;
 DROP TABLE c_Portfolio;
 DROP TABLE c_Price;
 DROP TABLE c_Client_Identification;
+DROP TABLE c_balance;
 DROP TABLE c_Person;
 
 
@@ -53,34 +54,34 @@ INSERT INTO c_client_identification (client_id, type, value) VALUES ('Client4', 
 INSERT INTO c_client_identification (client_id, type, value) VALUES ('Client5', 'Driver License', 'DL1234');
 INSERT INTO c_client_identification (client_id, type, value) VALUES ('Client6', 'Social Security Number', 'SSN7890');
 
-CREATE TABLE c_Price (
-    instrument_id VARCHAR2(50) PRIMARY KEY,
-    external_id VARCHAR2(50),
-    external_type VARCHAR2(50),
-    description VARCHAR2(255),
-    max_quantity NUMBER,
-    min_quantity NUMBER,
-    category_id VARCHAR2(50),
-    bid_price NUMBER,
-    ask_price NUMBER,
-    timestamp TIMESTAMP
-);
+-- CREATE TABLE c_Price (
+--     instrument_id VARCHAR2(50) PRIMARY KEY,
+--     external_id VARCHAR2(50),
+--     external_type VARCHAR2(50),
+--     description VARCHAR2(255),
+--     max_quantity NUMBER,
+--     min_quantity NUMBER,
+--     category_id VARCHAR2(50),
+--     bid_price NUMBER,
+--     ask_price NUMBER,
+--     timestamp TIMESTAMP
+-- );
 
 
-INSERT INTO c_Price (instrument_id, external_id, external_type, description, max_quantity, min_quantity, category_id, bid_price, ask_price, timestamp)
-VALUES ('AAPL', 'AAPL001', 'Type1', 'Apple Inc.', 1000, 10, 'Tech', 150.50, 151.00, TO_TIMESTAMP('2023-09-19 10:30:00', 'YYYY-MM-DD HH24:MI:SS'));
+-- INSERT INTO c_Price (instrument_id, external_id, external_type, description, max_quantity, min_quantity, category_id, bid_price, ask_price, timestamp)
+-- VALUES ('AAPL', 'AAPL001', 'Type1', 'Apple Inc.', 1000, 10, 'Tech', 150.50, 151.00, TO_TIMESTAMP('2023-09-19 10:30:00', 'YYYY-MM-DD HH24:MI:SS'));
 
 
-INSERT INTO c_Price (instrument_id, external_id, external_type, description, max_quantity, min_quantity, category_id, bid_price, ask_price, timestamp)
-VALUES ('GOOGL', 'GOOGL001', 'Type2', 'Alphabet Inc.', 800, 20, 'Tech', 2765.25, 2766.50, TO_TIMESTAMP('2023-09-19 11:45:00', 'YYYY-MM-DD HH24:MI:SS'));
+-- INSERT INTO c_Price (instrument_id, external_id, external_type, description, max_quantity, min_quantity, category_id, bid_price, ask_price, timestamp)
+-- VALUES ('GOOGL', 'GOOGL001', 'Type2', 'Alphabet Inc.', 800, 20, 'Tech', 2765.25, 2766.50, TO_TIMESTAMP('2023-09-19 11:45:00', 'YYYY-MM-DD HH24:MI:SS'));
 
 
-INSERT INTO c_Price (instrument_id, external_id, external_type, description, max_quantity, min_quantity, category_id, bid_price, ask_price, timestamp)
-VALUES ('TSLA', 'TSLA001', 'Type1', 'Tesla, Inc.', 500, 5, 'Auto', 725.75, 726.25, TO_TIMESTAMP('2023-09-19 13:15:00', 'YYYY-MM-DD HH24:MI:SS'));
+-- INSERT INTO c_Price (instrument_id, external_id, external_type, description, max_quantity, min_quantity, category_id, bid_price, ask_price, timestamp)
+-- VALUES ('TSLA', 'TSLA001', 'Type1', 'Tesla, Inc.', 500, 5, 'Auto', 725.75, 726.25, TO_TIMESTAMP('2023-09-19 13:15:00', 'YYYY-MM-DD HH24:MI:SS'));
 
 
-INSERT INTO c_Price (instrument_id, external_id, external_type, description, max_quantity, min_quantity, category_id, bid_price, ask_price, timestamp)
-VALUES ('AMZN', 'AMZN001', 'Type2', 'Amazon.com, Inc.', 1200, 30, 'Retail', 3420.00, 3421.50, TO_TIMESTAMP('2023-09-19 14:30:00', 'YYYY-MM-DD HH24:MI:SS'));
+-- INSERT INTO c_Price (instrument_id, external_id, external_type, description, max_quantity, min_quantity, category_id, bid_price, ask_price, timestamp)
+-- VALUES ('AMZN', 'AMZN001', 'Type2', 'Amazon.com, Inc.', 1200, 30, 'Retail', 3420.00, 3421.50, TO_TIMESTAMP('2023-09-19 14:30:00', 'YYYY-MM-DD HH24:MI:SS'));
 
 
 CREATE TABLE c_Trade (
@@ -90,29 +91,29 @@ CREATE TABLE c_Trade (
     direction VARCHAR2(10),
     quantity NUMBER,
     execution_price NUMBER,
-    FOREIGN KEY(client_id) REFERENCES c_Person(client_id),
-    FOREIGN KEY(instrument_id) REFERENCES c_Price(instrument_id)
+    time_stamp TIMESTAMP,
+    FOREIGN KEY(client_id) REFERENCES c_Person(client_id)
 );
 
 
 
-INSERT INTO c_Trade (trade_id, client_id, instrument_id, direction, quantity, execution_price)
-VALUES (1, 'Client1', 'AAPL', 'BUY', 100, 50.25);
+INSERT INTO c_Trade (trade_id, client_id, instrument_id, direction, quantity, execution_price, time_stamp)
+VALUES (1, 'Client1', 'AAPL', 'BUY', 100, 50.25, TO_TIMESTAMP('2023-09-19 10:30:00', 'YYYY-MM-DD HH24:MI:SS'));
 
 
 
-INSERT INTO c_Trade (trade_id, client_id, instrument_id, direction, quantity, execution_price)
-VALUES (2, 'Client2', 'GOOGL', 'SELL', 75, 45.75);
+INSERT INTO c_Trade (trade_id, client_id, instrument_id, direction, quantity, execution_price, time_stamp)
+VALUES (2, 'Client2', 'GOOGL', 'SELL', 75, 45.75, TO_TIMESTAMP('2023-09-19 11:45:00', 'YYYY-MM-DD HH24:MI:SS'));
 
 
 
-INSERT INTO c_Trade (trade_id, client_id, instrument_id, direction, quantity, execution_price)
-VALUES (3, 'Client3', 'TSLA', 'BUY', 50, 55.50);
+INSERT INTO c_Trade (trade_id, client_id, instrument_id, direction, quantity, execution_price, time_stamp)
+VALUES (3, 'Client3', 'TSLA', 'BUY', 50, 55.50, TO_TIMESTAMP('2023-09-19 13:15:00', 'YYYY-MM-DD HH24:MI:SS'));
 
 
 
-INSERT INTO c_Trade (trade_id, client_id, instrument_id, direction, quantity, execution_price)
-VALUES (4, 'Client4', 'AMZN', 'SELL', 125, 40.00);
+INSERT INTO c_Trade (trade_id, client_id, instrument_id, direction, quantity, execution_price, time_stamp)
+VALUES (4, 'Client4', 'AMZN', 'SELL', 125, 40.00, TO_TIMESTAMP('2023-09-19 14:30:00', 'YYYY-MM-DD HH24:MI:SS'));
 
 
 CREATE TABLE c_Portfolio (
@@ -120,8 +121,7 @@ CREATE TABLE c_Portfolio (
     instrument_id VARCHAR2(50),
     current_holdings NUMBER,
     PRIMARY KEY (client_id, instrument_id),
-    FOREIGN KEY(client_id) REFERENCES c_Person(client_id),
-    FOREIGN KEY(instrument_id) REFERENCES c_Price(instrument_id)
+    FOREIGN KEY(client_id) REFERENCES c_Person(client_id)
 );
 
 
@@ -143,6 +143,12 @@ VALUES ('Client3', 'TSLA', 100);
 
 INSERT INTO c_Portfolio (client_id, instrument_id, current_holdings)
 VALUES ('Client4', 'AMZN', 300);
+
+CREATE TABLE c_balance (
+    client_id VARCHAR2(50) PRIMARY KEY,
+    balance NUMBER,
+    FOREIGN KEY(client_id) REFERENCES c_Person(client_id)
+);
 
 
 COMMIT;
