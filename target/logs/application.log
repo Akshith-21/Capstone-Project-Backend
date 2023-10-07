@@ -251,3 +251,627 @@ Identify and stop the process that's listening on port 8080 or configure this ap
 16:35:26.869 INFO  com.zaxxer.hikari.HikariDataSource.getConnection: HikariPool-1 - Starting...
 16:35:27.206 INFO  com.zaxxer.hikari.HikariDataSource.getConnection: HikariPool-1 - Start completed.
 16:41:54.172 INFO  c.c.fidelite.models.DirectionTypeHandler.setNonNullParameter: Bhgsadufhiasdfo*******
+16:48:00.490 INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin.shutdown: Application shutdown requested.
+16:48:00.518 INFO  com.zaxxer.hikari.HikariDataSource.close: HikariPool-1 - Shutdown initiated...
+16:48:00.536 INFO  com.zaxxer.hikari.HikariDataSource.close: HikariPool-1 - Shutdown completed.
+17:22:52.042 INFO  o.springframework.boot.StartupInfoLogger.logStarting: Starting FideliteServiceApplication using Java 17.0.7 on a720912win with PID 4688 (D:\Capstone\Fidelite_java\Fidelite_REST\target\classes started by a720912 in D:\Capstone\Fidelite_java\Fidelite_REST)
+17:22:52.048 INFO  o.springframework.boot.SpringApplication.logStartupProfileInfo: The following 1 profile is active: "prod"
+17:22:53.658 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer.initialize: Tomcat initialized with port(s): 8080 (http)
+17:22:53.672 INFO  org.apache.juli.logging.DirectJDKLog.log: Starting service [Tomcat]
+17:22:53.673 INFO  org.apache.juli.logging.DirectJDKLog.log: Starting Servlet engine: [Apache Tomcat/9.0.62]
+17:22:53.802 INFO  org.apache.juli.logging.DirectJDKLog.log: Initializing Spring embedded WebApplicationContext
+17:22:53.802 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext: Root WebApplicationContext: initialization completed in 1683 ms
+17:22:55.066 INFO  o.s.b.a.e.web.EndpointLinksResolver.<init>: Exposing 1 endpoint(s) beneath base path '/actuator'
+17:22:55.124 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer.start: Tomcat started on port(s): 8080 (http) with context path ''
+17:22:55.144 INFO  o.springframework.boot.StartupInfoLogger.logStarted: Started FideliteServiceApplication in 3.656 seconds (JVM running for 4.523)
+17:22:55.580 INFO  org.apache.juli.logging.DirectJDKLog.log: Initializing Spring DispatcherServlet 'dispatcherServlet'
+17:22:55.580 INFO  o.s.web.servlet.FrameworkServlet.initServletBean: Initializing Servlet 'dispatcherServlet'
+17:22:55.583 INFO  o.s.web.servlet.FrameworkServlet.initServletBean: Completed initialization in 2 ms
+17:23:15.296 INFO  com.zaxxer.hikari.HikariDataSource.getConnection: HikariPool-1 - Starting...
+17:23:15.638 INFO  com.zaxxer.hikari.HikariDataSource.getConnection: HikariPool-1 - Start completed.
+17:23:43.305 INFO  c.c.fidelite.models.DirectionTypeHandler.setNonNullParameter: Bhgsadufhiasdfo*******
+17:24:24.162 ERROR org.apache.juli.logging.DirectJDKLog.log: Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException: Cannot invoke "String.equals(Object)" because the return value of "org.springframework.web.server.ResponseStatusException.getReason()" is null] with root cause
+java.lang.NullPointerException: Cannot invoke "String.equals(Object)" because the return value of "org.springframework.web.server.ResponseStatusException.getReason()" is null
+	at com.capstone.fidelite.restcontroller.TradeController.getPortfolioDetails(TradeController.java:60)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:96)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+17:30:22.008 INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin.shutdown: Application shutdown requested.
+17:30:22.037 INFO  com.zaxxer.hikari.HikariDataSource.close: HikariPool-1 - Shutdown initiated...
+17:30:22.052 INFO  com.zaxxer.hikari.HikariDataSource.close: HikariPool-1 - Shutdown completed.
+17:30:26.838 INFO  o.springframework.boot.StartupInfoLogger.logStarting: Starting FideliteServiceApplication using Java 17.0.7 on a720912win with PID 7576 (D:\Capstone\Fidelite_java\Fidelite_REST\target\classes started by a720912 in D:\Capstone\Fidelite_java\Fidelite_REST)
+17:30:26.843 INFO  o.springframework.boot.SpringApplication.logStartupProfileInfo: The following 1 profile is active: "prod"
+17:30:28.659 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer.initialize: Tomcat initialized with port(s): 8080 (http)
+17:30:28.674 INFO  org.apache.juli.logging.DirectJDKLog.log: Starting service [Tomcat]
+17:30:28.675 INFO  org.apache.juli.logging.DirectJDKLog.log: Starting Servlet engine: [Apache Tomcat/9.0.62]
+17:30:28.823 INFO  org.apache.juli.logging.DirectJDKLog.log: Initializing Spring embedded WebApplicationContext
+17:30:28.823 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext: Root WebApplicationContext: initialization completed in 1904 ms
+17:30:30.355 INFO  o.s.b.a.e.web.EndpointLinksResolver.<init>: Exposing 1 endpoint(s) beneath base path '/actuator'
+17:30:30.427 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer.start: Tomcat started on port(s): 8080 (http) with context path ''
+17:30:30.448 INFO  o.springframework.boot.StartupInfoLogger.logStarted: Started FideliteServiceApplication in 4.222 seconds (JVM running for 5.236)
+17:30:30.918 INFO  org.apache.juli.logging.DirectJDKLog.log: Initializing Spring DispatcherServlet 'dispatcherServlet'
+17:30:30.919 INFO  o.s.web.servlet.FrameworkServlet.initServletBean: Initializing Servlet 'dispatcherServlet'
+17:30:30.922 INFO  o.s.web.servlet.FrameworkServlet.initServletBean: Completed initialization in 3 ms
+17:30:34.257 INFO  com.zaxxer.hikari.HikariDataSource.getConnection: HikariPool-1 - Starting...
+17:30:34.658 INFO  com.zaxxer.hikari.HikariDataSource.getConnection: HikariPool-1 - Start completed.
+17:30:35.054 ERROR org.apache.juli.logging.DirectJDKLog.log: Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException: Cannot invoke "String.equals(Object)" because the return value of "org.springframework.web.server.ResponseStatusException.getReason()" is null] with root cause
+java.lang.NullPointerException: Cannot invoke "String.equals(Object)" because the return value of "org.springframework.web.server.ResponseStatusException.getReason()" is null
+	at com.capstone.fidelite.restcontroller.TradeController.getPortfolioDetails(TradeController.java:60)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:96)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+17:31:16.751 ERROR org.apache.juli.logging.DirectJDKLog.log: Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException: Cannot invoke "String.equals(Object)" because the return value of "org.springframework.web.server.ResponseStatusException.getReason()" is null] with root cause
+java.lang.NullPointerException: Cannot invoke "String.equals(Object)" because the return value of "org.springframework.web.server.ResponseStatusException.getReason()" is null
+	at com.capstone.fidelite.restcontroller.TradeController.getPortfolioDetails(TradeController.java:60)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:96)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+17:32:14.709 INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin.shutdown: Application shutdown requested.
+17:32:14.736 INFO  com.zaxxer.hikari.HikariDataSource.close: HikariPool-1 - Shutdown initiated...
+17:32:14.752 INFO  com.zaxxer.hikari.HikariDataSource.close: HikariPool-1 - Shutdown completed.
+17:32:19.290 INFO  o.springframework.boot.StartupInfoLogger.logStarting: Starting FideliteServiceApplication using Java 17.0.7 on a720912win with PID 8256 (D:\Capstone\Fidelite_java\Fidelite_REST\target\classes started by a720912 in D:\Capstone\Fidelite_java\Fidelite_REST)
+17:32:19.295 INFO  o.springframework.boot.SpringApplication.logStartupProfileInfo: The following 1 profile is active: "prod"
+17:32:20.833 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer.initialize: Tomcat initialized with port(s): 8080 (http)
+17:32:20.846 INFO  org.apache.juli.logging.DirectJDKLog.log: Starting service [Tomcat]
+17:32:20.847 INFO  org.apache.juli.logging.DirectJDKLog.log: Starting Servlet engine: [Apache Tomcat/9.0.62]
+17:32:20.972 INFO  org.apache.juli.logging.DirectJDKLog.log: Initializing Spring embedded WebApplicationContext
+17:32:20.972 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext: Root WebApplicationContext: initialization completed in 1609 ms
+17:32:22.241 INFO  o.s.b.a.e.web.EndpointLinksResolver.<init>: Exposing 1 endpoint(s) beneath base path '/actuator'
+17:32:22.304 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer.start: Tomcat started on port(s): 8080 (http) with context path ''
+17:32:22.321 INFO  o.springframework.boot.StartupInfoLogger.logStarted: Started FideliteServiceApplication in 3.578 seconds (JVM running for 4.527)
+17:32:22.731 INFO  org.apache.juli.logging.DirectJDKLog.log: Initializing Spring DispatcherServlet 'dispatcherServlet'
+17:32:22.732 INFO  o.s.web.servlet.FrameworkServlet.initServletBean: Initializing Servlet 'dispatcherServlet'
+17:32:22.734 INFO  o.s.web.servlet.FrameworkServlet.initServletBean: Completed initialization in 2 ms
+17:32:25.232 INFO  com.zaxxer.hikari.HikariDataSource.getConnection: HikariPool-1 - Starting...
+17:32:25.600 INFO  com.zaxxer.hikari.HikariDataSource.getConnection: HikariPool-1 - Start completed.
+17:32:25.921 ERROR org.apache.juli.logging.DirectJDKLog.log: Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException: Cannot invoke "String.equals(Object)" because the return value of "org.springframework.web.server.ResponseStatusException.getReason()" is null] with root cause
+java.lang.NullPointerException: Cannot invoke "String.equals(Object)" because the return value of "org.springframework.web.server.ResponseStatusException.getReason()" is null
+	at com.capstone.fidelite.restcontroller.TradeController.getPortfolioDetails(TradeController.java:60)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:96)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+17:33:14.785 INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin.shutdown: Application shutdown requested.
+17:33:14.821 INFO  com.zaxxer.hikari.HikariDataSource.close: HikariPool-1 - Shutdown initiated...
+17:33:14.840 INFO  com.zaxxer.hikari.HikariDataSource.close: HikariPool-1 - Shutdown completed.
+17:33:19.089 INFO  o.springframework.boot.StartupInfoLogger.logStarting: Starting FideliteServiceApplication using Java 17.0.7 on a720912win with PID 9016 (D:\Capstone\Fidelite_java\Fidelite_REST\target\classes started by a720912 in D:\Capstone\Fidelite_java\Fidelite_REST)
+17:33:19.094 INFO  o.springframework.boot.SpringApplication.logStartupProfileInfo: The following 1 profile is active: "prod"
+17:33:20.666 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer.initialize: Tomcat initialized with port(s): 8080 (http)
+17:33:20.680 INFO  org.apache.juli.logging.DirectJDKLog.log: Starting service [Tomcat]
+17:33:20.681 INFO  org.apache.juli.logging.DirectJDKLog.log: Starting Servlet engine: [Apache Tomcat/9.0.62]
+17:33:20.826 INFO  org.apache.juli.logging.DirectJDKLog.log: Initializing Spring embedded WebApplicationContext
+17:33:20.826 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext: Root WebApplicationContext: initialization completed in 1656 ms
+17:33:22.189 INFO  o.s.b.a.e.web.EndpointLinksResolver.<init>: Exposing 1 endpoint(s) beneath base path '/actuator'
+17:33:22.253 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer.start: Tomcat started on port(s): 8080 (http) with context path ''
+17:33:22.271 INFO  o.springframework.boot.StartupInfoLogger.logStarted: Started FideliteServiceApplication in 3.743 seconds (JVM running for 4.693)
+17:33:22.650 INFO  org.apache.juli.logging.DirectJDKLog.log: Initializing Spring DispatcherServlet 'dispatcherServlet'
+17:33:22.650 INFO  o.s.web.servlet.FrameworkServlet.initServletBean: Initializing Servlet 'dispatcherServlet'
+17:33:22.653 INFO  o.s.web.servlet.FrameworkServlet.initServletBean: Completed initialization in 3 ms
+17:33:25.723 INFO  com.zaxxer.hikari.HikariDataSource.getConnection: HikariPool-1 - Starting...
+17:33:26.073 INFO  com.zaxxer.hikari.HikariDataSource.getConnection: HikariPool-1 - Start completed.
+17:33:26.410 ERROR org.apache.juli.logging.DirectJDKLog.log: Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException: Cannot invoke "String.equals(Object)" because the return value of "org.springframework.web.server.ResponseStatusException.getReason()" is null] with root cause
+java.lang.NullPointerException: Cannot invoke "String.equals(Object)" because the return value of "org.springframework.web.server.ResponseStatusException.getReason()" is null
+	at com.capstone.fidelite.restcontroller.TradeController.getPortfolioDetails(TradeController.java:60)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:96)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+17:36:46.416 INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin.shutdown: Application shutdown requested.
+17:36:46.446 INFO  com.zaxxer.hikari.HikariDataSource.close: HikariPool-1 - Shutdown initiated...
+17:36:46.462 INFO  com.zaxxer.hikari.HikariDataSource.close: HikariPool-1 - Shutdown completed.
+17:36:50.033 INFO  o.springframework.boot.StartupInfoLogger.logStarting: Starting FideliteServiceApplication using Java 17.0.7 on a720912win with PID 3280 (D:\Capstone\Fidelite_java\Fidelite_REST\target\classes started by a720912 in D:\Capstone\Fidelite_java\Fidelite_REST)
+17:36:50.038 INFO  o.springframework.boot.SpringApplication.logStartupProfileInfo: The following 1 profile is active: "prod"
+17:36:51.580 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer.initialize: Tomcat initialized with port(s): 8080 (http)
+17:36:51.594 INFO  org.apache.juli.logging.DirectJDKLog.log: Starting service [Tomcat]
+17:36:51.595 INFO  org.apache.juli.logging.DirectJDKLog.log: Starting Servlet engine: [Apache Tomcat/9.0.62]
+17:36:51.726 INFO  org.apache.juli.logging.DirectJDKLog.log: Initializing Spring embedded WebApplicationContext
+17:36:51.726 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext: Root WebApplicationContext: initialization completed in 1616 ms
+17:36:52.949 INFO  o.s.b.a.e.web.EndpointLinksResolver.<init>: Exposing 1 endpoint(s) beneath base path '/actuator'
+17:36:53.015 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer.start: Tomcat started on port(s): 8080 (http) with context path ''
+17:36:53.033 INFO  o.springframework.boot.StartupInfoLogger.logStarted: Started FideliteServiceApplication in 3.522 seconds (JVM running for 4.44)
+17:36:53.604 INFO  org.apache.juli.logging.DirectJDKLog.log: Initializing Spring DispatcherServlet 'dispatcherServlet'
+17:36:53.604 INFO  o.s.web.servlet.FrameworkServlet.initServletBean: Initializing Servlet 'dispatcherServlet'
+17:36:53.607 INFO  o.s.web.servlet.FrameworkServlet.initServletBean: Completed initialization in 3 ms
+17:37:00.816 INFO  com.zaxxer.hikari.HikariDataSource.getConnection: HikariPool-1 - Starting...
+17:37:01.155 INFO  com.zaxxer.hikari.HikariDataSource.getConnection: HikariPool-1 - Start completed.
+17:37:01.516 ERROR org.apache.juli.logging.DirectJDKLog.log: Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException: Cannot invoke "String.equals(Object)" because the return value of "org.springframework.web.server.ResponseStatusException.getReason()" is null] with root cause
+java.lang.NullPointerException: Cannot invoke "String.equals(Object)" because the return value of "org.springframework.web.server.ResponseStatusException.getReason()" is null
+	at com.capstone.fidelite.restcontroller.TradeController.getPortfolioDetails(TradeController.java:60)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:96)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+17:39:18.225 INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin.shutdown: Application shutdown requested.
+17:39:18.251 INFO  com.zaxxer.hikari.HikariDataSource.close: HikariPool-1 - Shutdown initiated...
+17:39:18.272 INFO  com.zaxxer.hikari.HikariDataSource.close: HikariPool-1 - Shutdown completed.
+17:39:21.871 INFO  o.springframework.boot.StartupInfoLogger.logStarting: Starting FideliteServiceApplication using Java 17.0.7 on a720912win with PID 2636 (D:\Capstone\Fidelite_java\Fidelite_REST\target\classes started by a720912 in D:\Capstone\Fidelite_java\Fidelite_REST)
+17:39:21.876 INFO  o.springframework.boot.SpringApplication.logStartupProfileInfo: The following 1 profile is active: "prod"
+17:39:23.381 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer.initialize: Tomcat initialized with port(s): 8080 (http)
+17:39:23.392 INFO  org.apache.juli.logging.DirectJDKLog.log: Starting service [Tomcat]
+17:39:23.393 INFO  org.apache.juli.logging.DirectJDKLog.log: Starting Servlet engine: [Apache Tomcat/9.0.62]
+17:39:23.523 INFO  org.apache.juli.logging.DirectJDKLog.log: Initializing Spring embedded WebApplicationContext
+17:39:23.523 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext: Root WebApplicationContext: initialization completed in 1579 ms
+17:39:24.842 INFO  o.s.b.a.e.web.EndpointLinksResolver.<init>: Exposing 1 endpoint(s) beneath base path '/actuator'
+17:39:24.909 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer.start: Tomcat started on port(s): 8080 (http) with context path ''
+17:39:24.929 INFO  o.springframework.boot.StartupInfoLogger.logStarted: Started FideliteServiceApplication in 3.606 seconds (JVM running for 4.455)
+17:39:25.511 INFO  org.apache.juli.logging.DirectJDKLog.log: Initializing Spring DispatcherServlet 'dispatcherServlet'
+17:39:25.512 INFO  o.s.web.servlet.FrameworkServlet.initServletBean: Initializing Servlet 'dispatcherServlet'
+17:39:25.515 INFO  o.s.web.servlet.FrameworkServlet.initServletBean: Completed initialization in 3 ms
+17:39:30.209 INFO  com.zaxxer.hikari.HikariDataSource.getConnection: HikariPool-1 - Starting...
+17:39:30.554 INFO  com.zaxxer.hikari.HikariDataSource.getConnection: HikariPool-1 - Start completed.
+17:39:30.895 ERROR org.apache.juli.logging.DirectJDKLog.log: Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException: Cannot invoke "String.equals(Object)" because the return value of "org.springframework.web.server.ResponseStatusException.getReason()" is null] with root cause
+java.lang.NullPointerException: Cannot invoke "String.equals(Object)" because the return value of "org.springframework.web.server.ResponseStatusException.getReason()" is null
+	at com.capstone.fidelite.restcontroller.TradeController.getPortfolioDetails(TradeController.java:62)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:96)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+17:44:45.662 INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin.shutdown: Application shutdown requested.
+17:44:45.702 INFO  com.zaxxer.hikari.HikariDataSource.close: HikariPool-1 - Shutdown initiated...
+17:44:45.741 INFO  com.zaxxer.hikari.HikariDataSource.close: HikariPool-1 - Shutdown completed.
+17:44:49.556 INFO  o.springframework.boot.StartupInfoLogger.logStarting: Starting FideliteServiceApplication using Java 17.0.7 on a720912win with PID 1416 (D:\Capstone\Fidelite_java\Fidelite_REST\target\classes started by a720912 in D:\Capstone\Fidelite_java\Fidelite_REST)
+17:44:49.561 INFO  o.springframework.boot.SpringApplication.logStartupProfileInfo: The following 1 profile is active: "prod"
+17:44:51.123 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer.initialize: Tomcat initialized with port(s): 8080 (http)
+17:44:51.134 INFO  org.apache.juli.logging.DirectJDKLog.log: Starting service [Tomcat]
+17:44:51.135 INFO  org.apache.juli.logging.DirectJDKLog.log: Starting Servlet engine: [Apache Tomcat/9.0.62]
+17:44:51.260 INFO  org.apache.juli.logging.DirectJDKLog.log: Initializing Spring embedded WebApplicationContext
+17:44:51.260 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext: Root WebApplicationContext: initialization completed in 1633 ms
+17:44:52.578 INFO  o.s.b.a.e.web.EndpointLinksResolver.<init>: Exposing 1 endpoint(s) beneath base path '/actuator'
+17:44:52.644 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer.start: Tomcat started on port(s): 8080 (http) with context path ''
+17:44:52.663 INFO  o.springframework.boot.StartupInfoLogger.logStarted: Started FideliteServiceApplication in 3.644 seconds (JVM running for 4.48)
+17:44:53.360 INFO  org.apache.juli.logging.DirectJDKLog.log: Initializing Spring DispatcherServlet 'dispatcherServlet'
+17:44:53.360 INFO  o.s.web.servlet.FrameworkServlet.initServletBean: Initializing Servlet 'dispatcherServlet'
+17:44:53.363 INFO  o.s.web.servlet.FrameworkServlet.initServletBean: Completed initialization in 2 ms
+17:45:01.396 INFO  com.zaxxer.hikari.HikariDataSource.getConnection: HikariPool-1 - Starting...
+17:45:01.743 INFO  com.zaxxer.hikari.HikariDataSource.getConnection: HikariPool-1 - Start completed.
+17:45:02.105 ERROR org.apache.juli.logging.DirectJDKLog.log: Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException: Cannot invoke "String.equals(Object)" because the return value of "org.springframework.web.server.ResponseStatusException.getReason()" is null] with root cause
+java.lang.NullPointerException: Cannot invoke "String.equals(Object)" because the return value of "org.springframework.web.server.ResponseStatusException.getReason()" is null
+	at com.capstone.fidelite.restcontroller.TradeController.getPortfolioDetails(TradeController.java:62)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:96)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+17:46:12.813 INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin.shutdown: Application shutdown requested.
+17:46:12.840 INFO  com.zaxxer.hikari.HikariDataSource.close: HikariPool-1 - Shutdown initiated...
+17:46:12.858 INFO  com.zaxxer.hikari.HikariDataSource.close: HikariPool-1 - Shutdown completed.
+17:46:16.834 INFO  o.springframework.boot.StartupInfoLogger.logStarting: Starting FideliteServiceApplication using Java 17.0.7 on a720912win with PID 5240 (D:\Capstone\Fidelite_java\Fidelite_REST\target\classes started by a720912 in D:\Capstone\Fidelite_java\Fidelite_REST)
+17:46:16.840 INFO  o.springframework.boot.SpringApplication.logStartupProfileInfo: The following 1 profile is active: "prod"
+17:46:18.436 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer.initialize: Tomcat initialized with port(s): 8080 (http)
+17:46:18.446 INFO  org.apache.juli.logging.DirectJDKLog.log: Starting service [Tomcat]
+17:46:18.448 INFO  org.apache.juli.logging.DirectJDKLog.log: Starting Servlet engine: [Apache Tomcat/9.0.62]
+17:46:18.574 INFO  org.apache.juli.logging.DirectJDKLog.log: Initializing Spring embedded WebApplicationContext
+17:46:18.574 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext: Root WebApplicationContext: initialization completed in 1658 ms
+17:46:19.877 INFO  o.s.b.a.e.web.EndpointLinksResolver.<init>: Exposing 1 endpoint(s) beneath base path '/actuator'
+17:46:19.938 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer.start: Tomcat started on port(s): 8080 (http) with context path ''
+17:46:19.957 INFO  o.springframework.boot.StartupInfoLogger.logStarted: Started FideliteServiceApplication in 3.668 seconds (JVM running for 4.512)
+17:46:20.517 INFO  org.apache.juli.logging.DirectJDKLog.log: Initializing Spring DispatcherServlet 'dispatcherServlet'
+17:46:20.517 INFO  o.s.web.servlet.FrameworkServlet.initServletBean: Initializing Servlet 'dispatcherServlet'
+17:46:20.519 INFO  o.s.web.servlet.FrameworkServlet.initServletBean: Completed initialization in 2 ms
+17:46:24.046 INFO  com.zaxxer.hikari.HikariDataSource.getConnection: HikariPool-1 - Starting...
+17:46:24.396 INFO  com.zaxxer.hikari.HikariDataSource.getConnection: HikariPool-1 - Start completed.
+17:51:31.696 INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin.shutdown: Application shutdown requested.
+17:51:35.467 INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin.shutdown: Application shutdown requested.
+17:51:38.836 INFO  com.zaxxer.hikari.HikariDataSource.close: HikariPool-1 - Shutdown initiated...
+17:51:38.854 INFO  com.zaxxer.hikari.HikariDataSource.close: HikariPool-1 - Shutdown completed.
+17:51:43.089 INFO  o.springframework.boot.StartupInfoLogger.logStarting: Starting FideliteServiceApplication using Java 17.0.7 on a720912win with PID 8932 (D:\Capstone\Fidelite_java\Fidelite_REST\target\classes started by a720912 in D:\Capstone\Fidelite_java\Fidelite_REST)
+17:51:43.094 INFO  o.springframework.boot.SpringApplication.logStartupProfileInfo: The following 1 profile is active: "prod"
+17:51:44.691 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer.initialize: Tomcat initialized with port(s): 8080 (http)
+17:51:44.705 INFO  org.apache.juli.logging.DirectJDKLog.log: Starting service [Tomcat]
+17:51:44.706 INFO  org.apache.juli.logging.DirectJDKLog.log: Starting Servlet engine: [Apache Tomcat/9.0.62]
+17:51:44.838 INFO  org.apache.juli.logging.DirectJDKLog.log: Initializing Spring embedded WebApplicationContext
+17:51:44.839 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext: Root WebApplicationContext: initialization completed in 1677 ms
+17:51:46.080 INFO  o.s.b.a.e.web.EndpointLinksResolver.<init>: Exposing 1 endpoint(s) beneath base path '/actuator'
+17:51:46.144 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer.start: Tomcat started on port(s): 8080 (http) with context path ''
+17:51:46.162 INFO  o.springframework.boot.StartupInfoLogger.logStarted: Started FideliteServiceApplication in 3.687 seconds (JVM running for 4.549)
+17:51:46.621 INFO  org.apache.juli.logging.DirectJDKLog.log: Initializing Spring DispatcherServlet 'dispatcherServlet'
+17:51:46.622 INFO  o.s.web.servlet.FrameworkServlet.initServletBean: Initializing Servlet 'dispatcherServlet'
+17:51:46.625 INFO  o.s.web.servlet.FrameworkServlet.initServletBean: Completed initialization in 2 ms
+17:51:52.117 INFO  com.zaxxer.hikari.HikariDataSource.getConnection: HikariPool-1 - Starting...
+17:51:52.463 INFO  com.zaxxer.hikari.HikariDataSource.getConnection: HikariPool-1 - Start completed.
+17:53:14.004 INFO  c.c.fidelite.models.DirectionTypeHandler.setNonNullParameter: Bhgsadufhiasdfo*******
+17:58:28.329 INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin.shutdown: Application shutdown requested.
+17:58:28.357 INFO  com.zaxxer.hikari.HikariDataSource.close: HikariPool-1 - Shutdown initiated...
+17:58:28.377 INFO  com.zaxxer.hikari.HikariDataSource.close: HikariPool-1 - Shutdown completed.

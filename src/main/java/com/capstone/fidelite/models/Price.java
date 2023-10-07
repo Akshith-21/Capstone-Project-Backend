@@ -1,11 +1,14 @@
 package com.capstone.fidelite.models;
 
 public class Price {
+
 	private double askPrice;
-    private double bidPrice;
-    private String priceTimestamp;
-    private Instrument instrument;
-    
+	private double bidPrice;
+	private String priceTimestamp;
+	private Instrument instrument;
+
+	public Price() {}
+
 	public Price(double askPrice, double bidPrice, String priceTimestamp, Instrument instrument) {
 		this.askPrice = askPrice;
 		this.bidPrice = bidPrice;
@@ -44,5 +47,13 @@ public class Price {
 	public void setInstrument(Instrument instrument) {
 		this.instrument = instrument;
 	}
-    
+
+	@Override
+	public String toString() {
+		return "Price [askPrice=" + askPrice + ", bidPrice=" + bidPrice + ", priceTimestamp=" + priceTimestamp
+				+ ", instrument=" + instrument + "]";
+	}
+	
+	
+
 }

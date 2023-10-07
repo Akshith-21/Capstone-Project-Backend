@@ -13,6 +13,7 @@ import org.springframework.stereotype.Repository;
 
 import com.capstone.fidelite.integration.mapper.TradeMapper;
 import com.capstone.fidelite.models.Portfolio;
+import com.capstone.fidelite.models.PortfolioDetails;
 import com.capstone.fidelite.models.Trade;
 
 @Repository("trade")
@@ -40,6 +41,13 @@ public class TradeDaoImpl implements TradeDao {
 		}
 
 		return tradeList;
+	}
+	
+	@Override
+	public List<PortfolioDetails> getUpdatedPortfolios(String clientId){
+		List<PortfolioDetails> instrumentList = tradeMapper.getPortFoliobyClientId(clientId);
+		System.out.println(instrumentList + "*********INSTRUMENT***");
+		return instrumentList;
 	}
 
 	@Override

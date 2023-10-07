@@ -4,12 +4,15 @@ import java.util.List;
 import java.util.Map;
 
 import com.capstone.fidelite.models.Portfolio;
+import com.capstone.fidelite.models.PortfolioDetails;
 import com.capstone.fidelite.models.Trade;
 
 public interface TradeDao {
 	public void insertTrade(Trade trade);
 
 	public List<Trade> getAllTradesById(String clientId);
+	
+	 List<PortfolioDetails> getUpdatedPortfolios(String clientId);
 
 	Map<String, Object> getPortfolio(String clientId, String instrumentId);
 

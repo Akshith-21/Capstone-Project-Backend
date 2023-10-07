@@ -50,6 +50,16 @@
 		)
 	</insert>
 
+	<resultMap id="portfolioMap" type="PortfolioDetails">
+		<result property="instrumentId" column="instrument_id" />
+		<result property="currentHoldings" column="current_holdings" />
+	</resultMap>
+
+	<select id="getPortFoliobyClientId" resultMap="portfolioMap">
+		select instrument_id,current_holdings from c_portfolio where client_id =
+		#{clientId}
+	</select>
+
 	<resultMap id="PortfolioMap" type="Portfolio">
 		<id property="externalId" column="external_id" />
 		<result property="externalType" column="external_type" />
