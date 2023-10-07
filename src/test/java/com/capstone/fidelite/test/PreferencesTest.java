@@ -1,13 +1,21 @@
 package com.capstone.fidelite.test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.test.jdbc.JdbcTestUtils;
+import org.springframework.transaction.annotation.Transactional;
 
+import com.capstone.fidelite.integration.ClientDaoImpl;
 import com.capstone.fidelite.models.Preferences;
 
+@SpringBootTest
+@Transactional
 class PreferencesTest {
 //	
 //	Preferences pref;
@@ -90,6 +98,83 @@ class PreferencesTest {
 //			new Preferences("Education", "Medium","100000-200000","1-5 years",null);
 //		});
 //	}
+	
+	@Autowired
+	private ClientDaoImpl dao;
+	@Autowired
+	private JdbcTemplate jdbcTemplate;
+
+	
+	@Test
+	void testGetIdFromEmail() {
+		assertEquals("Client1", dao.getIdFromEmail("client1@example.com"));
+	}
+
+	@Test
+	void testCheckIfRowExists() {
+		assertEquals(1, dao.checkIfRowExists("Client1"));
+	}
+	
+	@Test
+	void testInsertPreferences() {
+		assertTrue(dao.insertPreferences("Client6",
+				new Preferences("Educationssss", "high", "1000-5000", "1-5 years", 0)));
+	}
+
+	@Test
+	void testUpdatePreferences() {
+		assertTrue(dao.updatePreferences("Client1", new Preferences("education", "high", "1000-5000", "1-5 years", 0)));
+	}
+	
+	@Test
+	void testInsertPreferencesBySize() {
+		// Pre-conditions
+		int oldSize = JdbcTestUtils.countRowsInTableWhere(jdbcTemplate, "c_preferences", "client_id='Client6'");
+		assertEquals(0, oldSize);
+		assertTrue(dao.insertPreferences("Client6", new Preferences("Education", "High", "100000-300000", "1-5 years", 1)));
+		// Post-conditions
+		int newSize = JdbcTestUtils.countRowsInTableWhere(jdbcTemplate, "c_preferences", "client_id='Client6'");
+		assertEquals(1, newSize);
+
+	}
+
+	@Test
+	void testUpdatePreferenceForExistingPreference() {
+		// Pre-conditions
+		int oldSize = JdbcTestUtils.countRowsInTableWhere(jdbcTemplate, "c_preferences", "client_id='Client5'");
+		assertEquals(1, oldSize);
+
+		assertTrue(dao.updatePreferences("Client5", new Preferences("Family Savings", "Low", "300000-500000", "5-10 years", 1)));
+
+		// Post-conditions
+		int newSize = JdbcTestUtils.countRowsInTableWhere(jdbcTemplate, "c_preferences",
+				"client_id='Client5' and investment_purpose = 'Family Savings'");
+		assertEquals(1, newSize);
+	}
+
+	@Test
+	void testInsertWithInvalidPreferences() {
+		// Pre-conditions
+		int oldSize = JdbcTestUtils.countRowsInTableWhere(jdbcTemplate, "c_preferences", "client_id='Client6'");
+		assertEquals(0, oldSize);
+		assertThrows(Exception.class, () -> {
+			dao.insertPreferences("Client6", new Preferences(null, "High", "100000-300000", "1-5 years", 1));
+		});
+	}
+	
+	
+	@Test 
+	void testUpdateWithInvalidPrefernces() {
+		int oldSize = JdbcTestUtils.countRowsInTableWhere(jdbcTemplate, "c_preferences", "client_id='Client6'");
+		assertEquals(0, oldSize);
+		assertThrows(Exception.class, () -> {
+			dao.updatePreferences("Client5", new Preferences(null, "Low", "300000-500000", "1-5 years", 1));
+		});
+		
+	}
+                    
+	
+	
 	
 	
 	

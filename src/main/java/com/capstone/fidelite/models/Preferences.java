@@ -9,6 +9,7 @@ public class Preferences {
 	private String lengthOfInvestment;
 	private int roboAdvisorCheck;
 	
+	public Preferences() {};
 	public String getClientId() {
 		return clientId;
 	}

@@ -1,8 +1,10 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>Fidelite-Java</groupId>
-  <artifactId>Fidelite-Java</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>Fidelite-Java</groupId>
+	<artifactId>Fidelite-Java</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -27,6 +29,12 @@
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
 			<artifactId>junit-jupiter-engine</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.mybatis.spring.boot</groupId>
+			<artifactId>mybatis-spring-boot-starter-test</artifactId>
+			<version>3.0.2</version>
 			<scope>test</scope>
 		</dependency>
 		<!-- This dependency is only required to make JUnit work in Eclipse -->
@@ -94,10 +102,11 @@
 			<version>${mybatis.springboot.version}</version>
 		</dependency>
 
-		<!-- Spring Boot Actuator: STS Properties tab will list REST controller request mappings -->
+		<!-- Spring Boot Actuator: STS Properties tab will list REST controller
+		request mappings -->
 		<dependency>
-		    <groupId>org.springframework.boot</groupId>
-		    <artifactId>spring-boot-starter-actuator</artifactId>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
 
 		<!-- JAXB defines the interface for converting JavaBeans to/from XML -->
@@ -111,10 +120,10 @@
 			<groupId>com.fasterxml.jackson.dataformat</groupId>
 			<artifactId>jackson-dataformat-xml</artifactId>
 		</dependency>
-		
-		
 
-		<!-- Spring Boot Dev Tools: restarts application on recompile (but it can be annoying) -->
+
+		<!-- Spring Boot Dev Tools: restarts application on recompile (but it
+		can be annoying) -->
 		<!--		
 		<dependency>
 	        <groupId>org.springframework.boot</groupId>
@@ -169,7 +178,8 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 			</plugin>
 
-			<!-- Generate Javadoc for this project with the following command (ignore the errors and warnings):
+			<!-- Generate Javadoc for this project with the following command
+			(ignore the errors and warnings):
 			        mvn javadoc:javadoc
 			     Then open target/site/apidocs/index.html -->
 			<plugin>
