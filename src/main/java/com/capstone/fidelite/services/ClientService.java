@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 
 import com.capstone.fidelite.integration.*;
@@ -25,10 +26,11 @@ import com.capstone.fidelite.models.Preferences;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
 @Service
+@Transactional
 public class ClientService {
 
 	@Autowired
-	private ClientDaoImpl clientDao;
+	private ClientDao clientDao;
 
 	@Autowired
 	private FMTSDao fmtsDao;
@@ -36,7 +38,7 @@ public class ClientService {
 	@Autowired
 	Logger logger;
 	
-	public String login(String email, String pswd) throws SQLException, JsonProcessingException {
+	public ClientFMTS login(String email, String pswd) throws SQLException, JsonProcessingException {
 		System.out.println(email+"email");
 		Client 	client = clientDao.getClientsByEmail(email);
 		System.out.println(client+"client");
@@ -61,7 +63,7 @@ public class ClientService {
 							}			
 						}
 						System.out.println(fmtsResponse.getClientId()+"hfjdf");
-				return fmtsResponse.getClientId();
+				return fmtsResponse;
 		}
 		else {
 			throw new DatabaseException("Client does exist in db, register first");

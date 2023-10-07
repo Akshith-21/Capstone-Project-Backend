@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -22,6 +23,7 @@ import com.capstone.fidelite.models.ClientIdentification;
 import com.capstone.fidelite.models.Person;
 @RestController
 @RequestMapping("/client")
+@Transactional
 public class ClientController {
 	@Autowired
 	Logger logger;
@@ -47,21 +49,20 @@ public class ClientController {
 		}
 		return response;	
 	}
-	
+
 	@PostMapping("/login")
-	ResponseEntity<String> clientLogin(@RequestBody LoginRequest loginRequest) throws SQLException{
+	ResponseEntity<ClientDataTransferObject> clientLogin(@RequestBody LoginRequest loginRequest) throws SQLException{
 		String email = loginRequest.getEmail();
 		String pswd = loginRequest.getPswd();
 		System.out.println(email+"controllerpswd");
-		String clientId;
-		ResponseEntity<String> response = null;
+		ClientFMTS clientFmts;
+		ResponseEntity<ClientDataTransferObject> response = null;
 		try {
-			clientId = clientService.login(email,pswd);
-			if(clientId==null) {
+			clientFmts = clientService.login(email,pswd);
+			if(clientFmts==null) {
 				response =ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
 			}
-			response = ResponseEntity.status(HttpStatus.OK).body(clientId);
-
+			response = ResponseEntity.status(HttpStatus.OK).body(new ClientDataTransferObject(clientFmts.getClientId(), clientFmts.getToken()));
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -69,8 +70,5 @@ public class ClientController {
 		}
 		return response;
 	}
-
-	
-	
 
 }

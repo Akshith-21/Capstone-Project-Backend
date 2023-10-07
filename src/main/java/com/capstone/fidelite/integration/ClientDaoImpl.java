@@ -17,7 +17,6 @@ import com.capstone.fidelite.models.Preferences;
 
 
 @Repository
-@Primary
 public class ClientDaoImpl implements ClientDao{
 	
 //	@Autowired
@@ -150,8 +149,9 @@ public class ClientDaoImpl implements ClientDao{
 
 	@Override
 	public int doesEmailAlreadyExist(String email) {
+		
 		return clientMapper.doesEmailAlreadyExist(email);
-	}
+			}
 
 	@Override
 	 public int doesClientIdentificationAlreadyExist(Set<ClientIdentification> clientIdentification) {
