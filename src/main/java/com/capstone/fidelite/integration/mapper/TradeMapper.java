@@ -32,5 +32,7 @@ public interface TradeMapper {
 	int insertBalance(@Param("clientId")String clientId,@Param("balance") BigDecimal balance);
 
 	int updateBalance(@Param("clientId")String clientId,@Param("balance") BigDecimal balance);
+	
+	
 
 }

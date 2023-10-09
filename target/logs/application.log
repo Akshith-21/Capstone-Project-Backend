@@ -582,3 +582,109 @@ java.lang.annotation.AnnotationFormatError: Duplicate annotation for class: inte
 12:06:10.596 INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin.shutdown: Application shutdown requested.
 12:06:10.626 INFO  com.zaxxer.hikari.HikariDataSource.close: HikariPool-1 - Shutdown initiated...
 12:06:10.644 INFO  com.zaxxer.hikari.HikariDataSource.close: HikariPool-1 - Shutdown completed.
+12:06:19.209 INFO  o.springframework.boot.StartupInfoLogger.logStarting: Starting FideliteServiceApplication using Java 17.0.7 on a721178win with PID 5612 (D:\Lat_Phase_Capstone\Fidelite-Rest\target\classes started by a721178 in D:\Lat_Phase_Capstone\Fidelite-Rest)
+12:06:19.214 INFO  o.springframework.boot.SpringApplication.logStartupProfileInfo: The following 1 profile is active: "prod"
+12:06:20.777 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer.initialize: Tomcat initialized with port(s): 8080 (http)
+12:06:20.793 INFO  org.apache.juli.logging.DirectJDKLog.log: Starting service [Tomcat]
+12:06:20.794 INFO  org.apache.juli.logging.DirectJDKLog.log: Starting Servlet engine: [Apache Tomcat/9.0.62]
+12:06:20.931 INFO  org.apache.juli.logging.DirectJDKLog.log: Initializing Spring embedded WebApplicationContext
+12:06:20.931 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext: Root WebApplicationContext: initialization completed in 1647 ms
+12:06:22.285 INFO  o.s.b.a.e.web.EndpointLinksResolver.<init>: Exposing 1 endpoint(s) beneath base path '/actuator'
+12:06:22.350 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer.start: Tomcat started on port(s): 8080 (http) with context path ''
+12:06:22.368 INFO  o.springframework.boot.StartupInfoLogger.logStarted: Started FideliteServiceApplication in 3.73 seconds (JVM running for 4.69)
+12:06:22.658 INFO  org.apache.juli.logging.DirectJDKLog.log: Initializing Spring DispatcherServlet 'dispatcherServlet'
+12:06:22.659 INFO  o.s.web.servlet.FrameworkServlet.initServletBean: Initializing Servlet 'dispatcherServlet'
+12:06:22.661 INFO  o.s.web.servlet.FrameworkServlet.initServletBean: Completed initialization in 2 ms
+12:06:28.549 INFO  com.zaxxer.hikari.HikariDataSource.getConnection: HikariPool-1 - Starting...
+12:06:28.915 INFO  com.zaxxer.hikari.HikariDataSource.getConnection: HikariPool-1 - Start completed.
+12:06:41.951 INFO  c.c.fidelite.models.DirectionTypeHandler.getNullableResult: BUYhgsadufhiasdfozzzzzzzzz@@@@@@@@@@@@@@@@*******
+12:06:41.953 INFO  c.c.fidelite.models.DirectionTypeHandler.getNullableResult: BUYhgsadufhiasdfozzzzzzzzz@@@@@@@@@@@@@@@@*******
+12:06:41.953 INFO  c.c.fidelite.models.DirectionTypeHandler.getNullableResult: BUYhgsadufhiasdfozzzzzzzzz@@@@@@@@@@@@@@@@*******
+12:06:41.953 INFO  c.c.fidelite.models.DirectionTypeHandler.getNullableResult: BUYhgsadufhiasdfozzzzzzzzz@@@@@@@@@@@@@@@@*******
+12:06:41.954 INFO  c.c.fidelite.models.DirectionTypeHandler.getNullableResult: SELLhgsadufhiasdfozzzzzzzzz@@@@@@@@@@@@@@@@*******
+12:40:01.180 INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin.shutdown: Application shutdown requested.
+12:40:01.207 INFO  com.zaxxer.hikari.HikariDataSource.close: HikariPool-1 - Shutdown initiated...
+12:40:01.219 INFO  com.zaxxer.hikari.HikariDataSource.close: HikariPool-1 - Shutdown completed.
+12:40:07.766 INFO  o.springframework.boot.StartupInfoLogger.logStarting: Starting FideliteServiceApplication using Java 17.0.7 on a721178win with PID 7128 (D:\Lat_Phase_Capstone\Fidelite-Rest\target\classes started by a721178 in D:\Lat_Phase_Capstone\Fidelite-Rest)
+12:40:07.770 INFO  o.springframework.boot.SpringApplication.logStartupProfileInfo: The following 1 profile is active: "prod"
+12:40:09.314 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer.initialize: Tomcat initialized with port(s): 8080 (http)
+12:40:09.326 INFO  org.apache.juli.logging.DirectJDKLog.log: Starting service [Tomcat]
+12:40:09.327 INFO  org.apache.juli.logging.DirectJDKLog.log: Starting Servlet engine: [Apache Tomcat/9.0.62]
+12:40:09.455 INFO  org.apache.juli.logging.DirectJDKLog.log: Initializing Spring embedded WebApplicationContext
+12:40:09.456 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext: Root WebApplicationContext: initialization completed in 1617 ms
+12:40:10.751 INFO  o.s.b.a.e.web.EndpointLinksResolver.<init>: Exposing 1 endpoint(s) beneath base path '/actuator'
+12:40:10.827 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer.start: Tomcat started on port(s): 8080 (http) with context path ''
+12:40:10.849 INFO  o.springframework.boot.StartupInfoLogger.logStarted: Started FideliteServiceApplication in 3.634 seconds (JVM running for 4.492)
+12:40:11.331 INFO  org.apache.juli.logging.DirectJDKLog.log: Initializing Spring DispatcherServlet 'dispatcherServlet'
+12:40:11.332 INFO  o.s.web.servlet.FrameworkServlet.initServletBean: Initializing Servlet 'dispatcherServlet'
+12:40:11.334 INFO  o.s.web.servlet.FrameworkServlet.initServletBean: Completed initialization in 2 ms
+12:40:27.872 INFO  com.zaxxer.hikari.HikariDataSource.getConnection: HikariPool-1 - Starting...
+12:40:28.222 INFO  com.zaxxer.hikari.HikariDataSource.getConnection: HikariPool-1 - Start completed.
+12:51:38.257 INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin.shutdown: Application shutdown requested.
+12:51:38.282 INFO  com.zaxxer.hikari.HikariDataSource.close: HikariPool-1 - Shutdown initiated...
+12:51:38.299 INFO  com.zaxxer.hikari.HikariDataSource.close: HikariPool-1 - Shutdown completed.
+12:51:42.071 INFO  o.springframework.boot.StartupInfoLogger.logStarting: Starting FideliteServiceApplication using Java 17.0.7 on a721178win with PID 8884 (D:\Lat_Phase_Capstone\Fidelite-Rest\target\classes started by a721178 in D:\Lat_Phase_Capstone\Fidelite-Rest)
+12:51:42.076 INFO  o.springframework.boot.SpringApplication.logStartupProfileInfo: The following 1 profile is active: "prod"
+12:51:43.652 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer.initialize: Tomcat initialized with port(s): 8080 (http)
+12:51:43.667 INFO  org.apache.juli.logging.DirectJDKLog.log: Starting service [Tomcat]
+12:51:43.668 INFO  org.apache.juli.logging.DirectJDKLog.log: Starting Servlet engine: [Apache Tomcat/9.0.62]
+12:51:43.801 INFO  org.apache.juli.logging.DirectJDKLog.log: Initializing Spring embedded WebApplicationContext
+12:51:43.802 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext: Root WebApplicationContext: initialization completed in 1654 ms
+12:51:45.125 INFO  o.s.b.a.e.web.EndpointLinksResolver.<init>: Exposing 1 endpoint(s) beneath base path '/actuator'
+12:51:45.189 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer.start: Tomcat started on port(s): 8080 (http) with context path ''
+12:51:45.208 INFO  o.springframework.boot.StartupInfoLogger.logStarted: Started FideliteServiceApplication in 3.672 seconds (JVM running for 4.601)
+12:51:45.547 INFO  org.apache.juli.logging.DirectJDKLog.log: Initializing Spring DispatcherServlet 'dispatcherServlet'
+12:51:45.547 INFO  o.s.web.servlet.FrameworkServlet.initServletBean: Initializing Servlet 'dispatcherServlet'
+12:51:45.549 INFO  o.s.web.servlet.FrameworkServlet.initServletBean: Completed initialization in 1 ms
+12:51:54.689 INFO  com.zaxxer.hikari.HikariDataSource.getConnection: HikariPool-1 - Starting...
+12:51:55.013 INFO  com.zaxxer.hikari.HikariDataSource.getConnection: HikariPool-1 - Start completed.
+14:11:42.750 INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin.shutdown: Application shutdown requested.
+14:11:42.779 INFO  com.zaxxer.hikari.HikariDataSource.close: HikariPool-1 - Shutdown initiated...
+14:11:42.795 INFO  com.zaxxer.hikari.HikariDataSource.close: HikariPool-1 - Shutdown completed.
+14:43:24.627 INFO  o.springframework.boot.StartupInfoLogger.logStarting: Starting FideliteServiceApplication using Java 17.0.7 on a721178win with PID 9288 (D:\Lat_Phase_Capstone\Fidelite-Rest\target\classes started by a721178 in D:\Lat_Phase_Capstone\Fidelite-Rest)
+14:43:24.632 INFO  o.springframework.boot.SpringApplication.logStartupProfileInfo: The following 1 profile is active: "prod"
+14:43:26.240 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer.initialize: Tomcat initialized with port(s): 8080 (http)
+14:43:26.255 INFO  org.apache.juli.logging.DirectJDKLog.log: Starting service [Tomcat]
+14:43:26.256 INFO  org.apache.juli.logging.DirectJDKLog.log: Starting Servlet engine: [Apache Tomcat/9.0.62]
+14:43:26.393 INFO  org.apache.juli.logging.DirectJDKLog.log: Initializing Spring embedded WebApplicationContext
+14:43:26.393 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext: Root WebApplicationContext: initialization completed in 1656 ms
+14:43:27.719 INFO  o.s.b.a.e.web.EndpointLinksResolver.<init>: Exposing 1 endpoint(s) beneath base path '/actuator'
+14:43:27.782 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer.start: Tomcat started on port(s): 8080 (http) with context path ''
+14:43:27.801 INFO  o.springframework.boot.StartupInfoLogger.logStarted: Started FideliteServiceApplication in 3.721 seconds (JVM running for 4.551)
+14:43:28.097 INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin.shutdown: Application shutdown requested.
+14:43:43.764 INFO  o.springframework.boot.StartupInfoLogger.logStarting: Starting FideliteServiceApplication using Java 17.0.7 on a721178win with PID 9892 (D:\Lat_Phase_Capstone\Fidelite-Rest\target\classes started by a721178 in D:\Lat_Phase_Capstone\Fidelite-Rest)
+14:43:43.772 INFO  o.springframework.boot.SpringApplication.logStartupProfileInfo: The following 1 profile is active: "prod"
+14:43:45.459 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer.initialize: Tomcat initialized with port(s): 8080 (http)
+14:43:45.474 INFO  org.apache.juli.logging.DirectJDKLog.log: Starting service [Tomcat]
+14:43:45.475 INFO  org.apache.juli.logging.DirectJDKLog.log: Starting Servlet engine: [Apache Tomcat/9.0.62]
+14:43:45.605 INFO  org.apache.juli.logging.DirectJDKLog.log: Initializing Spring embedded WebApplicationContext
+14:43:45.606 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext: Root WebApplicationContext: initialization completed in 1742 ms
+14:43:47.002 INFO  o.s.b.a.e.web.EndpointLinksResolver.<init>: Exposing 1 endpoint(s) beneath base path '/actuator'
+14:43:47.075 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer.start: Tomcat started on port(s): 8080 (http) with context path ''
+14:43:47.099 INFO  o.springframework.boot.StartupInfoLogger.logStarted: Started FideliteServiceApplication in 3.909 seconds (JVM running for 4.783)
+14:43:47.703 INFO  org.apache.juli.logging.DirectJDKLog.log: Initializing Spring DispatcherServlet 'dispatcherServlet'
+14:43:47.704 INFO  o.s.web.servlet.FrameworkServlet.initServletBean: Initializing Servlet 'dispatcherServlet'
+14:43:47.705 INFO  o.s.web.servlet.FrameworkServlet.initServletBean: Completed initialization in 1 ms
+14:45:27.485 INFO  com.zaxxer.hikari.HikariDataSource.getConnection: HikariPool-1 - Starting...
+14:45:27.831 INFO  com.zaxxer.hikari.HikariDataSource.getConnection: HikariPool-1 - Start completed.
+14:50:35.621 INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin.shutdown: Application shutdown requested.
+14:50:35.649 INFO  com.zaxxer.hikari.HikariDataSource.close: HikariPool-1 - Shutdown initiated...
+14:50:35.666 INFO  com.zaxxer.hikari.HikariDataSource.close: HikariPool-1 - Shutdown completed.
+14:51:15.300 INFO  o.springframework.boot.StartupInfoLogger.logStarting: Starting FideliteServiceApplication using Java 17.0.7 on a721178win with PID 9748 (D:\Lat_Phase_Capstone\Fidelite-Rest\target\classes started by a721178 in D:\Lat_Phase_Capstone\Fidelite-Rest)
+14:51:15.305 INFO  o.springframework.boot.SpringApplication.logStartupProfileInfo: The following 1 profile is active: "prod"
+14:51:16.887 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer.initialize: Tomcat initialized with port(s): 8080 (http)
+14:51:16.901 INFO  org.apache.juli.logging.DirectJDKLog.log: Starting service [Tomcat]
+14:51:16.902 INFO  org.apache.juli.logging.DirectJDKLog.log: Starting Servlet engine: [Apache Tomcat/9.0.62]
+14:51:17.028 INFO  org.apache.juli.logging.DirectJDKLog.log: Initializing Spring embedded WebApplicationContext
+14:51:17.028 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext: Root WebApplicationContext: initialization completed in 1656 ms
+14:51:18.318 INFO  o.s.b.a.e.web.EndpointLinksResolver.<init>: Exposing 1 endpoint(s) beneath base path '/actuator'
+14:51:18.385 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer.start: Tomcat started on port(s): 8080 (http) with context path ''
+14:51:18.404 INFO  o.springframework.boot.StartupInfoLogger.logStarted: Started FideliteServiceApplication in 3.651 seconds (JVM running for 4.474)
+14:51:18.972 INFO  org.apache.juli.logging.DirectJDKLog.log: Initializing Spring DispatcherServlet 'dispatcherServlet'
+14:51:18.972 INFO  o.s.web.servlet.FrameworkServlet.initServletBean: Initializing Servlet 'dispatcherServlet'
+14:51:18.975 INFO  o.s.web.servlet.FrameworkServlet.initServletBean: Completed initialization in 2 ms
+14:51:39.584 INFO  com.zaxxer.hikari.HikariDataSource.getConnection: HikariPool-1 - Starting...
+14:51:39.934 INFO  com.zaxxer.hikari.HikariDataSource.getConnection: HikariPool-1 - Start completed.
+14:56:46.743 INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin.shutdown: Application shutdown requested.
+14:56:46.771 INFO  com.zaxxer.hikari.HikariDataSource.close: HikariPool-1 - Shutdown initiated...
+14:56:46.789 INFO  com.zaxxer.hikari.HikariDataSource.close: HikariPool-1 - Shutdown completed.
