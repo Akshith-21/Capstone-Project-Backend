@@ -46,9 +46,9 @@ class PreferencesControllerE2ETest {
 		String clientId = "Client5";
 		assertEquals(0, JdbcTestUtils.countRowsInTableWhere(jdbcTemplate, "C_PREFERENCES","client_Id = '"+clientId+"'"));
 		String investmentPurpose = "Education";
-		String riskTolerance = "riskTolerance";
-		String incomeCategory = "incomeCategory";
-		String lengthOfInvestment = "lengthOfinvestment";
+		String riskTolerance = "MEDIUM";
+		String incomeCategory = "10000-20000";
+		String lengthOfInvestment = "Less than 1 Year";
 		int roboAdvisorCheck = 1;
 		Preferences preferences = new Preferences(investmentPurpose, riskTolerance, incomeCategory, lengthOfInvestment,
 				roboAdvisorCheck);

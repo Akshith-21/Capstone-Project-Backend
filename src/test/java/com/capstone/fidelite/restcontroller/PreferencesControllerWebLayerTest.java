@@ -34,9 +34,9 @@ class PreferencesControllerWebLayerTest {
 	void testSetPreferences() throws Exception {
 		String clientId="Client1";
 		String investmentPurpose = "Education";
-		String riskTolerance = "riskTolerance";
-		String incomeCategory = "incomeCategory";
-		String lengthOfInvestment = "lengthOfinvestment";
+		String riskTolerance = "LOW";
+		String incomeCategory = "10000-200000";
+		String lengthOfInvestment = "More than 5 years";
 		int roboAdvisorCheck = 1;
 		Preferences preferences = new Preferences(investmentPurpose, riskTolerance, incomeCategory, lengthOfInvestment,
 				roboAdvisorCheck);

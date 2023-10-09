@@ -34,9 +34,9 @@ class PreferencesServiceTest {
 		String email = "john@gmail.com";
 		String clientId = "2";
 		String investmentPurpose = "Education";
-		String riskTolerance = "riskTolerance";
-		String incomeCategory = "incomeCategory";
-		String lengthOfInvestment = "lengthOfinvestment";
+		String riskTolerance = "HIGH";
+		String incomeCategory = "10000-20000";
+		String lengthOfInvestment = "1-5 Years";
 		int roboAdvisorCheck = 1;
 		Preferences preferences = new Preferences(investmentPurpose, riskTolerance, incomeCategory, lengthOfInvestment,
 				roboAdvisorCheck);
@@ -57,9 +57,9 @@ class PreferencesServiceTest {
 		String email = "john@gmail.com";
 		String clientId = "2";
 		String investmentPurpose = "Education";
-		String riskTolerance = "riskTolerance";
-		String incomeCategory = "incomeCategory";
-		String lengthOfInvestment = "lengthOfinvestment";
+		String riskTolerance = "LOW";
+		String incomeCategory = "more than 200000";
+		String lengthOfInvestment = "1-5 Years";
 		int roboAdvisorCheck = 1;
 		Preferences preferences = new Preferences(investmentPurpose, riskTolerance, incomeCategory, lengthOfInvestment,
 				roboAdvisorCheck);
