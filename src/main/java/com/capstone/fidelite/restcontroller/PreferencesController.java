@@ -2,8 +2,11 @@ package com.capstone.fidelite.restcontroller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ServerErrorException;
@@ -12,6 +15,9 @@ import com.capstone.fidelite.models.Preferences;
 import com.capstone.fidelite.services.PreferencesService;
 
 @RestController
+@RequestMapping("/client/preferences")
+@CrossOrigin("http://localhost:4200")
+@Transactional
 public class PreferencesController {
 	@Autowired
 	private PreferencesService preferencesService;
