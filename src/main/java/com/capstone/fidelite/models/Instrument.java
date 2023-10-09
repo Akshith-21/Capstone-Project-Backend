@@ -10,6 +10,8 @@ public class Instrument {
     private double maxQuantity;
     private double minQuantity;
     
+    public Instrument() {}
+    
 	public Instrument(String instrumentId, String externalIdType, String externalId, String categoryId,
 			String instrumentDescription, double maxQuantity, double minQuantity) {
 		this.instrumentId = instrumentId;

@@ -58,4 +58,11 @@ public class Person  {
 	public void setPostalCode(String postalCode) {
 		this.postalCode = postalCode;
 	}
+
+	@Override
+	public String toString() {
+		return "Person [email=" + email + ", id=" + id + ", dateOfBirth=" + dateOfBirth + ", country=" + country
+				+ ", postalCode=" + postalCode + "]";
+	}
+	
 }

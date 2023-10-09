@@ -1,4 +1,6 @@
-//package com.capstone.fidelite.test;
+package com.capstone.fidelite.services;
+
+
 //
 //import static org.junit.jupiter.api.Assertions.*;
 //
@@ -289,3 +291,332 @@
 //	}
 //
 //}
+
+
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.any;
+import static org.mockito.Mockito.doReturn;
+
+import java.sql.SQLException;
+import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
+
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.MockitoAnnotations;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.capstone.fidelite.integration.ClientDao;
+import com.capstone.fidelite.models.Client;
+import com.capstone.fidelite.models.ClientFMTS;
+import com.capstone.fidelite.models.ClientIdentification;
+import com.capstone.fidelite.models.Person;
+import com.fasterxml.jackson.core.JsonProcessingException;
+
+class ClientServiceTest {
+
+
+	private Person person;
+	private ClientIdentification clientIdentification;
+	private Set<ClientIdentification> clientIdentifications;
+	private Client client;
+	
+	
+    @Mock
+    private ClientDao clientDao;
+
+    @Mock
+    private ClientFMTS fmtsDao;
+
+    
+    @InjectMocks
+    private ClientService service;
+
+    @BeforeEach
+    void setUp() {
+        MockitoAnnotations.openMocks(this);
+        person = new Person("test@test.com", "123", LocalDate.now().toString(), "India", "test");
+        clientIdentification = new ClientIdentification("aadhar","333-22-4444");
+		clientIdentifications = new HashSet<ClientIdentification>();
+		clientIdentifications.add(clientIdentification);
+		client = new Client(person, clientIdentifications);
+
+    }
+   
+    	@AfterEach
+    	void tearDown() throws Exception {
+    	}
+
+     
+    	@ParameterizedTest
+    	@ValueSource(strings = { "client1@example.com","client2@example.com", "client3@example.com"})
+    	void verifyExistingEmailAddress(String email) {
+    		Mockito.when(clientDao.doesEmailAlreadyExist(email)).thenReturn(1);
+    		assertEquals(service.verifyEmailAddress(email), 1);
+    	}
+
+     
+
+//    	@ParameterizedTest
+//    	@ValueSource(strings = { "Kin.s@gmail.com", "k1@gmail.com", "A_kinar@yahoo.com" })
+//    	void TestVerifyEmailAdressFormat_success(String email) {
+//    		Mockito.when(clientDao.emailExists(email)).thenReturn(true);
+//    		assertDoesNotThrow(() -> clientService.verifyEmailAddress(email));
+//    	}
+//
+//     
+//
+    	@ParameterizedTest
+    	@ValueSource(strings = { "sadsad", "invalidemail@", "@invalidemail.com", "invalidemail.com" })
+    	void verifyInvalidEmailAddress(String email) {
+    		Mockito.when(clientDao.doesEmailAlreadyExist(email)).thenReturn(0);
+    		assertThrows(IllegalArgumentException.class, () -> service.verifyEmailAddress(email));
+    	}
+//
+//     
+//
+//    	@ParameterizedTest
+//    	@ValueSource(strings = { "nonexistentemail@test.com", "notfound@gmail.com", "missingemail@abc.com" })
+//    	void verifyNonexistentEmailAddress(String email) {
+//    		Mockito.when(clientDao.emailExists(email)).thenReturn(false);
+//    		// Should return true for emails that are not registered yet
+//    		assertTrue(clientService.verifyEmailAddress(email));
+//    	}
+//
+//     
+//
+//    	@Test
+//    	void registerInvalidClientIdentification() {
+//    		clientIdentification.setValue("333-22-44544");
+//    		clientIdentifications.add(clientIdentification);
+//
+//     
+//
+//    		assertThrows(IllegalArgumentException.class,
+//    				() -> clientService.registerClient(person, clientIdentifications, "1234"));
+//    	}
+//
+//     
+
+//    	@Test
+//    	void registerValidClient() throws SQLException {
+//
+//     
+//
+//    		Mockito.doNothing().when(clientDao).register(Mockito.any(Client.class), Mockito.anyString());
+//
+//     
+//
+//    		assertDoesNotThrow(() -> clientService.registerClient(person, clientIdentifications, "123456"));
+//    	}
+//
+//     
+//
+//    	@Test
+//    	void registrationFailsOnExistingClientEmail() {
+//
+//     
+//
+//    		Mockito.when(clientDao.emailExists(person.getEmail())).thenReturn(true);
+//
+//     
+//
+//    		assertThrows(ClientAlreadyExistsException.class,
+//    				() -> clientService.registerClient(person, clientIdentifications, "123456"));
+//    	}
+//
+//     
+//
+//    	@Test
+//    	void registrationAddsExistingClientWithNewEmail() {
+//
+//     
+//
+//    		Mockito.doThrow(ClientAlreadyExistsException.class).when(clientDao).register(Mockito.any(Client.class),
+//    				Mockito.anyString());
+//
+//     
+//
+//    		assertThrows(ClientAlreadyExistsException.class,
+//    				() -> clientService.registerClient(person, clientIdentifications, "123456"));
+//    	}
+//
+//     
+//
+//    	@Test
+//    	void testAddPreference() throws Exception {
+//
+//     
+//
+//    		Mockito.when(clientDao.getClient(client.getClientId())).thenReturn(client);
+//    		Mockito.when(clientDao.addClientPreferences(preferences,
+//    				client.getClientId())).thenReturn(1);
+//
+//     
+//
+//    		assertDoesNotThrow(() -> clientService.addPreferences(client.getClientId(), preferences, true));
+//    	}
+//
+//     
+//
+//    	@Test
+//    	public void testAddPreferencesWithNullPreference() {
+//    		Mockito.doThrow(NullPointerException.class).when(clientDao).addClientPreferences(null,
+//    				"123");
+//    		assertThrows(NullPointerException.class, () -> clientService.addPreferences("123", null, true));
+//    	}
+//
+//     
+//
+//    	@Test
+//    	public void testAddPreferencesWithoutAcceptingTerms() {
+//    		Preferences preferences = new Preferences("Retirement", "Low", "1-3 years", "Less than $50,000");
+//    		assertThrows(RuntimeException.class, () -> clientService.addPreferences("123", preferences, false));
+//
+//     
+//
+//    	}
+//
+//     
+//
+//    	@Test
+//    	public void testUpdatePreferenceWithExistingPreference() throws Exception {
+//
+//     
+//
+//    		Preferences newPreference = new Preferences("Retirement", "High", "1-3 years", "Less than $50,000");
+//
+//     
+//
+//    		Mockito.when(clientDao.updateClientPreferences(newPreference, "123")).thenReturn(1);
+//
+//     
+//
+//    		assertDoesNotThrow(() -> clientService.updatePreferences("123", newPreference));
+//    	}
+//
+//     
+//
+//    	@Test
+//    	public void testUpdatePreferenceWithNullPreference() {
+//
+//     
+//
+//    		Mockito.doThrow(NullPointerException.class).when(clientDao).updateClientPreferences(null, "123");
+//
+//     
+//
+//    		IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,
+//    				() -> clientService.updatePreferences("123", null));
+//    		assertEquals("Preference cannot be null", exception.getMessage());
+//    	}
+//
+//     
+//
+//    	@Test
+//    	public void invalidEmailLogin() {
+//
+//     
+//
+//    		String email = "bhavesh@gmail.com";
+//    		String password = "333-22-44445";
+//
+//     
+//
+//    		Mockito.when(clientDao.login(email, password)).thenReturn(false);
+//
+//     
+//
+//    		assertThrows(InvalidCredentialsException.class, () -> clientService.login(email, password));
+//    	}
+//
+//     
+//
+//    	@Test
+//    	public void validEmailLogin() {
+//
+//     
+//
+//    		String email = "bhavesh@gmail.com";
+//    		String password = "333-22-4444";
+//
+//     
+//
+//    		Mockito.when(clientDao.login(email, password)).thenReturn(true);
+//
+//     
+//
+//    		assertTrue(clientService.login(email, password));
+//    	}
+//
+//     
+//
+//    }
+//
+//    @Test
+//    void testLoginSuccessful() throws SQLException, JsonProcessingException {
+//        String email = "test@example.com";
+//        String pswd = "password";
+//
+//        Client mockClient;
+//        
+//        Person mockPerson = new Person();
+//        mockPerson.setEmail(email);
+//
+//        ClientIdentification mockIdentification = new ClientIdentification();
+//        mockIdentification.setValue(pswd);
+//        
+//        mockClient.setPerson(mockPerson);
+//        mockClient.getClientIdentificationSet(mockIdentification);
+//
+//        // Create a mock ClientFMTS object
+//        ClientFMTS mockFMTSResponse = new ClientFMTS();
+//        mockFMTSResponse.setClientId("1");
+//
+//        // Set up the mock behavior for clientDao
+//        when(clientDao.getClientsByEmail(email)).thenReturn(mockClient);
+//        Set<ClientIdentification> identifications = new HashSet<>();
+//        identifications.add(mockIdentification);
+//        when(mockClient.getClientIdentificationSet()).thenReturn(identifications);
+//
+//        // Set up the mock behavior for fmtsDao
+//        when(fmtsDao.verifyClientInformation(mockClient)).thenReturn(mockFMTSResponse);
+//
+//        // Perform the login
+//        String result = service.login(email, pswd);
+//
+//        // Verify the result
+//        assertEquals("1", result);
+//    }
+//
+//    @Test
+//    void testLoginFailed() throws SQLException {
+//        String email = "test@example.com";
+//        String pswd = "password";
+//
+//        // Set up the mock behavior for clientDao when login fails
+//        when(clientDao.getClientsByEmail(email)).thenReturn(null);
+//
+//        // Perform the login
+//        Throwable exception = assertThrows(DatabaseException.class, () -> service.login(email, pswd));
+//
+//        // Verify the exception message
+//        assertEquals("Client does exist in db, register first", exception.getMessage());
+//    }
+}
+
+
+

@@ -1,5 +1,6 @@
 package com.capstone.fidelite.services;
 
+import java.math.BigDecimal;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -13,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 
 import com.capstone.fidelite.integration.*;
@@ -25,10 +27,14 @@ import com.capstone.fidelite.models.Preferences;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
 @Service
+@Transactional
 public class ClientService {
 
 	@Autowired
 	private ClientDaoImpl clientDao;
+	
+	@Autowired
+	private TradeDaoImpl tradeDao;
 
 	@Autowired
 	private FMTSDao fmtsDao;
@@ -36,7 +42,7 @@ public class ClientService {
 	@Autowired
 	Logger logger;
 	
-	public String login(String email, String pswd) throws SQLException, JsonProcessingException {
+	public ClientFMTS login(String email, String pswd) throws SQLException, JsonProcessingException {
 		System.out.println(email+"email");
 		Client 	client = clientDao.getClientsByEmail(email);
 		System.out.println(client+"client");
@@ -61,7 +67,7 @@ public class ClientService {
 							}			
 						}
 						System.out.println(fmtsResponse.getClientId()+"hfjdf");
-				return fmtsResponse.getClientId();
+				return fmtsResponse;
 		}
 		else {
 			throw new DatabaseException("Client does exist in db, register first");
@@ -75,9 +81,10 @@ public class ClientService {
 		
 		Set<ClientIdentification> clientIdentification = client.getClientIdentificationSet();
 		ClientFMTS fmtsResponse = null;
+		System.out.println(clientDao.doesClientIdentificationAlreadyExist(clientIdentification) == 0);
 		if (verifyEmailAddress(enteredEmail) == 0
 				&& clientDao.doesClientIdentificationAlreadyExist(clientIdentification) == 0) {
-
+            System.out.println("PASSED FUNCTIONALITY **********");
 			try {
 				fmtsResponse = fmtsDao.verifyClientInformation(client);
              
@@ -86,6 +93,7 @@ public class ClientService {
                 for(ClientIdentification identification:clientIdentification) {
                 clientDao.insertClientIdentification(identification,fmtsResponse.getClientId());
                 }
+                tradeDao.insertBalance(client.getPerson().getId(), new BigDecimal(1000000.00));
 			} catch (Exception e) {
 				String msg = "Error while inserting Person, email Already exist";
 				e.printStackTrace();
@@ -111,48 +119,38 @@ public class ClientService {
 		return clientDao.doesEmailAlreadyExist(email);
 
 	}
-	
-	
 
 //	private boolean verifyPreferences(String email) {
 //		return preferencesData.containsKey(email);
 //	}
 //
-//	
+//	public boolean verifyClientIdentificationExists(Set<ClientIdentification> clientIdentification) {
+//		if (clientIdentification == null) {
 //
-//	
-//
-//	public boolean isLoggedIn = false;
-//
-//	public void login(String email, String inputPassword) throws SQLException {
-//		Client client = clientDao.getClientsByEmail(email);
-//		if (client == null) {
-//			throw new DatabaseException("Client email is not there please register first");
+//			throw new NullPointerException("Client Identification cannot be null");
 //		}
-//		Set<ClientIdentification> identifications = client.getClientIdentificationSet();
-//
-//		if (identifications != null) {
-//			boolean validIdentification = false;
-//
-//			for (ClientIdentification identification : identifications) {
-//				String value = identification.getValue();
-//				if (value.equals(inputPassword)) {
-//
-//					validIdentification = true;
-//					isLoggedIn = true;
-//				}
+//		for (Map.Entry<String, Client> mapElement : clientData.entrySet()) {
+//			Set<ClientIdentification> set = mapElement.getValue().getClientIdentificationSet();
+//			if (set.contains(clientIdentification)) {
+//				return true;
 //			}
-//
-//			if (!validIdentification) {
-//				throw new IllegalArgumentException("Client Identification is Invalid");
-//
-//			}
+//		}
+//		return false;
+//	}
+
+//	public Set<ClientIdentification> getId(String email) {
+//		Client temp = clientData.get(email);
+//		if (temp != null) {
+//			return temp.getClientIdentificationSet();
 //		} else {
-//			throw new IllegalArgumentException("No client identification found for the email");
-//
+//			return null;
 //		}
 //	}
-//
+
+	public boolean isLoggedIn = false;
+
+	
+
 //	public void addPreferences(String email, Preferences preference) {
 //
 //		if (preference.getRoboAdvisorCheck() == 0) {

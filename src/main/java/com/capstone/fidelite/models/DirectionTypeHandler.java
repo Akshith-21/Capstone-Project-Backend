@@ -22,7 +22,7 @@ public class DirectionTypeHandler extends BaseTypeHandler<Direction> {
 	private final Logger logger = LoggerFactory.getLogger(getClass());
 	@Override
 	public void setNonNullParameter(PreparedStatement ps, int i, Direction parameter, JdbcType jdbcType) throws SQLException {
-	    logger.info(parameter.getCode() + "hgsadufhiasdfo*******");
+//	    logger.info(parameter.getCode()+","+parameter.name() + "hgsadufhiasdfo*******AREYBABU******");
 		ps.setString(i, parameter.name());
 
 	}

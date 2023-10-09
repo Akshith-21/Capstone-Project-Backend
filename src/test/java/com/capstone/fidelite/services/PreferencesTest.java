@@ -1,4 +1,4 @@
-package com.capstone.fidelite.test;
+package com.capstone.fidelite.services;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;

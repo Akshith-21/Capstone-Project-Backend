@@ -26,6 +26,7 @@ import com.capstone.fidelite.models.Person;
 @CrossOrigin("http://localhost:4200")
 @Transactional
 @RequestMapping("/client")
+@Transactional
 public class ClientController {
 	@Autowired
 	Logger logger;
@@ -34,46 +35,46 @@ public class ClientController {
 	ClientService clientService;
 	
 	@PostMapping("/register")
-	 ResponseEntity<ClientDataTransferObject> registerClient(@RequestBody Client client) throws SQLException{
+	 ResponseEntity<?> registerClient(@RequestBody Client client) throws SQLException{
 //		System.out.println(client + "************");
-		ResponseEntity<ClientDataTransferObject> response = null;
+		ResponseEntity<?> response = null;
 		ClientFMTS clientFmts = null;
 		try {
-		clientFmts = clientService.register(client);
-		if(clientFmts == null) {
-			response = ResponseEntity.status(HttpStatus.BAD_REQUEST).build();	
-		}
-		response = ResponseEntity.status(HttpStatus.OK).body(new ClientDataTransferObject(clientFmts.getClientId(), clientFmts.getToken()));
+			
+			clientFmts = clientService.register(client);
+			if(clientFmts == null) {
+				response = ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Email or ClientIdentification already exist");
+			}
+			else {
+				response = ResponseEntity.status(HttpStatus.OK).body(new ClientDataTransferObject(clientFmts.getClientId(), clientFmts.getToken()));
+			}
 		}
 		catch (Exception e) {
 			e.printStackTrace();
-			response = ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+			response = ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Data access error");
 		}
 		return response;	
 	}
-	
+
 	@PostMapping("/login")
-	ResponseEntity<String> clientLogin(@RequestBody LoginRequest loginRequest) throws SQLException{
+	ResponseEntity<?> clientLogin(@RequestBody LoginRequest loginRequest) throws SQLException{
 		String email = loginRequest.getEmail();
 		String pswd = loginRequest.getPswd();
 		System.out.println(email+"controllerpswd");
-		String clientId;
-		ResponseEntity<String> response = null;
+		ClientFMTS clientFmts;
+		ResponseEntity<?> response = null;
 		try {
-			clientId = clientService.login(email,pswd);
-			if(clientId==null) {
-				response =ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+			clientFmts = clientService.login(email,pswd);
+			if(clientFmts==null) {
+				response =ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Email Not Registered Please Sign Up");
 			}
-			response = ResponseEntity.status(HttpStatus.OK).body(clientId);
-
+			response = ResponseEntity.status(HttpStatus.OK).body(new ClientDataTransferObject(clientFmts.getClientId(), clientFmts.getToken()));
 		}
 		catch (Exception e) {
-			e.printStackTrace();
-			response = ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+			response = ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Data access error");
 		}
 		return response;
 	}
-
 	
 	
 

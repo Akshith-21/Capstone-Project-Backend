@@ -1,4 +1,4 @@
-package com.capstone.fidelite.dao.test;
+package com.capstone.fidelite.integration;
 /*
  * DbTestUtils.java - utility functions for database integration tests.
  */

@@ -1,18 +1,25 @@
 package com.capstone.fidelite.models;
 
+import java.math.BigDecimal;
+import java.sql.Timestamp;
+import java.time.Instant;
+
 public class Trade {
-    public double cashValue;
-    public double quantity;
-    public Direction direction;
-    public String instrumentId;
-    public String clientId;
-    public String tradeId;
-    public double executionPrice;
-    
-	public Trade() {}
-    
-    public Trade(double cashValue, double quantity, Direction direction, String instrumentId, String clientId,
-			String tradeId, double executionPrice) {
+
+    public BigDecimal cashValue;
+	public double quantity;
+	public Direction direction;
+	public String instrumentId;
+	public String clientId;
+	public String tradeId;
+	public double executionPrice;
+	public Timestamp timestamp;
+
+	public Trade() {
+	}
+
+	public Trade(BigDecimal cashValue, double quantity, Direction direction, String instrumentId, String clientId,
+			String tradeId, double executionPrice, Timestamp timestamp) {
 		this.cashValue = cashValue;
 		this.quantity = quantity;
 		this.direction = direction;
@@ -20,24 +27,37 @@ public class Trade {
 		this.clientId = clientId;
 		this.tradeId = tradeId;
 		this.executionPrice = executionPrice;
+		this.timestamp = timestamp;
 	}
 
 	public Trade(double quantity, Direction direction, String instrumentId, String clientId, String tradeId,
-			double executionPrice) {
-		
+			double executionPrice, Timestamp timestamp) {
+
 		this.quantity = quantity;
 		this.direction = direction;
 		this.instrumentId = instrumentId;
 		this.clientId = clientId;
 		this.tradeId = tradeId;
 		this.executionPrice = executionPrice;
+		this.timestamp = timestamp;
 	}
 
-	public double getCashValue() {
+	public Trade(TradeFMTS tradeFMTS) {
+		this.cashValue = tradeFMTS.getCashValue();
+		this.quantity = tradeFMTS.getQuantity();
+		this.direction = Direction.of(tradeFMTS.getDirection());
+		this.instrumentId = tradeFMTS.getInstrumentId();
+		this.clientId = tradeFMTS.getClientId();
+		this.tradeId = tradeFMTS.getTradeId();
+		this.executionPrice = tradeFMTS.getExecutionPrice();
+		this.timestamp = Timestamp.from(Instant.now());
+	}
+
+	public BigDecimal getCashValue() {
 		return cashValue;
 	}
 
-	public void setCashValue(double cashValue) {
+	public void setCashValue(BigDecimal cashValue) {
 		this.cashValue = cashValue;
 	}
 
@@ -89,6 +109,19 @@ public class Trade {
 		this.executionPrice = executionPrice;
 	}
 
-	
+	public Timestamp getTimestamp() {
+		return timestamp;
+	}
+
+	public void setTimestamp(Timestamp timestamp) {
+		this.timestamp = timestamp;
+	}
+
+	@Override
+	public String toString() {
+		return "Trade [cashValue=" + cashValue + ", quantity=" + quantity + ", direction=" + direction
+				+ ", instrumentId=" + instrumentId + ", clientId=" + clientId + ", tradeId=" + tradeId
+				+ ", executionPrice=" + executionPrice + ", timestamp=" + timestamp + "]";
+	}
 
 }

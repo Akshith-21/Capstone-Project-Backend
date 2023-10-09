@@ -1,29 +1,15 @@
 package com.capstone.fidelite.models;
 
- 
-
-public class Order {
+public class OrderFMTS {
 	private String instrumentId;
 	private double quantity;
 	private double targetPrice;
-	private Direction direction;
+	private String direction;
 	private String clientId;
 	private String orderId;
 	private String token;
-
-	public Order(String instrumentId, double quantity, double targetPrice, String direction, String clientId,
-			String orderId, String token) {
-		super();
-		this.instrumentId = instrumentId;
-		this.quantity = quantity;
-		this.targetPrice = targetPrice;
-		this.direction = Direction.of(direction);
-		this.clientId = clientId;
-		this.orderId = orderId;
-		this.token = token;
-	}
-
-	public Order(String instrumentId, double quantity, double targetPrice, Direction direction, String clientId,
+	
+	public OrderFMTS(String instrumentId, double quantity, double targetPrice, String direction, String clientId,
 			String orderId, String token) {
 		super();
 		this.instrumentId = instrumentId;
@@ -34,24 +20,20 @@ public class Order {
 		this.orderId = orderId;
 		this.token = token;
 	}
-
- 
-
-	public Order() {}
-
- 
-
-	public Order(OrderFMTS order) {
+	
+	public OrderFMTS(Order order) {
 		this.instrumentId = order.getInstrumentId();
 		this.quantity = order.getQuantity();
 		this.targetPrice = order.getTargetPrice();
-		System.out.println(order.getDirection());
-		this.direction = Direction.of(order.getDirection());
-		
+		this.direction = order.getDirection().getCode();
 		this.clientId = order.getClientId();
 		this.orderId = order.getOrderId();
 		this.token = order.getToken();
 	}
+
+	public OrderFMTS() {}
+
+ 
 
 	public String getInstrumentId() {
 		return instrumentId;
@@ -89,13 +71,13 @@ public class Order {
 
  
 
-	public Direction getDirection() {
+	public String getDirection() {
 		return direction;
 	}
 
  
 
-	public void setDirection(Direction direction) {
+	public void setDirection(String direction) {
 		this.direction = direction;
 	}
 
@@ -137,11 +119,9 @@ public class Order {
 
 	@Override
 	public String toString() {
-		return "Order [instrumentId=" + instrumentId + ", quantity=" + quantity + ", targetPrice=" + targetPrice
+		return "OrderFMTS [instrumentId=" + instrumentId + ", quantity=" + quantity + ", targetPrice=" + targetPrice
 				+ ", direction=" + direction + ", clientId=" + clientId + ", orderId=" + orderId + ", token=" + token
 				+ "]";
 	}
-	
-	
 	
 }
