@@ -1,5 +1,7 @@
 package com.capstone.fidelite.models;
 
+import java.math.BigDecimal;
+
 public class TradeFMTS {
 	
 	private String instrumentId;
@@ -9,12 +11,12 @@ public class TradeFMTS {
 	private String clientId;
 	private OrderFMTS order;
 	private String tradeId;
-	private double cashValue;
+	private BigDecimal cashValue;
 	
 	public TradeFMTS() {}
 	
 	public TradeFMTS(String instrumentId, double quantity, double executionPrice, String direction, String clientId,
-			OrderFMTS order, String tradeId, double cashValue) {
+			OrderFMTS order, String tradeId, BigDecimal cashValue) {
 		super();
 		this.instrumentId = instrumentId;
 		this.quantity = quantity;
@@ -82,11 +84,11 @@ public class TradeFMTS {
 		this.tradeId = tradeId;
 	}
 
-	public double getCashValue() {
+	public BigDecimal getCashValue() {
 		return cashValue;
 	}
 
-	public void setCashValue(double cashValue) {
+	public void setCashValue(BigDecimal cashValue) {
 		this.cashValue = cashValue;
 	}
 

@@ -1,5 +1,6 @@
 package com.capstone.fidelite.integration;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
 
@@ -18,16 +19,20 @@ public interface TradeDao {
 
 	List<Portfolio> getAllPortfolioMyBatis(String clientId);
 
-	void insertPortfolioMyBatis(String clientID, String instrumentId, double currentHoldings);
+	void insertPortfolioMyBatis(String clientID, String instrumentId, double currentHoldings,BigDecimal totalInvestment);
 
-	int updatePortfolioMyBatis(String clientID, String instrumentId, double currentHoldings);
+//	int updatePortfolioMyBatis(String clientID, String instrumentId, double currentHoldings);
 
 	int deletePortfolio(String clientId, String externalId);
 	
-	double getBalance(String clientId);
+	BigDecimal getBalance(String clientId);
 	
-	int insertBalance(String clientId,double balance);
+	int insertBalance(String clientId,BigDecimal balance);
 	
-	int updateBalance(String clientId,double balance );
+
+	int updatePortfolioMyBatis(String clientID, String instrumentId, double currentHoldings,
+			BigDecimal totalInvestment);
+
+	int updateBalance(String clientId, BigDecimal balance);
 
 }

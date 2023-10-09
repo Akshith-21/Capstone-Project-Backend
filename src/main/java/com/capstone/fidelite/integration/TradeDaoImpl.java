@@ -3,6 +3,8 @@ package com.capstone.fidelite.integration;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.HashMap;
 
 
@@ -32,14 +34,8 @@ public class TradeDaoImpl implements TradeDao {
 
 	@Override
 	public List<Trade> getAllTradesById(String clientId) {
-		if (!clientId.matches("[A-Za-z0-9]+")) {
-			throw new DatabaseException("The client with given Id is not found in the database please do check the Id");
-		}
 		List<Trade> tradeList = tradeMapper.getAllTradesById(clientId);
-		if (Objects.isNull(tradeList) || tradeList.size() == 0) {
-			System.out.println("No Values have been retrieved by Database for the given clientId");
-		}
-
+		System.out.println(tradeList + "*********INSTRUMENT***");
 		return tradeList;
 	}
 	
@@ -65,21 +61,23 @@ public class TradeDaoImpl implements TradeDao {
 	}
 
 	@Override
-	public void insertPortfolioMyBatis(String clientID, String instrumentId, double currentHoldings) {
+	public void insertPortfolioMyBatis(String clientID, String instrumentId, double currentHoldings,BigDecimal totalInvestment) {
 		Map<String, Object> paramMap = new HashMap<>();
 		paramMap.put("clientId", clientID);
 		paramMap.put("instrumentId", instrumentId);
 		paramMap.put("currentHoldings", currentHoldings);
+		paramMap.put("totalInvestment", totalInvestment);
 
 		tradeMapper.insertPortfolio(paramMap);
 	}
 
 	@Override
-	public int updatePortfolioMyBatis(String clientID, String instrumentId, double currentHoldings) {
+	public int updatePortfolioMyBatis(String clientID, String instrumentId, double currentHoldings,BigDecimal totalInvestment ) {
 		Map<String, Object> paramMap = new HashMap<>();
 		paramMap.put("clientId", clientID);
 		paramMap.put("instrumentId", instrumentId);
 		paramMap.put("currentHoldings", currentHoldings);
+		paramMap.put("totalInvestment", totalInvestment);
 		int result = tradeMapper.updatePortfolio(paramMap);
 		if (result == 0) {
 			throw new DatabaseException("Key invalid");
@@ -100,22 +98,24 @@ public class TradeDaoImpl implements TradeDao {
 	}
 
 	@Override
-	public double getBalance(String clientId) {
-		double balance = tradeMapper.getBalance(clientId);
+	public BigDecimal getBalance(String clientId) {
+		BigDecimal balance = new BigDecimal(tradeMapper.getBalance(clientId)).setScale(2,RoundingMode.HALF_UP);
 		return balance;
 	}
 
 
 	@Override
-	public int insertBalance(String clientId, double balance) {
+	public int insertBalance(String clientId, BigDecimal balance) {
         int rowsUpdate = tradeMapper.insertBalance(clientId, balance);
         return rowsUpdate;
 	}
 
 	@Override
-	public int updateBalance(String clientId, double balance) {
+	public int updateBalance(String clientId, BigDecimal balance) {
         int rowsUpdate = tradeMapper.updateBalance(clientId, balance);
         return rowsUpdate;
 	}
+
+
 
 }

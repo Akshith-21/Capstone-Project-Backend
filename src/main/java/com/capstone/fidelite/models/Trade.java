@@ -1,21 +1,24 @@
 package com.capstone.fidelite.models;
 
+import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.time.Instant;
 
 public class Trade {
-    public double cashValue;
-    public double quantity;
-    public Direction direction;
-    public String instrumentId;
-    public String clientId;
-    public String tradeId;
-    public double executionPrice;
-    public Timestamp timestamp;
-    
-	public Trade() {}
-    
-    public Trade(double cashValue, double quantity, Direction direction, String instrumentId, String clientId,
+
+    public BigDecimal cashValue;
+	public double quantity;
+	public Direction direction;
+	public String instrumentId;
+	public String clientId;
+	public String tradeId;
+	public double executionPrice;
+	public Timestamp timestamp;
+
+	public Trade() {
+	}
+
+	public Trade(BigDecimal cashValue, double quantity, Direction direction, String instrumentId, String clientId,
 			String tradeId, double executionPrice, Timestamp timestamp) {
 		this.cashValue = cashValue;
 		this.quantity = quantity;
@@ -29,7 +32,7 @@ public class Trade {
 
 	public Trade(double quantity, Direction direction, String instrumentId, String clientId, String tradeId,
 			double executionPrice, Timestamp timestamp) {
-		
+
 		this.quantity = quantity;
 		this.direction = direction;
 		this.instrumentId = instrumentId;
@@ -50,11 +53,11 @@ public class Trade {
 		this.timestamp = Timestamp.from(Instant.now());
 	}
 
-	public double getCashValue() {
+	public BigDecimal getCashValue() {
 		return cashValue;
 	}
 
-	public void setCashValue(double cashValue) {
+	public void setCashValue(BigDecimal cashValue) {
 		this.cashValue = cashValue;
 	}
 
@@ -114,6 +117,11 @@ public class Trade {
 		this.timestamp = timestamp;
 	}
 
-	
+	@Override
+	public String toString() {
+		return "Trade [cashValue=" + cashValue + ", quantity=" + quantity + ", direction=" + direction
+				+ ", instrumentId=" + instrumentId + ", clientId=" + clientId + ", tradeId=" + tradeId
+				+ ", executionPrice=" + executionPrice + ", timestamp=" + timestamp + "]";
+	}
 
 }

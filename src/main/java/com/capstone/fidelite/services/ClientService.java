@@ -1,5 +1,6 @@
 package com.capstone.fidelite.services;
 
+import java.math.BigDecimal;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -80,9 +81,10 @@ public class ClientService {
 		
 		Set<ClientIdentification> clientIdentification = client.getClientIdentificationSet();
 		ClientFMTS fmtsResponse = null;
+		System.out.println(clientDao.doesClientIdentificationAlreadyExist(clientIdentification) == 0);
 		if (verifyEmailAddress(enteredEmail) == 0
 				&& clientDao.doesClientIdentificationAlreadyExist(clientIdentification) == 0) {
-
+            System.out.println("PASSED FUNCTIONALITY **********");
 			try {
 				fmtsResponse = fmtsDao.verifyClientInformation(client);
              
@@ -91,7 +93,7 @@ public class ClientService {
                 for(ClientIdentification identification:clientIdentification) {
                 clientDao.insertClientIdentification(identification,fmtsResponse.getClientId());
                 }
-                tradeDao.insertBalance(client.getPerson().getId(), 1000000.00);
+                tradeDao.insertBalance(client.getPerson().getId(), new BigDecimal(1000000.00));
 			} catch (Exception e) {
 				String msg = "Error while inserting Person, email Already exist";
 				e.printStackTrace();

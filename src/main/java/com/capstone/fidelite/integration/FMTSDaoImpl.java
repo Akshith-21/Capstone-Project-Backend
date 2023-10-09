@@ -18,6 +18,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.capstone.fidelite.models.Client;
 import com.capstone.fidelite.models.ClientFMTS;
+import com.capstone.fidelite.models.InvestmentDetails;
 import com.capstone.fidelite.models.Order;
 import com.capstone.fidelite.models.OrderFMTS;
 import com.capstone.fidelite.models.Portfolio;
@@ -48,7 +49,7 @@ public class FMTSDaoImpl implements FMTSDao {
 		HttpEntity<ClientFMTS> requestEntity = new HttpEntity<>(clientFMTS, headers);
 		ResponseEntity<String> responseEntity = restTemplate.exchange(url, HttpMethod.POST, requestEntity,
 				String.class);
-
+		System.out.println(responseEntity.getStatusCode() + "********STRING FMTS RESPONSE*********");
 		if (responseEntity.getStatusCode().equals(HttpStatus.NOT_ACCEPTABLE)) {
 			throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE);
 
@@ -63,12 +64,12 @@ public class FMTSDaoImpl implements FMTSDao {
 		return response;
 	}
 
-	private boolean checkPortfolioInstrumentId(String instrumentId, Map<String, Double> instrumentMap) {
+	private boolean checkPortfolioInstrumentId(String instrumentId, Map<String, InvestmentDetails> instrumentMap ) {
 
 		return instrumentMap.containsKey(instrumentId);
 	}
 
-	private Portfolio convertToPortFolio(Price p, Map<String, Double> instrumentMap) {
+	private Portfolio convertToPortFolio(Price p, Map<String, InvestmentDetails> instrumentMap) {
 		Portfolio transformPrice = new Portfolio();
 		transformPrice.setAskPrice(p.getAskPrice());
 		transformPrice.setBidPrice(p.getBidPrice());
@@ -77,34 +78,19 @@ public class FMTSDaoImpl implements FMTSDao {
 		transformPrice.setInstrumentDescription(p.getInstrument().getInstrumentDescription());
 		transformPrice.setInstrumentId(p.getInstrument().getInstrumentId());
 		transformPrice.setPriceTimestamp(p.getPriceTimestamp());
-		transformPrice.setCurrentHoldings(instrumentMap.get(transformPrice.getInstrumentId()));
+		transformPrice.setCategoryType(p.getInstrument().getCategoryId());
+		transformPrice.setCurrentHoldings(instrumentMap.get(transformPrice.getInstrumentId()).getCurrentHoldings());
+		transformPrice.setTotalInvestment(instrumentMap.get(transformPrice.getInstrumentId()).getTotalInvestment());
 		return transformPrice;
 	}
 
+	
+	
 	@Override
-	public List<Portfolio> queryUpdatedPortfolios(Map<String, Double> instrumentMap)
+	public List<Portfolio> queryUpdatedPortfolios(Map<String, InvestmentDetails> instrumentMap)
 			throws JsonMappingException, JsonProcessingException {
-		Price[] updatedPrices = null;
-		String url = "http://localhost:3000/fmts/trades/prices";
-		HttpHeaders headers = new HttpHeaders();
-		RestTemplate restTemplate = new RestTemplate();
-		ResponseEntity<String> responseEntity = null;
 		List<Portfolio> updatedPortfolioList = null;
-
-		responseEntity = restTemplate.exchange(url, HttpMethod.GET, null, String.class);
-				System.out.println(responseEntity.getStatusCode() + "******STATUS CODE***************");
-
-		if (responseEntity.getStatusCode().equals(HttpStatus.NOT_ACCEPTABLE)) {
-			throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE);
-
-		} else if (responseEntity.getStatusCode().equals(HttpStatus.NOT_FOUND)) {
-			throw new ResponseStatusException(HttpStatus.NOT_FOUND);
-		}
-//				System.out.println(responseEntity.getBody());
-		ObjectMapper mapper = new ObjectMapper();
-		updatedPrices = mapper.readValue(responseEntity.getBody(), Price[].class);
-				System.out.println(updatedPrices[0].getInstrument().getInstrumentId()+"****************MYINSTRUMENT************");
-		List<Price> priceList = Arrays.asList(updatedPrices);
+		List<Price> priceList = getAllPrices();
 		priceList = priceList.stream()
 				.filter(p -> checkPortfolioInstrumentId(p.getInstrument().getInstrumentId(), instrumentMap))
 				.collect(Collectors.toList());
@@ -144,6 +130,41 @@ public class FMTSDaoImpl implements FMTSDao {
 		System.out.println(response);
 
 		return response;
+	}
+
+	@Override
+	public List<Price> getAllPrices() throws JsonMappingException, JsonProcessingException {
+		Price[] updatedPrices = null;
+		String url = "http://localhost:3000/fmts/trades/prices";
+		HttpHeaders headers = new HttpHeaders();
+		RestTemplate restTemplate = new RestTemplate();
+		ResponseEntity<String> responseEntity = null;
+		
+		responseEntity = restTemplate.exchange(url, HttpMethod.GET, null, String.class);
+				System.out.println(responseEntity.getStatusCode() + "******STATUS CODE***************");
+
+		if (responseEntity.getStatusCode().equals(HttpStatus.NOT_ACCEPTABLE)) {
+			throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE);
+
+		} else if (responseEntity.getStatusCode().equals(HttpStatus.NOT_FOUND)) {
+			throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+		}
+//				System.out.println(responseEntity.getBody());
+		ObjectMapper mapper = new ObjectMapper();
+		updatedPrices = mapper.readValue(responseEntity.getBody(), Price[].class);
+				System.out.println(updatedPrices[0].getInstrument().getInstrumentId()+"****************MYINSTRUMENT************");
+		List<Price> priceList = Arrays.asList(updatedPrices);
+		
+		
+		return priceList;
+	}
+
+	@Override
+	public List<Price> getAllPricesByFilter(String category) throws JsonMappingException, JsonProcessingException {
+		List<Price> priceList = getAllPrices();
+		priceList = priceList.stream().filter(p -> 
+			p.getInstrument().getCategoryId().equals(category)).collect(Collectors.toList());
+		return priceList;
 	}
 
 }

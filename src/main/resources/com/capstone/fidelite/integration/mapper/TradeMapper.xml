@@ -22,10 +22,9 @@
 		direction,
 		quantity,
 		execution_price,
-		COALESCE(execution_price,0) * COALESCE(quantity,0) as cash_value,
+		cash_value,
 		time_stamp
-		FROM c_trade where client_id = #{clientId}
-
+		FROM c_trade where client_id = #{clientId} order by time_stamp
 	</select>
 
 	<insert id="insertTrade" parameterType="Trade">
@@ -36,7 +35,8 @@
 		quantity,
 		execution_price,
 		direction,
-		time_stamp
+		time_stamp,
+		cash_value
 		)
 		VALUES (
 		#{tradeId},
@@ -46,17 +46,22 @@
 		#{executionPrice},
 		#{direction, typeHandler =
 		com.capstone.fidelite.models.DirectionTypeHandler},
-		#{timestamp}
+		#{timestamp},
+		#{cashValue}
 		)
 	</insert>
-
-	<resultMap id="portfolioMap" type="PortfolioDetails">
+    <resultMap id ="investmentMap" type ="InvestmentDetails">
+		<result property="currentHoldings" column="CURRENT_HOLDINGS" />
+		<result property = "totalInvestment" column = "TOTAL_INVESTMENT"/>
+	</resultMap>
+	<resultMap id="portfolioDetailsMap" type="PortfolioDetails">
 		<result property="instrumentId" column="instrument_id" />
-		<result property="currentHoldings" column="current_holdings" />
+		<association property="investmentDetails" resultMap="investmentMap"/>	
 	</resultMap>
 
-	<select id="getPortFoliobyClientId" resultMap="portfolioMap">
-		select instrument_id,current_holdings from c_portfolio where client_id =
+
+	<select id="getPortFoliobyClientId" resultMap="portfolioDetailsMap">
+		select instrument_id,current_holdings,total_investment from c_portfolio where client_id =
 		#{clientId}
 	</select>
 
@@ -90,7 +95,8 @@
 		SELECT
 		client_id,
 		instrument_id,
-		current_holdings
+		current_holdings,
+		total_investment
 		FROM c_Portfolio
 		WHERE client_id = #{clientId} AND instrument_id = #{instrumentId}
 	</select>
@@ -100,11 +106,13 @@
 		INSERT INTO c_portfolio (
 		client_id,
 		instrument_id,
-		current_holdings
+		current_holdings,
+		total_investment
 		) VALUES (
 		#{clientId},
 		#{instrumentId},
-		#{currentHoldings}
+		#{currentHoldings},
+		#{totalInvestment}
 		)
 	</insert>
 
@@ -112,7 +120,8 @@
 		id="updatePortfolio" parameterType="map">
 		UPDATE c_Portfolio
 		SET
-		current_holdings = #{currentHoldings}
+		current_holdings = #{currentHoldings},
+		total_investment = #{totalInvestment}
 		WHERE client_id = #{clientId} AND instrument_id = #{instrumentId}
 	</update>
 

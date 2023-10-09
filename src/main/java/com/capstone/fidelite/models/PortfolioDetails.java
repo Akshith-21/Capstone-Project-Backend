@@ -4,20 +4,41 @@ import java.util.Objects;
 
 public class PortfolioDetails {
 	String instrumentId;
-	double currentHoldings;
+	InvestmentDetails investmentDetails;
 
 	public PortfolioDetails() {
 
 	}
 
-	public PortfolioDetails(String instrumentId, double currentHoldings) {
+	public PortfolioDetails(String instrumentId, InvestmentDetails investmentDetails) {
 		this.instrumentId = instrumentId;
-		this.currentHoldings = currentHoldings;
+		this.investmentDetails = investmentDetails;
+	}
+
+	public String getInstrumentId() {
+		return instrumentId;
+	}
+
+	public void setInstrumentId(String instrumentId) {
+		this.instrumentId = instrumentId;
+	}
+
+	public InvestmentDetails getInvestmentDetails() {
+		return investmentDetails;
+	}
+
+	public void setInvestmentDetails(InvestmentDetails investmentDetails) {
+		this.investmentDetails = investmentDetails;
+	}
+
+	@Override
+	public String toString() {
+		return "PortfolioDetails [instrumentId=" + instrumentId + ", investmentDetails=" + investmentDetails + "]";
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(instrumentId);
+		return Objects.hash(instrumentId, investmentDetails);
 	}
 
 	@Override
@@ -29,27 +50,9 @@ public class PortfolioDetails {
 		if (getClass() != obj.getClass())
 			return false;
 		PortfolioDetails other = (PortfolioDetails) obj;
-		return Objects.equals(instrumentId, other.instrumentId);
+		return Objects.equals(instrumentId, other.instrumentId)
+				&& Objects.equals(investmentDetails, other.investmentDetails);
 	}
 
-	@Override
-	public String toString() {
-		return "PortfolioDetails [instrumentId=" + instrumentId + ", currentHoldings=" + currentHoldings + "]";
-	}
-
-	public String getInstrumentId() {
-		return instrumentId;
-	}
-
-	public void setInstrumentId(String instrumentId) {
-		this.instrumentId = instrumentId;
-	}
-
-	public double getCurrentHoldings() {
-		return currentHoldings;
-	}
-
-	public void setCurrentHoldings(double currentHoldings) {
-		this.currentHoldings = currentHoldings;
-	}
+	
 }

@@ -1,5 +1,6 @@
 package com.capstone.fidelite.integration.mapper;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
 
@@ -28,8 +29,8 @@ public interface TradeMapper {
 
 	double getBalance(String clientId);
 
-	int insertBalance(@Param("clientId")String clientId,@Param("balance") double balance);
+	int insertBalance(@Param("clientId")String clientId,@Param("balance") BigDecimal balance);
 
-	int updateBalance(@Param("clientId")String clientId,@Param("balance") double balance);
+	int updateBalance(@Param("clientId")String clientId,@Param("balance") BigDecimal balance);
 
 }
