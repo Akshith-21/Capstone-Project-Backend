@@ -24,9 +24,8 @@ import com.capstone.fidelite.models.ClientIdentification;
 import com.capstone.fidelite.models.Person;
 @RestController
 @CrossOrigin("http://localhost:4200")
-@Transactional
 @RequestMapping("/client")
-@Transactional
+
 public class ClientController {
 	@Autowired
 	Logger logger;

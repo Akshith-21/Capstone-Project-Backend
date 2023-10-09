@@ -27,7 +27,6 @@ import com.capstone.fidelite.models.Preferences;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
 @Service
-@Transactional
 public class ClientService {
 
 	@Autowired

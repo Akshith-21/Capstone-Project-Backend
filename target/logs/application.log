@@ -414,3 +414,171 @@ com.capstone.fidelite.integration.DatabaseException: Server Eroor related to dat
 11:18:14.212 INFO  org.apache.juli.logging.DirectJDKLog.log: Initializing Spring DispatcherServlet 'dispatcherServlet'
 11:18:14.213 INFO  o.s.web.servlet.FrameworkServlet.initServletBean: Initializing Servlet 'dispatcherServlet'
 11:18:14.215 INFO  o.s.web.servlet.FrameworkServlet.initServletBean: Completed initialization in 2 ms
+11:40:16.300 INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin.shutdown: Application shutdown requested.
+11:42:03.065 INFO  o.springframework.boot.StartupInfoLogger.logStarting: Starting FideliteServiceApplication using Java 17.0.7 on a721178win with PID 3824 (D:\Lat_Phase_Capstone\Fidelite-Rest\target\classes started by a721178 in D:\Lat_Phase_Capstone\Fidelite-Rest)
+11:42:03.070 INFO  o.springframework.boot.SpringApplication.logStartupProfileInfo: The following 1 profile is active: "prod"
+11:42:04.413 ERROR o.springframework.boot.SpringApplication.reportFailure: Application run failed
+java.lang.annotation.AnnotationFormatError: Duplicate annotation for class: interface org.springframework.transaction.annotation.Transactional: @org.springframework.transaction.annotation.Transactional(propagation=REQUIRED, rollbackForClassName={}, readOnly=false, transactionManager="", isolation=DEFAULT, timeoutString="", label={}, noRollbackFor={}, noRollbackForClassName={}, value="", timeout=-1, rollbackFor={})
+	at java.base/sun.reflect.annotation.AnnotationParser.parseAnnotations2(AnnotationParser.java:126)
+	at java.base/sun.reflect.annotation.AnnotationParser.parseAnnotations(AnnotationParser.java:73)
+	at java.base/java.lang.Class.createAnnotationData(Class.java:4068)
+	at java.base/java.lang.Class.annotationData(Class.java:4057)
+	at java.base/java.lang.Class.getDeclaredAnnotations(Class.java:4024)
+	at org.springframework.core.annotation.AnnotationsScanner.getDeclaredAnnotations(AnnotationsScanner.java:454)
+	at org.springframework.core.annotation.AnnotationsScanner.isKnownEmpty(AnnotationsScanner.java:492)
+	at org.springframework.core.annotation.TypeMappedAnnotations.from(TypeMappedAnnotations.java:251)
+	at org.springframework.core.annotation.MergedAnnotations.from(MergedAnnotations.java:351)
+	at org.springframework.core.annotation.MergedAnnotations.from(MergedAnnotations.java:330)
+	at org.springframework.core.annotation.MergedAnnotations.from(MergedAnnotations.java:313)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.findMergedAnnotationOnBean(DefaultListableBeanFactory.java:752)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.findAnnotationOnBean(DefaultListableBeanFactory.java:742)
+	at org.springframework.boot.sql.init.dependency.AnnotationDependsOnDatabaseInitializationDetector.detect(AnnotationDependsOnDatabaseInitializationDetector.java:36)
+	at org.springframework.boot.sql.init.dependency.DatabaseInitializationDependencyConfigurer$DependsOnDatabaseInitializationPostProcessor.detectDependsOnInitializationBeanNames(DatabaseInitializationDependencyConfigurer.java:148)
+	at org.springframework.boot.sql.init.dependency.DatabaseInitializationDependencyConfigurer$DependsOnDatabaseInitializationPostProcessor.postProcessBeanFactory(DatabaseInitializationDependencyConfigurer.java:111)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:325)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:191)
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:746)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:564)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:740)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:415)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1312)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1301)
+	at com.capstone.fidelite.FideliteServiceApplication.main(FideliteServiceApplication.java:20)
+11:43:39.078 INFO  o.springframework.boot.StartupInfoLogger.logStarting: Starting FideliteServiceApplication using Java 17.0.7 on a721178win with PID 4604 (D:\Lat_Phase_Capstone\Fidelite-Rest\target\classes started by a721178 in D:\Lat_Phase_Capstone\Fidelite-Rest)
+11:43:39.085 INFO  o.springframework.boot.SpringApplication.logStartupProfileInfo: The following 1 profile is active: "prod"
+11:43:40.335 ERROR o.springframework.boot.SpringApplication.reportFailure: Application run failed
+java.lang.annotation.AnnotationFormatError: Duplicate annotation for class: interface org.springframework.transaction.annotation.Transactional: @org.springframework.transaction.annotation.Transactional(propagation=REQUIRED, rollbackForClassName={}, readOnly=false, timeoutString="", isolation=DEFAULT, transactionManager="", label={}, noRollbackForClassName={}, noRollbackFor={}, value="", timeout=-1, rollbackFor={})
+	at java.base/sun.reflect.annotation.AnnotationParser.parseAnnotations2(AnnotationParser.java:126)
+	at java.base/sun.reflect.annotation.AnnotationParser.parseAnnotations(AnnotationParser.java:73)
+	at java.base/java.lang.Class.createAnnotationData(Class.java:4068)
+	at java.base/java.lang.Class.annotationData(Class.java:4057)
+	at java.base/java.lang.Class.getDeclaredAnnotations(Class.java:4024)
+	at org.springframework.core.annotation.AnnotationsScanner.getDeclaredAnnotations(AnnotationsScanner.java:454)
+	at org.springframework.core.annotation.AnnotationsScanner.isKnownEmpty(AnnotationsScanner.java:492)
+	at org.springframework.core.annotation.TypeMappedAnnotations.from(TypeMappedAnnotations.java:251)
+	at org.springframework.core.annotation.MergedAnnotations.from(MergedAnnotations.java:351)
+	at org.springframework.core.annotation.MergedAnnotations.from(MergedAnnotations.java:330)
+	at org.springframework.core.annotation.MergedAnnotations.from(MergedAnnotations.java:313)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.findMergedAnnotationOnBean(DefaultListableBeanFactory.java:752)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.findAnnotationOnBean(DefaultListableBeanFactory.java:742)
+	at org.springframework.boot.sql.init.dependency.AnnotationDependsOnDatabaseInitializationDetector.detect(AnnotationDependsOnDatabaseInitializationDetector.java:36)
+	at org.springframework.boot.sql.init.dependency.DatabaseInitializationDependencyConfigurer$DependsOnDatabaseInitializationPostProcessor.detectDependsOnInitializationBeanNames(DatabaseInitializationDependencyConfigurer.java:148)
+	at org.springframework.boot.sql.init.dependency.DatabaseInitializationDependencyConfigurer$DependsOnDatabaseInitializationPostProcessor.postProcessBeanFactory(DatabaseInitializationDependencyConfigurer.java:111)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:325)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:191)
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:746)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:564)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:740)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:415)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1312)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1301)
+	at com.capstone.fidelite.FideliteServiceApplication.main(FideliteServiceApplication.java:20)
+11:44:04.302 INFO  o.springframework.boot.StartupInfoLogger.logStarting: Starting FideliteServiceApplication using Java 17.0.7 on a721178win with PID 6292 (D:\Lat_Phase_Capstone\Fidelite-Rest\target\classes started by a721178 in D:\Lat_Phase_Capstone\Fidelite-Rest)
+11:44:04.307 INFO  o.springframework.boot.SpringApplication.logStartupProfileInfo: The following 1 profile is active: "prod"
+11:44:05.582 ERROR o.springframework.boot.SpringApplication.reportFailure: Application run failed
+java.lang.annotation.AnnotationFormatError: Duplicate annotation for class: interface org.springframework.transaction.annotation.Transactional: @org.springframework.transaction.annotation.Transactional(propagation=REQUIRED, rollbackForClassName={}, readOnly=false, transactionManager="", timeoutString="", isolation=DEFAULT, label={}, noRollbackForClassName={}, noRollbackFor={}, value="", timeout=-1, rollbackFor={})
+	at java.base/sun.reflect.annotation.AnnotationParser.parseAnnotations2(AnnotationParser.java:126)
+	at java.base/sun.reflect.annotation.AnnotationParser.parseAnnotations(AnnotationParser.java:73)
+	at java.base/java.lang.Class.createAnnotationData(Class.java:4068)
+	at java.base/java.lang.Class.annotationData(Class.java:4057)
+	at java.base/java.lang.Class.getDeclaredAnnotations(Class.java:4024)
+	at org.springframework.core.annotation.AnnotationsScanner.getDeclaredAnnotations(AnnotationsScanner.java:454)
+	at org.springframework.core.annotation.AnnotationsScanner.isKnownEmpty(AnnotationsScanner.java:492)
+	at org.springframework.core.annotation.TypeMappedAnnotations.from(TypeMappedAnnotations.java:251)
+	at org.springframework.core.annotation.MergedAnnotations.from(MergedAnnotations.java:351)
+	at org.springframework.core.annotation.MergedAnnotations.from(MergedAnnotations.java:330)
+	at org.springframework.core.annotation.MergedAnnotations.from(MergedAnnotations.java:313)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.findMergedAnnotationOnBean(DefaultListableBeanFactory.java:752)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.findAnnotationOnBean(DefaultListableBeanFactory.java:742)
+	at org.springframework.boot.sql.init.dependency.AnnotationDependsOnDatabaseInitializationDetector.detect(AnnotationDependsOnDatabaseInitializationDetector.java:36)
+	at org.springframework.boot.sql.init.dependency.DatabaseInitializationDependencyConfigurer$DependsOnDatabaseInitializationPostProcessor.detectDependsOnInitializationBeanNames(DatabaseInitializationDependencyConfigurer.java:148)
+	at org.springframework.boot.sql.init.dependency.DatabaseInitializationDependencyConfigurer$DependsOnDatabaseInitializationPostProcessor.postProcessBeanFactory(DatabaseInitializationDependencyConfigurer.java:111)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:325)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:191)
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:746)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:564)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:740)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:415)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1312)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1301)
+	at com.capstone.fidelite.FideliteServiceApplication.main(FideliteServiceApplication.java:20)
+11:45:26.634 INFO  o.springframework.boot.StartupInfoLogger.logStarting: Starting FideliteServiceApplication using Java 17.0.7 on a721178win with PID 7656 (D:\Lat_Phase_Capstone\Fidelite-Rest\target\classes started by a721178 in D:\Lat_Phase_Capstone\Fidelite-Rest)
+11:45:26.638 INFO  o.springframework.boot.SpringApplication.logStartupProfileInfo: The following 1 profile is active: "prod"
+11:45:28.261 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer.initialize: Tomcat initialized with port(s): 8080 (http)
+11:45:28.275 INFO  org.apache.juli.logging.DirectJDKLog.log: Starting service [Tomcat]
+11:45:28.275 INFO  org.apache.juli.logging.DirectJDKLog.log: Starting Servlet engine: [Apache Tomcat/9.0.62]
+11:45:28.418 INFO  org.apache.juli.logging.DirectJDKLog.log: Initializing Spring embedded WebApplicationContext
+11:45:28.418 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext: Root WebApplicationContext: initialization completed in 1687 ms
+11:45:29.853 INFO  o.s.b.a.e.web.EndpointLinksResolver.<init>: Exposing 1 endpoint(s) beneath base path '/actuator'
+11:45:29.922 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer.start: Tomcat started on port(s): 8080 (http) with context path ''
+11:45:29.943 INFO  o.springframework.boot.StartupInfoLogger.logStarted: Started FideliteServiceApplication in 3.862 seconds (JVM running for 4.675)
+11:45:30.677 INFO  org.apache.juli.logging.DirectJDKLog.log: Initializing Spring DispatcherServlet 'dispatcherServlet'
+11:45:30.677 INFO  o.s.web.servlet.FrameworkServlet.initServletBean: Initializing Servlet 'dispatcherServlet'
+11:45:30.680 INFO  o.s.web.servlet.FrameworkServlet.initServletBean: Completed initialization in 2 ms
+11:45:38.869 INFO  com.zaxxer.hikari.HikariDataSource.getConnection: HikariPool-1 - Starting...
+11:45:39.207 INFO  com.zaxxer.hikari.HikariDataSource.getConnection: HikariPool-1 - Start completed.
+11:49:15.880 INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin.shutdown: Application shutdown requested.
+11:49:15.908 INFO  com.zaxxer.hikari.HikariDataSource.close: HikariPool-1 - Shutdown initiated...
+11:49:15.926 INFO  com.zaxxer.hikari.HikariDataSource.close: HikariPool-1 - Shutdown completed.
+11:49:21.770 INFO  o.springframework.boot.StartupInfoLogger.logStarting: Starting FideliteServiceApplication using Java 17.0.7 on a721178win with PID 6200 (D:\Lat_Phase_Capstone\Fidelite-Rest\target\classes started by a721178 in D:\Lat_Phase_Capstone\Fidelite-Rest)
+11:49:21.775 INFO  o.springframework.boot.SpringApplication.logStartupProfileInfo: The following 1 profile is active: "prod"
+11:49:23.340 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer.initialize: Tomcat initialized with port(s): 8080 (http)
+11:49:23.353 INFO  org.apache.juli.logging.DirectJDKLog.log: Starting service [Tomcat]
+11:49:23.354 INFO  org.apache.juli.logging.DirectJDKLog.log: Starting Servlet engine: [Apache Tomcat/9.0.62]
+11:49:23.484 INFO  org.apache.juli.logging.DirectJDKLog.log: Initializing Spring embedded WebApplicationContext
+11:49:23.485 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext: Root WebApplicationContext: initialization completed in 1639 ms
+11:49:24.794 INFO  o.s.b.a.e.web.EndpointLinksResolver.<init>: Exposing 1 endpoint(s) beneath base path '/actuator'
+11:49:24.858 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer.start: Tomcat started on port(s): 8080 (http) with context path ''
+11:49:24.879 INFO  o.springframework.boot.StartupInfoLogger.logStarted: Started FideliteServiceApplication in 3.655 seconds (JVM running for 4.487)
+11:49:25.516 INFO  org.apache.juli.logging.DirectJDKLog.log: Initializing Spring DispatcherServlet 'dispatcherServlet'
+11:49:25.516 INFO  o.s.web.servlet.FrameworkServlet.initServletBean: Initializing Servlet 'dispatcherServlet'
+11:49:25.518 INFO  o.s.web.servlet.FrameworkServlet.initServletBean: Completed initialization in 2 ms
+11:49:30.096 INFO  com.zaxxer.hikari.HikariDataSource.getConnection: HikariPool-1 - Starting...
+11:49:30.450 INFO  com.zaxxer.hikari.HikariDataSource.getConnection: HikariPool-1 - Start completed.
+11:49:54.828 INFO  c.c.fidelite.models.DirectionTypeHandler.getNullableResult: BUYhgsadufhiasdfozzzzzzzzz@@@@@@@@@@@@@@@@*******
+11:49:54.829 INFO  c.c.fidelite.models.DirectionTypeHandler.getNullableResult: BUYhgsadufhiasdfozzzzzzzzz@@@@@@@@@@@@@@@@*******
+11:49:54.830 INFO  c.c.fidelite.models.DirectionTypeHandler.getNullableResult: BUYhgsadufhiasdfozzzzzzzzz@@@@@@@@@@@@@@@@*******
+11:49:54.831 INFO  c.c.fidelite.models.DirectionTypeHandler.getNullableResult: BUYhgsadufhiasdfozzzzzzzzz@@@@@@@@@@@@@@@@*******
+11:49:54.832 INFO  c.c.fidelite.models.DirectionTypeHandler.getNullableResult: SELLhgsadufhiasdfozzzzzzzzz@@@@@@@@@@@@@@@@*******
+11:51:18.635 WARN  o.s.w.s.h.AbstractHandlerExceptionResolver.logException: Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'clientId' for method parameter type String is not present]
+11:59:49.105 INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin.shutdown: Application shutdown requested.
+11:59:49.136 INFO  com.zaxxer.hikari.HikariDataSource.close: HikariPool-1 - Shutdown initiated...
+11:59:49.154 INFO  com.zaxxer.hikari.HikariDataSource.close: HikariPool-1 - Shutdown completed.
+11:59:53.247 INFO  o.springframework.boot.StartupInfoLogger.logStarting: Starting FideliteServiceApplication using Java 17.0.7 on a721178win with PID 7740 (D:\Lat_Phase_Capstone\Fidelite-Rest\target\classes started by a721178 in D:\Lat_Phase_Capstone\Fidelite-Rest)
+11:59:53.251 INFO  o.springframework.boot.SpringApplication.logStartupProfileInfo: The following 1 profile is active: "prod"
+11:59:54.793 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer.initialize: Tomcat initialized with port(s): 8080 (http)
+11:59:54.805 INFO  org.apache.juli.logging.DirectJDKLog.log: Starting service [Tomcat]
+11:59:54.807 INFO  org.apache.juli.logging.DirectJDKLog.log: Starting Servlet engine: [Apache Tomcat/9.0.62]
+11:59:54.969 INFO  org.apache.juli.logging.DirectJDKLog.log: Initializing Spring embedded WebApplicationContext
+11:59:54.970 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext: Root WebApplicationContext: initialization completed in 1651 ms
+11:59:56.291 INFO  o.s.b.a.e.web.EndpointLinksResolver.<init>: Exposing 1 endpoint(s) beneath base path '/actuator'
+11:59:56.353 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer.start: Tomcat started on port(s): 8080 (http) with context path ''
+11:59:56.372 INFO  o.springframework.boot.StartupInfoLogger.logStarted: Started FideliteServiceApplication in 3.653 seconds (JVM running for 4.52)
+11:59:56.888 INFO  org.apache.juli.logging.DirectJDKLog.log: Initializing Spring DispatcherServlet 'dispatcherServlet'
+11:59:56.888 INFO  o.s.web.servlet.FrameworkServlet.initServletBean: Initializing Servlet 'dispatcherServlet'
+11:59:56.891 INFO  o.s.web.servlet.FrameworkServlet.initServletBean: Completed initialization in 2 ms
+12:00:25.769 INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin.shutdown: Application shutdown requested.
+12:00:29.809 INFO  o.springframework.boot.StartupInfoLogger.logStarting: Starting FideliteServiceApplication using Java 17.0.7 on a721178win with PID 3884 (D:\Lat_Phase_Capstone\Fidelite-Rest\target\classes started by a721178 in D:\Lat_Phase_Capstone\Fidelite-Rest)
+12:00:29.814 INFO  o.springframework.boot.SpringApplication.logStartupProfileInfo: The following 1 profile is active: "prod"
+12:00:31.469 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer.initialize: Tomcat initialized with port(s): 8080 (http)
+12:00:31.482 INFO  org.apache.juli.logging.DirectJDKLog.log: Starting service [Tomcat]
+12:00:31.483 INFO  org.apache.juli.logging.DirectJDKLog.log: Starting Servlet engine: [Apache Tomcat/9.0.62]
+12:00:31.634 INFO  org.apache.juli.logging.DirectJDKLog.log: Initializing Spring embedded WebApplicationContext
+12:00:31.635 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext: Root WebApplicationContext: initialization completed in 1747 ms
+12:00:33.009 INFO  o.s.b.a.e.web.EndpointLinksResolver.<init>: Exposing 1 endpoint(s) beneath base path '/actuator'
+12:00:33.098 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer.start: Tomcat started on port(s): 8080 (http) with context path ''
+12:00:33.125 INFO  o.springframework.boot.StartupInfoLogger.logStarted: Started FideliteServiceApplication in 3.854 seconds (JVM running for 4.742)
+12:00:33.860 INFO  org.apache.juli.logging.DirectJDKLog.log: Initializing Spring DispatcherServlet 'dispatcherServlet'
+12:00:33.861 INFO  o.s.web.servlet.FrameworkServlet.initServletBean: Initializing Servlet 'dispatcherServlet'
+12:00:33.863 INFO  o.s.web.servlet.FrameworkServlet.initServletBean: Completed initialization in 2 ms
+12:00:41.754 INFO  com.zaxxer.hikari.HikariDataSource.getConnection: HikariPool-1 - Starting...
+12:00:42.122 INFO  com.zaxxer.hikari.HikariDataSource.getConnection: HikariPool-1 - Start completed.
+12:06:10.596 INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin.shutdown: Application shutdown requested.
+12:06:10.626 INFO  com.zaxxer.hikari.HikariDataSource.close: HikariPool-1 - Shutdown initiated...
+12:06:10.644 INFO  com.zaxxer.hikari.HikariDataSource.close: HikariPool-1 - Shutdown completed.

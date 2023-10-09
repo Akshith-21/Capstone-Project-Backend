@@ -17,7 +17,6 @@ import com.capstone.fidelite.services.PreferencesService;
 @RestController
 @RequestMapping("/client/preferences")
 @CrossOrigin("http://localhost:4200")
-@Transactional
 public class PreferencesController {
 	@Autowired
 	private PreferencesService preferencesService;
@@ -28,6 +27,8 @@ public class PreferencesController {
 			preferencesService.setPreferences(clientId, preferences);
 			return ResponseEntity.ok("Set preferences completed");
 		}catch(Exception e) {
+			System.out.println("catch block of preferences");
+			e.printStackTrace();
 			throw new ServerErrorException("Unable to set preferences",e);
 		}
 	}

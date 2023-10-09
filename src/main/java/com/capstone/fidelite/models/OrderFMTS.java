@@ -25,7 +25,7 @@ public class OrderFMTS {
 		this.instrumentId = order.getInstrumentId();
 		this.quantity = order.getQuantity();
 		this.targetPrice = order.getTargetPrice();
-		this.direction = order.getDirection().getCode();
+		this.direction = order.getDirection().getCode1();
 		this.clientId = order.getClientId();
 		this.orderId = order.getOrderId();
 		this.token = order.getToken();

@@ -221,7 +221,7 @@ public class PortfolioService {
 			} else {
 				BigDecimal totalInvestment = (BigDecimal) tempPortfolio.get("TOTAL_INVESTMENT");
 				totalInvestment = totalInvestment.setScale(2,RoundingMode.HALF_UP);
-			    BigDecimal averageInvestment = totalInvestment.divide((BigDecimal) tempPortfolio.get("CURRENT_HOLDINGS")).setScale(2,RoundingMode.HALF_UP);
+			    BigDecimal averageInvestment = totalInvestment.divide((BigDecimal) tempPortfolio.get("CURRENT_HOLDINGS"),2,RoundingMode.HALF_UP).setScale(2,RoundingMode.HALF_UP);
 			    averageInvestment = averageInvestment.multiply(new BigDecimal(trade.getQuantity())).setScale(2,RoundingMode.HALF_UP);
 			    totalInvestment = totalInvestment.subtract(averageInvestment);
 				
