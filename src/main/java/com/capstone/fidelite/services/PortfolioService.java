@@ -64,9 +64,9 @@ public class PortfolioService {
 
 		LocalDateTime present = LocalDateTime.now();
 
-		long durationOfMinutes = ChronoUnit.MINUTES.between(old, present);
+		long durationOfSeconds = ChronoUnit.SECONDS.between(old, present);
 
-		if (durationOfMinutes > 1 || count == 1) {
+		if (durationOfSeconds > 1 || count == 1) {
 
 			System.out.println("Called Once ****&*&^$&$&%()%@@");
 
@@ -119,7 +119,7 @@ public class PortfolioService {
 
 		}
 
-		System.out.println(durationOfMinutes + "&*&*&******%$#");
+		System.out.println(durationOfSeconds + "&*&*&******%$#");
 
 		return updatedPortfolioList;
 
@@ -142,6 +142,10 @@ public class PortfolioService {
 		try {
 			
 			tradeFMTS = fmtsDao.executeTrade(order);
+			if(tradeFMTS == null) {
+				return null;
+			}
+			
 //			System.out.println(")(*!#$*&)(#!&$)(*#!&$)#!*)(*$#!$&)!#&$");
 		} catch (JsonMappingException e) {
 			// TODO Auto-generated catch block
@@ -158,12 +162,16 @@ public class PortfolioService {
 
 	public Trade executeTrade(OrderFMTS order) {
 		Trade trade = null;
-		try {
 			System.out.println("Inside executeTrade in portfolio service: " + order);
 			trade = executeOrder(order);
+			System.out.println("Outside the executeOrder Function ***************");
+			if(trade == null) {
+				return trade;
+			}
 			if(tradeDaoImpl.getBalance(order.getClientId()).compareTo(trade.getCashValue())<0) {
 				throw new InsufficientBalanceException("No sufficient Balance to execute trade");
 			}
+	
 			System.out.println("Trade Succesfully Executed ************" + trade);
 
 			if (order.getDirection().equals("B")) {
@@ -178,12 +186,7 @@ public class PortfolioService {
 			} else {
 				throw new IllegalArgumentException("Direction Should be either BUY or SELL");
 			}
-		} catch (IllegalArgumentException e) {
-			logger.error("Unable to execute trade");
-			e.printStackTrace();
-		} catch (Exception e) {
-			throw e;
-		}
+		
 		return trade;
 	}
 
@@ -218,7 +221,11 @@ public class PortfolioService {
 		if (tempPortfolio != null) {
 			if (((BigDecimal) tempPortfolio.get("CURRENT_HOLDINGS")).doubleValue() == trade.getQuantity()) {
 				tradeDaoImpl.deletePortfolio(trade.getClientId(), trade.getInstrumentId());
-			} else {
+			}
+			else if (((BigDecimal) tempPortfolio.get("CURRENT_HOLDINGS")).doubleValue() < trade.getQuantity()) {
+				throw new IllegalArgumentException("Not Enough Holdings to sell");
+			}
+			else {
 				BigDecimal totalInvestment = (BigDecimal) tempPortfolio.get("TOTAL_INVESTMENT");
 				totalInvestment = totalInvestment.setScale(2,RoundingMode.HALF_UP);
 			    BigDecimal averageInvestment = totalInvestment.divide((BigDecimal) tempPortfolio.get("CURRENT_HOLDINGS"),2,RoundingMode.HALF_UP).setScale(2,RoundingMode.HALF_UP);
@@ -234,7 +241,7 @@ public class PortfolioService {
 		} else {
 			throw new IllegalStateException("Not Allowed, No Holdings to sell");
 		}
-
+		
 	}
 
 //	public List<Portfolio> getPortfolioData(String email) {	

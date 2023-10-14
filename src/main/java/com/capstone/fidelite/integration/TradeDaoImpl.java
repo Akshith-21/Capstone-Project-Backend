@@ -99,8 +99,12 @@ public class TradeDaoImpl implements TradeDao {
 
 	@Override
 	public BigDecimal getBalance(String clientId) {
-		BigDecimal balance = new BigDecimal(tradeMapper.getBalance(clientId)).setScale(2,RoundingMode.HALF_UP);
-		return balance;
+		double balance = (tradeMapper.getBalance(clientId));
+		BigDecimal bal = null;
+		if(Objects.nonNull(balance)) {
+			bal = new BigDecimal(balance).setScale(2,RoundingMode.HALF_UP);
+		}
+		return bal;
 	}
 
 

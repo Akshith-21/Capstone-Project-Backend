@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -33,6 +34,7 @@ import com.capstone.fidelite.services.PortfolioService;
 
 @RestController
 @RequestMapping("/trade")
+@CrossOrigin("http://localhost:4200")
 public class TradeController {
 	@Autowired
 	Logger logger;
@@ -102,10 +104,18 @@ public class TradeController {
 		try {
 			trade = portfolioService.executeTrade(order);
 			if(trade == null) {
-				return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Problem in executing the trade");
+				return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body("Target Price And Execution Price are not in 1% range");
 			}
-			return ResponseEntity.status(HttpStatus.OK).body("Order Successful");
+     return ResponseEntity.status(HttpStatus.OK).body("Order Successful");
 		}
+		catch(IllegalArgumentException e) {
+			return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body("Does Not Have Enough Holdings");
+		}
+		
+		catch(IllegalStateException e) {
+			return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body("Does Not Have the required stock in portfolio to sell");
+		}
+		
 		catch(InsufficientBalanceException e) {
 			return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body("Insufficient Balance Cannot Execute the Trade");
 		}
@@ -204,14 +214,5 @@ public class TradeController {
 		}
 		return ResponseEntity.status(HttpStatus.OK).body(priceList);
 	}
-	
-//	@GetMapping("/portfolio/{clientId}")
-//	ResponseEntity<List<Trade>> getAllTrades(@PathVariable String clientId){
-//		ResponseEntity<Trade> responseEntity = null;
-//		List<Trade> trade = null;
-//		try {
-//			PortfolioService.
-//		}
-//	}
 }
 

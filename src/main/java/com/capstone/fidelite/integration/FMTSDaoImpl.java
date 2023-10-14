@@ -116,7 +116,7 @@ public class FMTSDaoImpl implements FMTSDao {
 		HttpEntity<OrderFMTS> requestEntity = new HttpEntity<>(orderFMTS, headers);
 		ResponseEntity<String> responseEntity = restTemplate.exchange(url, HttpMethod.POST, requestEntity,
 				String.class);
-		System.out.println("----)(*!#$*&)(#!&$)(*#!&$)#!*)(*$#!$&)!#&$");
+		System.out.println(orderFMTS + "----)(*!#$*&)(#!&$)(*#!&$)#!*)(*$#!$&)!#&$");
 
 		if (responseEntity.getStatusCode().equals(HttpStatus.NOT_ACCEPTABLE)) {
 			throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE);
@@ -126,8 +126,10 @@ public class FMTSDaoImpl implements FMTSDao {
 		}
 
 		ObjectMapper mapper = new ObjectMapper();
+		System.out.println("----)(*!#$*&)(#!&$)(*#!&$)#!*)(*$#!$&)!#&$");
 		response = mapper.readValue(responseEntity.getBody(), TradeFMTS.class);
-		System.out.println(response);
+		System.out.println(responseEntity.getBody());
+		System.out.println("----)(*!#$*&)(#!&$)(*#!&$)#!*)(*$#!$&)!#&$");
 
 		return response;
 	}

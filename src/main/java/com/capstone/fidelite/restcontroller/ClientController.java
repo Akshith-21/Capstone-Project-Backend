@@ -82,6 +82,7 @@ public class ClientController {
 			response = ResponseEntity.status(HttpStatus.OK).body(new ClientDataTransferObject(clientFmts.getClientId(), clientFmts.getToken()));
 		}
 		catch (Exception e) {
+			e.printStackTrace();
 			response = ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Data access error");
 		}
 		return response;
