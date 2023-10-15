@@ -105,7 +105,8 @@ public class TradeController {
 				return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE)
 						.body("Target Price And Execution Price are not in 1% range");
 			}
-			return ResponseEntity.status(HttpStatus.OK).body("Order Successful");
+			 String jsonString = "{\"value\":\"Order Successful\"}";
+			return ResponseEntity.status(HttpStatus.OK).body(jsonString);
 		} catch (IllegalArgumentException e) {
 			return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body("Does Not Have Enough Holdings");
 		}

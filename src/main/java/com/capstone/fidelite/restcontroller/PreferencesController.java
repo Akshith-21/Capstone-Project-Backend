@@ -17,6 +17,7 @@ import com.capstone.fidelite.services.PreferencesService;
 @RestController
 @RequestMapping("/client/preferences")
 @CrossOrigin("http://localhost:4200")
+@Transactional
 public class PreferencesController {
 	@Autowired
 	private PreferencesService preferencesService;

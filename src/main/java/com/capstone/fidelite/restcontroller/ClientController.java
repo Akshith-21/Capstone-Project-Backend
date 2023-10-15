@@ -36,7 +36,6 @@ import com.capstone.fidelite.models.Price;
 @RestController
 @CrossOrigin("http://localhost:4200")
 @RequestMapping("/client")
-
 public class ClientController {
 	@Autowired
 	Logger logger;
