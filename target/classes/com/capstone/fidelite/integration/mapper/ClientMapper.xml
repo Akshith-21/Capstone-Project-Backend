@@ -101,7 +101,7 @@
 	</select>
 
 
-	<update id="updatePreferences" parameterType="map">
+<update id="updatePreferences" parameterType="map">
 		UPDATE c_preferences
 
 		SET
@@ -111,12 +111,13 @@
 		length_of_investment = #{preference.lengthOfInvestment},
 
 		risk_tolerance = #{preference.riskTolerance},
-		income_category = #{preference.incomeCategory},
-		robo_advisor = #{preference.roboAdvisorCheck}
+		income_category = #{preference.incomeCategory}
 		where
 
 		client_id = #{clientId}
-	</update>
+</update>
+
+ 
 
 	<insert id="insertPreferences" parameterType="map">
 
@@ -129,8 +130,7 @@
 		length_of_investment,
 
 		risk_tolerance,
-		income_category,
-		robo_advisor
+		income_category
 		) VALUES (
 
 		#{clientId},
@@ -140,9 +140,8 @@
 		#{preference.lengthOfInvestment},
 
 		#{preference.riskTolerance},
-		#{preference.incomeCategory},
-		#{preference.roboAdvisorCheck}
+		#{preference.incomeCategory}
 		)
-	</insert>
+</insert>
 </mapper>
 

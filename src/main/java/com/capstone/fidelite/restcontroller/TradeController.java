@@ -103,7 +103,7 @@ public class TradeController {
 			trade = portfolioService.executeTrade(order);
 			if (trade == null) {
 				return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE)
-						.body("Target Price And Execution Price are not in 1% range");
+						.body("Target Price And Execution Price are not in 5% range");
 			}
 			 String jsonString = "{\"value\":\"Order Successful\"}";
 			return ResponseEntity.status(HttpStatus.OK).body(jsonString);
@@ -121,14 +121,14 @@ public class TradeController {
 					.body("Insufficient Balance Cannot Execute the Trade");
 		} 
 		catch (ResponseStatusException e) {
-
+            System.out.println(e.getStatus()+  "************");
 			if (e.getStatus().equals(HttpStatus.NOT_ACCEPTABLE))
 
-				return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).build();
+				return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body("token expired please login again");
 
 			else if (e.getStatus().equals(HttpStatus.NOT_FOUND)) {
 
-				return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+				return ResponseEntity.status(HttpStatus.NOT_FOUND).body("404- NOT FOUND");
 
 			}
 			else {

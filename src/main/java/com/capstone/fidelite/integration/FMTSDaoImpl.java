@@ -13,6 +13,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.client.DefaultResponseErrorHandler;
+import org.springframework.web.client.HttpClientErrorException;
+import org.springframework.web.client.ResponseErrorHandler;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -47,19 +50,24 @@ public class FMTSDaoImpl implements FMTSDao {
 		headers.setContentType(MediaType.APPLICATION_JSON);
 		System.out.println(clientFMTS);
 		HttpEntity<ClientFMTS> requestEntity = new HttpEntity<>(clientFMTS, headers);
+		try {
 		ResponseEntity<String> responseEntity = restTemplate.exchange(url, HttpMethod.POST, requestEntity,
 				String.class);
 		System.out.println(responseEntity.getStatusCode() + "********STRING FMTS RESPONSE*********");
-		if (responseEntity.getStatusCode().equals(HttpStatus.NOT_ACCEPTABLE)) {
-			throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE);
-
-		} else if (responseEntity.getStatusCode().equals(HttpStatus.NOT_FOUND)) {
-			throw new ResponseStatusException(HttpStatus.NOT_FOUND);
-		}
 
 		ObjectMapper mapper = new ObjectMapper();
 		response = mapper.readValue(responseEntity.getBody(), ClientFMTS.class);
 		System.out.println(response);
+	}
+       catch(HttpClientErrorException e) {
+    		if (e.getStatusCode().equals(HttpStatus.NOT_ACCEPTABLE)) {
+    			System.out.println("Throwing 406 not acceptable error *&^%$");
+    			throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE);
+
+    		} else if (e.getStatusCode().equals(HttpStatus.NOT_FOUND)) {
+    			throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+    		}
+        }
 
 		return response;
 	}
@@ -105,6 +113,11 @@ public class FMTSDaoImpl implements FMTSDao {
 	public TradeFMTS executeTrade(OrderFMTS orderFMTS) throws JsonMappingException, JsonProcessingException {
 		TradeFMTS response = null;
 		RestTemplate restTemplate = new RestTemplate();
+		restTemplate.setErrorHandler((ResponseErrorHandler) new DefaultResponseErrorHandler() {
+		    protected boolean hasError(HttpStatus statusCode) {
+		        return statusCode.series() == HttpStatus.Series.CLIENT_ERROR || statusCode.series() == HttpStatus.Series.SERVER_ERROR;
+		    }
+		});
 
 		String url = "http://localhost:3000/fmts/trades/trade";
 
@@ -112,26 +125,30 @@ public class FMTSDaoImpl implements FMTSDao {
 		headers.setContentType(MediaType.APPLICATION_JSON);
 
 //		OrderFMTS orderFMTS = new OrderFMTS(order);
-
+        try {
 		HttpEntity<OrderFMTS> requestEntity = new HttpEntity<>(orderFMTS, headers);
 		System.out.println(orderFMTS + "----)(*!#$*&)(#!&$)(*#!&$)#!*)(*$#!$&)!#&$");
 		ResponseEntity<String> responseEntity = restTemplate.exchange(url, HttpMethod.POST, requestEntity,
 				String.class);
 		System.out.println("---->> " + responseEntity.getBody());
 
-		if (responseEntity.getStatusCode().equals(HttpStatus.NOT_ACCEPTABLE)) {
-			throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE);
 
-		} else if (responseEntity.getStatusCode().equals(HttpStatus.NOT_FOUND)) {
-			throw new ResponseStatusException(HttpStatus.NOT_FOUND);
-		}
 
 		ObjectMapper mapper = new ObjectMapper();
 		System.out.println("----)(*!#$*&)(#!&$)(*#!&$)#!*)(*$#!$&)!#&$");
 		response = mapper.readValue(responseEntity.getBody(), TradeFMTS.class);
 		System.out.println(responseEntity.getBody());
 		System.out.println("----)(*!#$*&)(#!&$)(*#!&$)#!*)(*$#!$&)!#&$");
+        }
+        catch(HttpClientErrorException e) {
+    		if (e.getStatusCode().equals(HttpStatus.NOT_ACCEPTABLE)) {
+    			System.out.println("Throwing 406 not acceptable error *&^%$");
+    			throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE);
 
+    		} else if (e.getStatusCode().equals(HttpStatus.NOT_FOUND)) {
+    			throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+    		}
+        }
 		return response;
 	}
 
