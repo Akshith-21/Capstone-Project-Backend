@@ -65,7 +65,7 @@ public class ClientService {
 							    	}
 							}			
 						}
-						System.out.println(fmtsResponse.getClientId()+"hfjdf");
+			    System.out.println(fmtsResponse+"!@#$%^&*****");
 				return fmtsResponse;
 		}
 		else {

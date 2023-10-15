@@ -41,173 +41,185 @@ public class TradeController {
 
 	@Autowired
 	PortfolioService portfolioService;
-	
 
 	@GetMapping("/portfolio/{clientId}")
 
-    ResponseEntity<?> getPortfolioDetails(@PathVariable String clientId){
-		
-    	ResponseEntity<?> response = null;
+	ResponseEntity<?> getPortfolioDetails(@PathVariable String clientId) {
 
-    	try {
+		ResponseEntity<?> response = null;
 
-    	List<Portfolio> updatedPortfolioList = portfolioService.getUpdatedPortfolios(clientId);
+		try {
 
-    	if(updatedPortfolioList == null) {
-            System.out.println("It is null");
-    		return ResponseEntity.status(HttpStatus.NO_CONTENT).body("There is No portfolio please perform a BUY trade");
+			List<Portfolio> updatedPortfolioList = portfolioService.getUpdatedPortfolios(clientId);
 
-    	}
+			if (updatedPortfolioList == null) {
+				System.out.println("It is null");
+				return ResponseEntity.status(HttpStatus.NO_CONTENT)
+						.body("There is No portfolio please perform a BUY trade");
 
-         response =  ResponseEntity.status(HttpStatus.OK).body(updatedPortfolioList);
+			}
 
-    	}
+			response = ResponseEntity.status(HttpStatus.OK).body(updatedPortfolioList);
 
-        catch (ResponseStatusException e) {
-        	
-        	
+		}
+
+		catch (ResponseStatusException e) {
 
 			if (e.getStatus().equals(HttpStatus.NOT_ACCEPTABLE))
 
-				return  ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).build();
+				return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).build();
 
 			if (e.getStatus().equals(HttpStatus.NOT_FOUND)) {
 
-				return  ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+				return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 
 			}
-			
+
 			if (e.getStatus().equals(HttpStatus.INTERNAL_SERVER_ERROR)) {
 
-				return  ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+				return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
 
 			}
 
 		}
 
-    	catch(Exception e) {
+		catch (Exception e) {
 
-    		e.printStackTrace();
+			e.printStackTrace();
 
-    		return  ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Data Access Exception");
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Data Access Exception");
 
-    	}
+		}
 
-    	return response;
+		return response;
 
-}
+	}
 
 	@PostMapping("/execute")
-	ResponseEntity<?> executeTrade(@RequestBody OrderFMTS order){
+	ResponseEntity<?> executeTrade(@RequestBody OrderFMTS order) {
 		Trade trade = null;
 		System.out.println("Inside controller: " + order);
 		try {
 			trade = portfolioService.executeTrade(order);
-			if(trade == null) {
-				return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body("Target Price And Execution Price are not in 1% range");
+			if (trade == null) {
+				return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE)
+						.body("Target Price And Execution Price are not in 1% range");
 			}
-     return ResponseEntity.status(HttpStatus.OK).body("Order Successful");
-		}
-		catch(IllegalArgumentException e) {
+			return ResponseEntity.status(HttpStatus.OK).body("Order Successful");
+		} catch (IllegalArgumentException e) {
 			return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body("Does Not Have Enough Holdings");
 		}
-		
-		catch(IllegalStateException e) {
-			return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body("Does Not Have the required stock in portfolio to sell");
+
+		catch (IllegalStateException e) {
+			return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE)
+					.body("Does Not Have the required stock in portfolio to sell");
 		}
-		
-		catch(InsufficientBalanceException e) {
-			return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body("Insufficient Balance Cannot Execute the Trade");
-		}
-		catch(Exception e) {
+
+		catch (InsufficientBalanceException e) {
+			return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE)
+					.body("Insufficient Balance Cannot Execute the Trade");
+		} 
+		catch (ResponseStatusException e) {
+
+			if (e.getStatus().equals(HttpStatus.NOT_ACCEPTABLE))
+
+				return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).build();
+
+			else if (e.getStatus().equals(HttpStatus.NOT_FOUND)) {
+
+				return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+
+			}
+			else {
+				return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Server is Down!!!!");
+			}
+
+		} catch (Exception e) {
 			e.printStackTrace();
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Server is Down!!!!");
 		}
 	}
-	
+
 	@GetMapping("fetchtrade/{clientId}")
-	ResponseEntity<?> getAllTrades(@PathVariable String clientId){
+	ResponseEntity<?> getAllTrades(@PathVariable String clientId) {
 		List<Trade> tradeList = null;
 		try {
 			tradeList = portfolioService.getTradeHistory(clientId);
-		}
-		catch(IllegalArgumentException e) {
+		} catch (IllegalArgumentException e) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("No Trades Yet Please Perform a Trade");
-		}
-		catch(DataAccessException e) {
+		} catch (DataAccessException e) {
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Database Is Down");
 		}
 		return ResponseEntity.status(HttpStatus.OK).body(tradeList);
 	}
+
 	@GetMapping("/prices")
-	ResponseEntity<?> getAllPriceFromFmts(){
+	ResponseEntity<?> getAllPriceFromFmts() {
 		List<Price> priceList = null;
-		
+
 		try {
 			priceList = portfolioService.getAllPrices();
-		}
-        catch (ResponseStatusException e) {
-        	
-        	e.printStackTrace();
+		} catch (ResponseStatusException e) {
+
+			e.printStackTrace();
 
 			if (e.getStatus().equals(HttpStatus.NOT_ACCEPTABLE))
 
-				return  ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).build();
+				return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).build();
 
 			if (e.getStatus().equals(HttpStatus.NOT_FOUND)) {
 
-				return  ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+				return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 
 			}
 
 		}
 
-    	catch(Exception e) {
+		catch (Exception e) {
 
-    		e.printStackTrace();
+			e.printStackTrace();
 
-    		return  ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Data Access Exception");
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Data Access Exception");
 
-    	}
-		
+		}
+
 		return ResponseEntity.status(HttpStatus.OK).body(priceList);
 	}
-	
+
 	@GetMapping("/balance/{clientId}")
-	ResponseEntity<?> getAllPrice(@PathVariable String clientId){
+	ResponseEntity<?> getAllPrice(@PathVariable String clientId) {
 		BigDecimal balance = null;
 		try {
-		 balance = portfolioService.getBalance(clientId);
-		}
-		catch(DatabaseException e) {
+			balance = portfolioService.getBalance(clientId);
+		} catch (DatabaseException e) {
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Problem while accessing the data");
 		}
 		return ResponseEntity.status(HttpStatus.OK).body(new BalanceDataTransferObject(balance));
-		
+
 	}
-	
+
 	@GetMapping("/prices/filter")
-	public ResponseEntity<?> getPricesFilterByCategoryType(@RequestParam(name = "category",required = true)String category){
-		
-     List<Price> priceList = null;
-		
+	public ResponseEntity<?> getPricesFilterByCategoryType(
+			@RequestParam(name = "category", required = true) String category) {
+
+		List<Price> priceList = null;
+
 		try {
 			priceList = portfolioService.getAllPricesByFilter(category);
-			if(priceList == null) {
+			if (priceList == null) {
 				return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("No Stocks Availaible with the given filter");
 			}
-		}
-        catch (ResponseStatusException e) {
-        	
-        	e.printStackTrace();
+		} catch (ResponseStatusException e) {
+
+			e.printStackTrace();
 
 			if (e.getStatus().equals(HttpStatus.NOT_ACCEPTABLE))
 
-				return  ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).build();
+				return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).build();
 
 			if (e.getStatus().equals(HttpStatus.NOT_FOUND)) {
 
-				return  ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+				return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 
 			}
 
@@ -215,4 +227,3 @@ public class TradeController {
 		return ResponseEntity.status(HttpStatus.OK).body(priceList);
 	}
 }
-

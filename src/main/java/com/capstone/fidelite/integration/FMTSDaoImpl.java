@@ -114,9 +114,10 @@ public class FMTSDaoImpl implements FMTSDao {
 //		OrderFMTS orderFMTS = new OrderFMTS(order);
 
 		HttpEntity<OrderFMTS> requestEntity = new HttpEntity<>(orderFMTS, headers);
+		System.out.println(orderFMTS + "----)(*!#$*&)(#!&$)(*#!&$)#!*)(*$#!$&)!#&$");
 		ResponseEntity<String> responseEntity = restTemplate.exchange(url, HttpMethod.POST, requestEntity,
 				String.class);
-		System.out.println(orderFMTS + "----)(*!#$*&)(#!&$)(*#!&$)#!*)(*$#!$&)!#&$");
+		
 
 		if (responseEntity.getStatusCode().equals(HttpStatus.NOT_ACCEPTABLE)) {
 			throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE);

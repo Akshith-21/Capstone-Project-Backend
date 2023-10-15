@@ -3,6 +3,7 @@ package com.capstone.fidelite.restcontroller;
 import java.sql.SQLException;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 
 import org.slf4j.Logger;
@@ -22,6 +23,10 @@ import org.springframework.web.server.ResponseStatusException;
 import org.springframework.web.bind.annotation.GetMapping;
 import com.capstone.fidelite.services.ClientService;
 import com.capstone.fidelite.services.RoboAdvisorService;
+
+import oracle.jdbc.driver.DatabaseError;
+
+import com.capstone.fidelite.integration.DatabaseException;
 import com.capstone.fidelite.integration.mapper.ClientMapper;
 import com.capstone.fidelite.models.Client;
 import com.capstone.fidelite.models.ClientFMTS;
@@ -76,10 +81,15 @@ public class ClientController {
 		ResponseEntity<?> response = null;
 		try {
 			clientFmts = clientService.login(email,pswd);
-			if(clientFmts==null) {
-				response =ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Email Not Registered Please Sign Up");
+			if(Objects.isNull(clientFmts)) {
+				response =ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Wrong Password Entered");
 			}
+			else {
 			response = ResponseEntity.status(HttpStatus.OK).body(new ClientDataTransferObject(clientFmts.getClientId(), clientFmts.getToken()));
+			}
+		}
+		catch(DatabaseException e) {
+			response = ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Please Do register First");
 		}
 		catch (Exception e) {
 			e.printStackTrace();
