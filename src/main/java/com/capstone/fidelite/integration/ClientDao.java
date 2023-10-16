@@ -27,7 +27,7 @@ public interface ClientDao {
      Integer checkIfRowExists(String string);
      boolean insertPreferences(String clientId, Preferences preference);
      boolean updatePreferences(String clientId, Preferences preference);
-
+     public Preferences getPreference(String clientId);
 
 }
 

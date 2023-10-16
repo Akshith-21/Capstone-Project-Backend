@@ -27,4 +27,5 @@ public interface ClientMapper {
 	 public Integer insertPreferences(@Param("clientId") String clientId,@Param("preference") Preferences preference);
 	 public Integer updatePreferences(@Param("clientId") String clientId,@Param("preference") Preferences preference);
 	 public String getRiskToleranceByClientId(@Param("clientId") String clientId);
+	 public Preferences getPreference(String clientId);
 }

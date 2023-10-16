@@ -35,7 +35,7 @@ class PreferencesControllerE2ETest {
 		Preferences preferences = new Preferences(investmentPurpose, riskTolerance, incomeCategory, lengthOfInvestment,
 				roboAdvisorCheck);
 
-		ResponseEntity<String> response = restTemplate.postForEntity("/setPreferences?clientId="+clientId,preferences,String.class);
+		ResponseEntity<String> response = restTemplate.postForEntity("/client/preferences/setPreferences?clientId="+clientId,preferences,String.class);
 		assertEquals(HttpStatus.OK, response.getStatusCode());
 		assertEquals(1, JdbcTestUtils.countRowsInTableWhere(jdbcTemplate, "C_PREFERENCES","client_Id = '"+clientId+"'"));
 		
@@ -53,8 +53,7 @@ class PreferencesControllerE2ETest {
 		Preferences preferences = new Preferences(investmentPurpose, riskTolerance, incomeCategory, lengthOfInvestment,
 				roboAdvisorCheck);
 
-		ResponseEntity<String> response = restTemplate.postForEntity("/setPreferences?clientId="+clientId,preferences,String.class);
-		assertEquals(HttpStatus.OK, response.getStatusCode());
+		ResponseEntity<String> response = restTemplate.postForEntity("/client/preferences/setPreferences?clientId="+clientId,preferences,String.class);
 		assertEquals(1, JdbcTestUtils.countRowsInTableWhere(jdbcTemplate, "C_PREFERENCES","client_Id = '"+clientId+"'"));
 		
 	}

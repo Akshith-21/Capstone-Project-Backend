@@ -174,5 +174,4 @@ public class ClientService {
 //	public String getRiskToleranceByMail(String email) {
 //		return preferencesData.get(email).getRiskTolerance();
 //	}
-
 }

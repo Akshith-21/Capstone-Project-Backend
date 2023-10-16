@@ -19,14 +19,13 @@ public class Preferences {
 	}
 
 	public Preferences(String clientId, String investmentPurpose, String riskTolerance, String incomeCategory,
-			String lengthOfInvestment, int roboAdvisorCheck) {
+			String lengthOfInvestment) {
 		super();
 		this.clientId = clientId;
 		this.investmentPurpose = investmentPurpose;
 		this.riskTolerance = riskTolerance;
 		this.incomeCategory = incomeCategory;
 		this.lengthOfInvestment = lengthOfInvestment;
-		this.roboAdvisorCheck = roboAdvisorCheck;
 	}
 	
 	public Preferences(String investmentPurpose, String riskTolerance, String incomeCategory,

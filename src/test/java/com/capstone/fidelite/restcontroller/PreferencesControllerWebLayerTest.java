@@ -42,7 +42,7 @@ class PreferencesControllerWebLayerTest {
 				roboAdvisorCheck);
 		ObjectMapper mapper = new ObjectMapper();
 		String preferencesString = mapper.writeValueAsString(preferences);
-		mockMvc.perform(post("/setPreferences?clientId="+clientId).contentType(MediaType.APPLICATION_JSON).content(preferencesString)).andDo(print()).andExpect(status().is2xxSuccessful());
+		mockMvc.perform(post("/client/preferences/setPreferences?clientId="+clientId).contentType(MediaType.APPLICATION_JSON).content(preferencesString)).andDo(print()).andExpect(status().is2xxSuccessful());
 		
 	}
 

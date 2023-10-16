@@ -74,13 +74,13 @@
 		VALUES (#{clientIdentification.type},
 		#{clientIdentification.value},#{clientId})
 	</insert>
-	
+
 	<select
 		id="doesClientIdentificationAlreadyExist" resultType="int">
 		SELECT Count(*) FROM c_client_identification
 		WHERE value = #{value}
 	</select>
-	
+
 	<select id="getIdFromEmail" resultType="java.lang.String">
 		SELECT
 		client_id
@@ -95,19 +95,18 @@
 		FROM c_preferences
 		where client_id = #{clientId}
 	</select>
-	
+
 	<select id="getRiskToleranceByClientId" resultType="String">
 		select risk_tolerance from c_preferences where client_id = #{clientId}
 	</select>
 
 
-<update id="updatePreferences" parameterType="map">
+	<update id="updatePreferences" parameterType="map">
 		UPDATE c_preferences
 
 		SET
 
 		investment_purpose = #{preference.investmentPurpose},
-
 		length_of_investment = #{preference.lengthOfInvestment},
 
 		risk_tolerance = #{preference.riskTolerance},
@@ -115,9 +114,8 @@
 		where
 
 		client_id = #{clientId}
-</update>
+	</update>
 
- 
 
 	<insert id="insertPreferences" parameterType="map">
 
@@ -142,6 +140,24 @@
 		#{preference.riskTolerance},
 		#{preference.incomeCategory}
 		)
-</insert>
+	</insert>
+
+	<select id="getPreference" parameterType="String" resultMap="preference">
+		select client_id,
+		investment_purpose,
+		length_of_investment,
+		risk_tolerance,
+		income_category
+		from c_preferences
+		where client_id = #{clientId}
+	</select>
+
+	<resultMap id="preference" type="com.capstone.fidelite.models.Preferences">
+		<id property="clientId" column="client_id"/>
+		<result property="investmentPurpose" column="investment_purpose" />
+		<result property="lengthOfInvestment" column="length_of_investment" />
+		<result property="riskTolerance" column="risk_tolerance" />
+		<result property="incomeCategory" column="income_category" />
+	</resultMap>
 </mapper>
 

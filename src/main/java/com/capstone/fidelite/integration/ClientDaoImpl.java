@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
 
+import org.apache.catalina.mapper.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Repository;
@@ -165,6 +166,11 @@ public class ClientDaoImpl implements ClientDao{
 			 
 		 }
 		 return rowUpdate;
+	}
+
+	@Override
+	public Preferences getPreference(String clientId) {
+		return clientMapper.getPreference(clientId);
 	}
 
 	

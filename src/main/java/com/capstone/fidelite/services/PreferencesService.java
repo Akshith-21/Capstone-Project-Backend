@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import com.capstone.fidelite.integration.ClientDaoImpl;
 import com.capstone.fidelite.models.Preferences;
+import com.capstone.fidelite.restcontroller.ClientPreferenceNotFoundException;
 
 @Service
 public class PreferencesService {
@@ -24,6 +25,15 @@ public class PreferencesService {
 		}catch(Exception e) {
 			throw e;
 		}
+	}
+	
+	
+	public Preferences getPreference(String clientId) {
+		Preferences p = clientDaoImpl.getPreference(clientId);
+		if(p==null) {
+			throw new ClientPreferenceNotFoundException("Client Preferences are not found");
+		}
+		return p;
 	}
 	
 	
