@@ -51,28 +51,27 @@ public class FMTSDaoImpl implements FMTSDao {
 		System.out.println(clientFMTS);
 		HttpEntity<ClientFMTS> requestEntity = new HttpEntity<>(clientFMTS, headers);
 		try {
-		ResponseEntity<String> responseEntity = restTemplate.exchange(url, HttpMethod.POST, requestEntity,
-				String.class);
-		System.out.println(responseEntity.getStatusCode() + "********STRING FMTS RESPONSE*********");
+			ResponseEntity<String> responseEntity = restTemplate.exchange(url, HttpMethod.POST, requestEntity,
+					String.class);
+			System.out.println(responseEntity.getStatusCode() + "********STRING FMTS RESPONSE*********");
 
-		ObjectMapper mapper = new ObjectMapper();
-		response = mapper.readValue(responseEntity.getBody(), ClientFMTS.class);
-		System.out.println(response);
-	}
-       catch(HttpClientErrorException e) {
-    		if (e.getStatusCode().equals(HttpStatus.NOT_ACCEPTABLE)) {
-    			System.out.println("Throwing 406 not acceptable error *&^%$");
-    			throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE);
+			ObjectMapper mapper = new ObjectMapper();
+			response = mapper.readValue(responseEntity.getBody(), ClientFMTS.class);
+			System.out.println(response);
+		} catch (HttpClientErrorException e) {
+			if (e.getStatusCode().equals(HttpStatus.NOT_ACCEPTABLE)) {
+				System.out.println("Throwing 406 not acceptable error *&^%$");
+				throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE);
 
-    		} else if (e.getStatusCode().equals(HttpStatus.NOT_FOUND)) {
-    			throw new ResponseStatusException(HttpStatus.NOT_FOUND);
-    		}
-        }
+			} else if (e.getStatusCode().equals(HttpStatus.NOT_FOUND)) {
+				throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+			}
+		}
 
 		return response;
 	}
 
-	private boolean checkPortfolioInstrumentId(String instrumentId, Map<String, InvestmentDetails> instrumentMap ) {
+	private boolean checkPortfolioInstrumentId(String instrumentId, Map<String, InvestmentDetails> instrumentMap) {
 
 		return instrumentMap.containsKey(instrumentId);
 	}
@@ -92,8 +91,6 @@ public class FMTSDaoImpl implements FMTSDao {
 		return transformPrice;
 	}
 
-	
-	
 	@Override
 	public List<Portfolio> queryUpdatedPortfolios(Map<String, InvestmentDetails> instrumentMap)
 			throws JsonMappingException, JsonProcessingException {
@@ -114,9 +111,10 @@ public class FMTSDaoImpl implements FMTSDao {
 		TradeFMTS response = null;
 		RestTemplate restTemplate = new RestTemplate();
 		restTemplate.setErrorHandler((ResponseErrorHandler) new DefaultResponseErrorHandler() {
-		    protected boolean hasError(HttpStatus statusCode) {
-		        return statusCode.series() == HttpStatus.Series.CLIENT_ERROR || statusCode.series() == HttpStatus.Series.SERVER_ERROR;
-		    }
+			protected boolean hasError(HttpStatus statusCode) {
+				return statusCode.series() == HttpStatus.Series.CLIENT_ERROR
+						|| statusCode.series() == HttpStatus.Series.SERVER_ERROR;
+			}
 		});
 
 		String url = "http://localhost:3000/fmts/trades/trade";
@@ -125,30 +123,27 @@ public class FMTSDaoImpl implements FMTSDao {
 		headers.setContentType(MediaType.APPLICATION_JSON);
 
 //		OrderFMTS orderFMTS = new OrderFMTS(order);
-        try {
-		HttpEntity<OrderFMTS> requestEntity = new HttpEntity<>(orderFMTS, headers);
-		System.out.println(orderFMTS + "----)(*!#$*&)(#!&$)(*#!&$)#!*)(*$#!$&)!#&$");
-		ResponseEntity<String> responseEntity = restTemplate.exchange(url, HttpMethod.POST, requestEntity,
-				String.class);
-		System.out.println("---->> " + responseEntity.getBody());
+		try {
+			HttpEntity<OrderFMTS> requestEntity = new HttpEntity<>(orderFMTS, headers);
+			System.out.println(orderFMTS + "----)(*!#$*&)(#!&$)(*#!&$)#!*)(*$#!$&)!#&$");
+			ResponseEntity<String> responseEntity = restTemplate.exchange(url, HttpMethod.POST, requestEntity,
+					String.class);
+			System.out.println("---->> " + responseEntity.getBody());
 
+			ObjectMapper mapper = new ObjectMapper();
+			System.out.println("----)(*!#$*&)(#!&$)(*#!&$)#!*)(*$#!$&)!#&$");
+			response = mapper.readValue(responseEntity.getBody(), TradeFMTS.class);
+			System.out.println(responseEntity.getBody());
+			System.out.println("----)(*!#$*&)(#!&$)(*#!&$)#!*)(*$#!$&)!#&$");
+		} catch (HttpClientErrorException e) {
+			if (e.getStatusCode().equals(HttpStatus.NOT_ACCEPTABLE)) {
+				System.out.println("Throwing 406 not acceptable error *&^%$");
+				throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE);
 
-
-		ObjectMapper mapper = new ObjectMapper();
-		System.out.println("----)(*!#$*&)(#!&$)(*#!&$)#!*)(*$#!$&)!#&$");
-		response = mapper.readValue(responseEntity.getBody(), TradeFMTS.class);
-		System.out.println(responseEntity.getBody());
-		System.out.println("----)(*!#$*&)(#!&$)(*#!&$)#!*)(*$#!$&)!#&$");
-        }
-        catch(HttpClientErrorException e) {
-    		if (e.getStatusCode().equals(HttpStatus.NOT_ACCEPTABLE)) {
-    			System.out.println("Throwing 406 not acceptable error *&^%$");
-    			throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE);
-
-    		} else if (e.getStatusCode().equals(HttpStatus.NOT_FOUND)) {
-    			throw new ResponseStatusException(HttpStatus.NOT_FOUND);
-    		}
-        }
+			} else if (e.getStatusCode().equals(HttpStatus.NOT_FOUND)) {
+				throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+			}
+		}
 		return response;
 	}
 
@@ -159,9 +154,9 @@ public class FMTSDaoImpl implements FMTSDao {
 		HttpHeaders headers = new HttpHeaders();
 		RestTemplate restTemplate = new RestTemplate();
 		ResponseEntity<String> responseEntity = null;
-		
+
 		responseEntity = restTemplate.exchange(url, HttpMethod.GET, null, String.class);
-				System.out.println(responseEntity.getStatusCode() + "******STATUS CODE***************");
+		System.out.println(responseEntity.getStatusCode() + "******STATUS CODE***************");
 
 		if (responseEntity.getStatusCode().equals(HttpStatus.NOT_ACCEPTABLE)) {
 			throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE);
@@ -172,18 +167,18 @@ public class FMTSDaoImpl implements FMTSDao {
 //				System.out.println(responseEntity.getBody());
 		ObjectMapper mapper = new ObjectMapper();
 		updatedPrices = mapper.readValue(responseEntity.getBody(), Price[].class);
-				System.out.println(updatedPrices[0].getInstrument().getInstrumentId()+"****************MYINSTRUMENT************");
+		System.out.println(
+				updatedPrices[0].getInstrument().getInstrumentId() + "****************MYINSTRUMENT************");
 		List<Price> priceList = Arrays.asList(updatedPrices);
-		
-		
+
 		return priceList;
 	}
 
 	@Override
 	public List<Price> getAllPricesByFilter(String category) throws JsonMappingException, JsonProcessingException {
 		List<Price> priceList = getAllPrices();
-		priceList = priceList.stream().filter(p -> 
-			p.getInstrument().getCategoryId().equals(category)).collect(Collectors.toList());
+		priceList = priceList.stream().filter(p -> p.getInstrument().getCategoryId().equals(category))
+				.collect(Collectors.toList());
 		return priceList;
 	}
 

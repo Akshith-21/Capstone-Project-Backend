@@ -103,28 +103,28 @@ public class TradeController {
 			trade = portfolioService.executeTrade(order);
 			if (trade == null) {
 				return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE)
-						.body("Target Price And Execution Price are not in 5% range");
+						.body("Target Price And Execution Price are not within 5% range!");
 			}
 			 String jsonString = "{\"value\":\"Order Successful\"}";
 			return ResponseEntity.status(HttpStatus.OK).body(jsonString);
 		} catch (IllegalArgumentException e) {
-			return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body("Does Not Have Enough Holdings");
+			return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body("Not Enough Holdings!");
 		}
 
 		catch (IllegalStateException e) {
 			return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE)
-					.body("Does Not Have the required stock in portfolio to sell");
+					.body("Does Not Have the required stock in portfolio to sell!");
 		}
 
 		catch (InsufficientBalanceException e) {
 			return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE)
-					.body("Insufficient Balance Cannot Execute the Trade");
+					.body("Insufficient balance!");
 		} 
 		catch (ResponseStatusException e) {
             System.out.println(e.getStatus()+  "************");
 			if (e.getStatus().equals(HttpStatus.NOT_ACCEPTABLE))
 
-				return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body("token expired please login again");
+				return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body("Token expired, please login again");
 
 			else if (e.getStatus().equals(HttpStatus.NOT_FOUND)) {
 
@@ -132,12 +132,12 @@ public class TradeController {
 
 			}
 			else {
-				return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Server is Down!!!!");
+				return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Server is down!");
 			}
 
 		} catch (Exception e) {
 			e.printStackTrace();
-			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Server is Down!!!!");
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Server is down!");
 		}
 	}
 
@@ -147,9 +147,9 @@ public class TradeController {
 		try {
 			tradeList = portfolioService.getTradeHistory(clientId);
 		} catch (IllegalArgumentException e) {
-			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("No Trades Yet Please Perform a Trade");
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("No trades yet, please perform a trade");
 		} catch (DataAccessException e) {
-			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Database Is Down");
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Database is down");
 		}
 		return ResponseEntity.status(HttpStatus.OK).body(tradeList);
 	}
@@ -208,7 +208,7 @@ public class TradeController {
 		try {
 			priceList = portfolioService.getAllPricesByFilter(category);
 			if (priceList == null) {
-				return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("No Stocks Availaible with the given filter");
+				return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("No stocks availaible with the given filter");
 			}
 		} catch (ResponseStatusException e) {
 
