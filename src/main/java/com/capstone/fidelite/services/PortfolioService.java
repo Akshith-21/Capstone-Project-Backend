@@ -168,14 +168,13 @@ public class PortfolioService {
 			if(trade == null) {
 				return trade;
 			}
-			if(tradeDaoImpl.getBalance(order.getClientId()).compareTo(trade.getCashValue())<0) {
-				throw new InsufficientBalanceException("No sufficient Balance to execute trade");
-			}
 	
 			System.out.println("Trade Succesfully Executed ************" + trade);
 
 			if (order.getDirection().equals("B")) {
-				
+				if(tradeDaoImpl.getBalance(order.getClientId()).compareTo(trade.getCashValue())<0) {
+				throw new InsufficientBalanceException("No sufficient Balance to execute trade");
+			}
 				addPortfolio(trade);
 				System.out.println("Successfull Adding Portfolio");
 				addTrade(trade);
